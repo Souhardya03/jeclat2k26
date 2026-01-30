@@ -9,6 +9,16 @@ interface TimeLeft {
   days: number; hours: number; minutes: number; seconds: number;
 }
 
+// Particle Interface
+interface Particle {
+  id: number;
+  left: string;
+  size: number;
+  duration: number;
+  delay: number;
+  drift: number;
+}
+
 const cinzel = Cinzel_Decorative({
   variable: "--font-cinzel",
   subsets: ["latin"],
@@ -26,22 +36,22 @@ export default function HomePage() {
     days: 0, hours: 0, minutes: 0, seconds: 0,
   });
 
-  // Animation Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
-    },
-    exit: { opacity: 0, scale: 1.1, filter: "blur(10px)", transition: { duration: 0.8 } }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
-  };
+  // State for particles
+  const [fireParticles, setFireParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
+    // Generate particles
+    const particles = Array.from({ length: 50 }).map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      size: Math.random() * 4 + 2,
+      duration: Math.random() * 3 + 4,
+      delay: Math.random() * 5,
+      drift: Math.random() * 20 - 10,
+    }));
+    setFireParticles(particles);
+
+    // Countdown Logic
     const targetDate = new Date("2026-04-28T00:00:00");
     const interval = setInterval(() => {
       const now = new Date();
@@ -57,6 +67,21 @@ export default function HomePage() {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+    },
+    exit: { opacity: 0, scale: 1.1, filter: "blur(10px)", transition: { duration: 0.8 } }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+  };
 
   return (
     <AnimatePresence mode="wait">
@@ -78,7 +103,7 @@ export default function HomePage() {
         >
           <Image
             src="/assets/home-bg.png"
-            alt=""
+            alt="Background"
             fill
             priority
             className="object-cover blur-[1px]"
@@ -86,14 +111,32 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-radial-vignette"></div>
         </motion.div>
 
-        {/* --- PARTICLE OVERLAY (Dust/Embers) --- */}
-        <div className="absolute inset-0 z-[1] pointer-events-none opacity-40 mix-blend-screen animate-pulse-slow">
-           {/* Using a transparent noise texture to simulate particles */}
+        {/* --- LAYER 1: ATMOSPHERIC DUST --- */}
+        <div className="absolute inset-0 z-[1] pointer-events-none opacity-30 mix-blend-screen animate-pulse-slow">
            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] animate-float-particles"></div>
         </div>
 
+        {/* --- LAYER 2: RISING FIRE PARTICLES --- */}
+        <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden">
+          {fireParticles.map((p) => (
+            <div
+              key={p.id}
+              className="absolute bottom-[-20px] rounded-full bg-gradient-to-t from-red-600 via-orange-500 to-yellow-300 blur-[0.5px]"
+              style={{
+                left: p.left,
+                width: `${p.size}px`,
+                height: `${p.size}px`,
+                opacity: 0,
+                boxShadow: `0 0 ${p.size * 2}px ${p.size}px rgba(255, 100, 0, 0.6)`,
+                animation: `fireRise ${p.duration}s linear infinite`,
+                animationDelay: `${p.delay}s`,
+              }}
+            />
+          ))}
+        </div>
+
         {/* --- CONTENT OVERLAY --- */}
-        <div className="z-10 relative flex flex-col h-full w-full px-6 py-4 md:px-12 md:py-6">
+        <div className="z-10 relative flex flex-col h-full w-full px-6 py-4 md:px-12 md:py-2">
           
           {/* Header */}
           <motion.header variants={itemVariants} className="flex justify-between items-center shrink-0">
@@ -125,7 +168,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* Date & Subtitle */}
-            <motion.div variants={itemVariants} className="flex flex-col items-center">
+            <motion.div variants={itemVariants} className="flex flex-col -mt-4 items-center">
               <div className="flex items-center gap-4 text-yellow-200/90 mb-1">
                 <motion.span 
                   initial={{ width: 0 }}
@@ -157,27 +200,49 @@ export default function HomePage() {
               <CompactUnit value={timeLeft.seconds} label="Secs" />
             </motion.div>
 
-            {/* --- EXPLORE THE REALM BUTTON --- */}
+            {/* --- UPDATED EPIC EXPLORE BUTTON --- */}
             <motion.button 
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="group relative mt-4 px-10 py-3 overflow-hidden rounded-sm transition-all duration-300"
+              className="group relative mt-6 flex items-center"
             >
-              <div className="absolute inset-0 bg-gradient-to-b from-yellow-700 via-yellow-900 to-[#1a1300] border border-yellow-500/50 shadow-[0_0_15px_rgba(0,0,0,0.8)]"></div>
-              <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"></div>
-              
-              <div className="relative flex items-center gap-3">
-                <span className={`${cinzel.className} text-sm md:text-base tracking-[0.2em] text-yellow-100 group-hover:text-white transition-colors`}>
-                  Explore the Realm
-                </span>
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-yellow-400 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M13 5l7 7-7 7M5 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+              {/* Left Ornamental Arrow (Rotated 180deg) */}
+              <div className="relative w-24 h-8 transform rotate-180 opacity-80 group-hover:opacity-100 transition-opacity">
+                <Image 
+                  src="/assets/arrow.png" 
+                  alt="" 
+                  fill 
+                  className="object-contain drop-shadow-[0_0_5px_rgba(255,140,0,0.6)]"
+                />
               </div>
 
-              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-yellow-200/50"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-yellow-200/50"></div>
+              {/* Button Body */}
+              <div className="relative px-8 py-3 mx-2 overflow-hidden rounded-sm">
+                {/* Background Gradients */}
+                <div className="absolute inset-0 bg-gradient-to-b from-yellow-700 via-yellow-900 to-[#1a1300] border border-yellow-500/50 shadow-[0_0_15px_rgba(0,0,0,0.8)]"></div>
+                {/* Shine Effect */}
+                <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"></div>
+                
+                {/* Text Content */}
+                <span className={`${cinzel.className} relative z-10 text-sm md:text-base tracking-[0.2em] text-yellow-100 group-hover:text-white transition-colors`}>
+                  Explore the Realm
+                </span>
+
+                {/* Corner Accents */}
+                <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-yellow-200/50"></div>
+                <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-yellow-200/50"></div>
+              </div>
+
+              {/* Right Ornamental Arrow */}
+              <div className="relative w-24 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
+                <Image 
+                  src="/assets/arrow.png" 
+                  alt="" 
+                  fill 
+                  className="object-contain drop-shadow-[0_0_5px_rgba(255,140,0,0.6)]"
+                />
+              </div>
             </motion.button>
           </div>
 
@@ -196,6 +261,7 @@ export default function HomePage() {
           .drop-shadow-glow {
             filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.3));
           }
+          /* --- DUST ANIMATIONS --- */
           @keyframes floatParticles {
             0% { background-position: 0 0; }
             100% { background-position: 100px -100px; }
@@ -209,6 +275,21 @@ export default function HomePage() {
           }
           .animate-pulse-slow {
             animation: pulseSlow 4s ease-in-out infinite;
+          }
+
+          /* --- FIRE EMBER ANIMATION --- */
+          @keyframes fireRise {
+            0% {
+              transform: translateY(0) scale(1) translateX(0);
+              opacity: 0;
+            }
+            10% {
+              opacity: 1; /* Fade in quickly */
+            }
+            100% {
+              transform: translateY(-120vh) scale(0) translateX(20px); /* Move up, shrink, drift right */
+              opacity: 0;
+            }
           }
         `}</style>
       </motion.main>
