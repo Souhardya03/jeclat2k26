@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import MahabharatLoader from "../components/MahabharatLoader";
+import MahabharatLoader from "../../components/MahabharatLoader";
 import HomePage from "../pages/Home";
 
 export default function Page() {
