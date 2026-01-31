@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Cinzel_Decorative, Eagle_Lake } from "next/font/google";
 import { motion, AnimatePresence } from "framer-motion";
-import MahabharataNavbar from "../components/Navbar";
+import MahabharataNavbar from "../../components/Navbar";
 
 interface TimeLeft {
   days: number; hours: number; minutes: number; seconds: number;
