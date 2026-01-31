@@ -86,7 +86,7 @@ export default function HomePage() {
 
   return (
     <AnimatePresence mode="wait">
-      <MahabharataNavbar/>
+      {/* <MahabharataNavbar/> */}
       <motion.main 
         key="home"
         variants={containerVariants}
