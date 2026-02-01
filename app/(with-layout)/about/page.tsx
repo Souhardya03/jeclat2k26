@@ -2,11 +2,12 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Cinzel, Fauna_One } from "next/font/google";
-import { motion, useScroll, useTransform, useInView, Variants } from "framer-motion"; // Added useInView
+import { motion, useScroll, useTransform, useInView, Variants } from "framer-motion";
 import { Crown, Users, Trophy, MapPin, Sparkles, Gem } from "lucide-react";
 // Assuming these components exist in your project
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import { GlareCard } from "@/components/ui/glare-card";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 // --- FONTS ---
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
@@ -55,12 +56,30 @@ const previousSponsorsRow3 = [
   { name: "galaxy-music", image: "/images/sponsorImages/galaxy-music.png" },
 ];
 
-// --- ANIMATION VARIANTS ---
+// --- ENHANCED ANIMATION VARIANTS WITH LEFT-RIGHT FADING ---
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 60 },
   visible: { 
     opacity: 1, 
     y: 0, 
+    transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } 
+  }
+};
+
+const fadeInLeft: Variants = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { 
+    opacity: 1, 
+    x: 0, 
+    transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } 
+  }
+};
+
+const fadeInRight: Variants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { 
+    opacity: 1, 
+    x: 0, 
     transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } 
   }
 };
@@ -98,7 +117,10 @@ export default function AboutPage() {
       
       {/* --- BACKGROUND LAYER --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div  className="absolute inset-0 w-full h-[120%]">
+        <motion.div 
+          style={{ y: bgY }}
+          className="absolute inset-0 w-full h-[120%]"
+        >
            <Image
              src="/assets/home-bg.png"
              alt="Background"
@@ -106,7 +128,7 @@ export default function AboutPage() {
              priority
              className="object-cover blur-xs"
            />
-        </div>
+        </motion.div>
         <div className="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90"></div>
         
@@ -124,49 +146,51 @@ export default function AboutPage() {
         
         {/* --- HERO SECTION --- */}
         <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center px-4 py-20">
-            <div className="flex md:fixed md:top-[4em]  z-20 left-0 w-full items-center justify-center gap-4 my-4 text-yellow-500/80">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="flex md:fixed md:top-[4em] z-20 left-0 w-full items-center justify-center gap-4 my-4 text-yellow-500/80"
+            >
                <motion.div 
-                 initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.5 }}
+                 initial={{ scaleX: 0 }} 
+                 animate={{ scaleX: 1 }} 
+                 transition={{ duration: 1.5, delay: 0.5 }}
                  className="h-[1px] w-12 md:w-32 bg-gradient-to-r from-transparent to-yellow-500 origin-right"
                ></motion.div>
                <Crown size={32} strokeWidth={1.5} className="drop-shadow-[0_0_10px_rgba(255,215,0,0.5)]" />
                <motion.div 
-                 initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.5 }}
+                 initial={{ scaleX: 0 }} 
+                 animate={{ scaleX: 1 }} 
+                 transition={{ duration: 1.5, delay: 0.5 }}
                  className="h-[1px] w-12 md:w-32 bg-gradient-to-l from-transparent to-yellow-500 origin-left"
                ></motion.div>
-            </div>
+            </motion.div>
+         
+         <div className="text-center mb-12 relative">
+ 
+           <TextGenerateEffect 
+            words="ABOUT JECLAT"
+            className="text-7xl md:text-8xl font-bold font-local mt-14"
+            duration={1.5}
+            filter={true}
+            wordClassName="bg-clip-text text-transparent bg-gradient-to-b from-[#ffd700] via-[#ffb700] to-[#8b6914] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
+          />
+  
+            <TextGenerateEffect 
+              words="The Crown Jewel of North Bengal"
+              className="mt-4 text-yellow-500/80 tracking-[0.2em] text-xs md:text-sm uppercase font-bold drop-shadow-md"
+              duration={0.5}
+              filter={true}
+            />
+  
+          </div>
+
           <motion.div 
+            variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-12 relative"
-          >
-
-            <motion.h1 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className={`text-5xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#ffd700] via-[#ffb700] to-[#8b6914] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] tracking-wider font-local mt-14`}
-            >
-              ABOUT JECLAT
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="mt-4 text-yellow-500/80 tracking-[0.4em] text-xs md:text-sm uppercase font-bold drop-shadow-md"
-            >
-              The Crown Jewel of North Bengal
-            </motion.p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            viewport={{ once: true, amount: 0.3 }}
             className="max-w-4xl w-full bg-black/60 backdrop-blur-md border border-yellow-500/30 p-8 md:p-12 rounded-sm shadow-[0_0_50px_rgba(0,0,0,0.5)] relative"
           >
              {/* Decorative Corners */}
@@ -181,13 +205,14 @@ export default function AboutPage() {
                   className="text-gray-100 drop-shadow-sm"
                   encryptedClassName="text-yellow-600"
                   revealedClassName="text-gray-100"
-                  revealDelayMs={10}
+                  revealDelayMs={20}
                   charset="⚡⚜️⚔️ABC"
                 />
                 
                 <motion.div 
                   initial={{ rotate: 0 }}
                   whileInView={{ rotate: 180 }}
+                  viewport={{ once: true }}
                   transition={{ duration: 1.5 }}
                   className="flex justify-center my-4"
                 >
@@ -199,7 +224,7 @@ export default function AboutPage() {
                   className="text-yellow-100 font-bold"
                   encryptedClassName="text-yellow-600"
                   revealedClassName="text-yellow-100 font-bold"
-                  revealDelayMs={20}
+                  revealDelayMs={30}
                   charset="10000+"
                 />
              </div>
@@ -213,13 +238,14 @@ export default function AboutPage() {
              variants={fadeInUp}
              initial="hidden"
              whileInView="visible"
-             viewport={{ once: true }}
+             viewport={{ once: true, amount: 0.5 }}
              className="flex flex-col items-center mb-16"
            >
               <h2 className="text-3xl md:text-4xl text-yellow-500 tracking-[0.2em] mb-2 uppercase drop-shadow-md">The Legacy</h2>
               <motion.div 
                 initial={{ width: 0 }}
                 whileInView={{ width: 96 }}
+                viewport={{ once: true }}
                 transition={{ duration: 1 }}
                 className="h-1 bg-gradient-to-r from-transparent via-yellow-600 to-transparent"
               ></motion.div>
@@ -229,12 +255,12 @@ export default function AboutPage() {
              variants={staggerContainer}
              initial="hidden"
              whileInView="visible"
-             viewport={{ once: true }}
+             viewport={{ once: true, amount: 0.3 }}
              className="flex flex-wrap justify-center gap-10 md:gap-16"
            >
-              <motion.div variants={fadeInUp}><StatCard icon={<Trophy className="w-16 h-16 text-yellow-400 opacity-90" />} number="25+" label="Events" /></motion.div>
+              <motion.div variants={fadeInLeft}><StatCard icon={<Trophy className="w-16 h-16 text-yellow-400 opacity-90" />} number="25+" label="Events" /></motion.div>
               <motion.div variants={fadeInUp}><StatCard icon={<Users className="w-16 h-16 text-yellow-400 opacity-90" />} number="10K+" label="Footfall" /></motion.div>
-              <motion.div variants={fadeInUp}><StatCard icon={<Crown className="w-16 h-16 text-yellow-400 opacity-90" />} number="Big" label="Prize Pool" /></motion.div>
+              <motion.div variants={fadeInRight}><StatCard icon={<Crown className="w-16 h-16 text-yellow-400 opacity-90" />} number="Big" label="Prize Pool" /></motion.div>
            </motion.div>
         </section>
 
@@ -244,17 +270,24 @@ export default function AboutPage() {
            <motion.div 
              initial={{ opacity: 0, scale: 0.95 }}
              whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true }}
+             viewport={{ once: true, amount: 0.3 }}
              transition={{ duration: 0.8 }}
              className="relative rounded-lg overflow-hidden border border-yellow-900/50 bg-[#050201]/80 backdrop-blur-sm"
            >
               <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-900/20 blur-[100px] rounded-full"></div>
               
               <div className="relative z-10 flex flex-col md:flex-row items-center p-8 md:p-16 gap-12">
-                 <div className="flex-1 text-center md:text-left">
+                 <motion.div 
+                   variants={fadeInLeft}
+                   initial="hidden"
+                   whileInView="visible"
+                   viewport={{ once: true, amount: 0.5 }}
+                   className="flex-1 text-center md:text-left"
+                 >
                     <motion.div 
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
                       transition={{ delay: 0.2 }}
                       className="inline-flex items-center gap-2 border border-yellow-600/40 rounded-full px-4 py-1 mb-6 bg-black/60"
                     >
@@ -265,6 +298,7 @@ export default function AboutPage() {
                     <motion.h2 
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
                       transition={{ delay: 0.3 }}
                       className="text-4xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 drop-shadow-md"
                     >
@@ -274,6 +308,7 @@ export default function AboutPage() {
                     <motion.p 
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
+                      viewport={{ once: true }}
                       transition={{ delay: 0.4 }}
                       className={`${fauna.className} text-gray-300 text-lg leading-relaxed mb-8`}
                     >
@@ -282,6 +317,10 @@ export default function AboutPage() {
                     </motion.p>
                     
                     <motion.button 
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 }}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="group relative px-8 py-3 bg-yellow-900/20 border border-yellow-600/50 text-yellow-100 uppercase tracking-widest text-sm hover:bg-yellow-600 hover:text-black transition-all duration-300"
@@ -289,12 +328,19 @@ export default function AboutPage() {
                        <span className="relative z-10 font-bold">Start The Quest</span>
                        <div className="absolute inset-0 bg-yellow-500 blur-md opacity-0 group-hover:opacity-40 transition-opacity"></div>
                     </motion.button>
-                 </div>
+                 </motion.div>
                  
-                 <div className="flex-1 flex justify-center">
+                 <motion.div 
+                   variants={fadeInRight}
+                   initial="hidden"
+                   whileInView="visible"
+                   viewport={{ once: true, amount: 0.5 }}
+                   className="flex-1 flex justify-center"
+                 >
                     <motion.div 
                       initial={{ opacity: 0, rotate: 10, scale: 0.8 }}
                       whileInView={{ opacity: 1, rotate: 3, scale: 1 }}
+                      viewport={{ once: true }}
                       transition={{ duration: 0.8, type: "spring" }}
                       whileHover={{ rotate: 0 }}
                       className="relative w-64 h-80 bg-gradient-to-b from-[#2a1a10] to-black border-4 border-[#5d4037] rounded-lg shadow-2xl flex items-center justify-center transform"
@@ -303,7 +349,7 @@ export default function AboutPage() {
                        <MapPin size={64} className="text-yellow-600 drop-shadow-[0_0_10px_rgba(202,138,4,0.5)]" />
                        <div className="absolute bottom-6 text-xs uppercase tracking-[0.3em] text-[#8d6e63]">Top Secret</div>
                     </motion.div>
-                 </div>
+                 </motion.div>
               </div>
            </motion.div>
         </section>
@@ -327,12 +373,18 @@ export default function AboutPage() {
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.5 }}
                 className="text-center mb-20 space-y-4"
               >
-                 <div className="flex justify-center mb-2">
+                 <motion.div 
+                   initial={{ scale: 0 }}
+                   whileInView={{ scale: 1 }}
+                   viewport={{ once: true }}
+                   transition={{ type: "spring", duration: 0.8 }}
+                   className="flex justify-center mb-2"
+                 >
                     <Gem className="text-yellow-500 animate-pulse" size={24} />
-                 </div>
+                 </motion.div>
                  <h2 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-500 to-yellow-200 tracking-tight drop-shadow-lg">
                     THE ROYAL ALLIANCE
                  </h2>
@@ -344,10 +396,10 @@ export default function AboutPage() {
 
               {/* --- ASSOCIATE SPONSOR --- */}
               <motion.div 
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.5 }}
                 className="flex flex-col items-center mb-24"
               >
                  <div className="relative group">
@@ -374,25 +426,39 @@ export default function AboutPage() {
               {/* --- BRAND SPONSORS --- */}
               <div className="mb-24">
                  <motion.h3 
-                   initial={{ opacity: 0 }}
-                   whileInView={{ opacity: 1 }}
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    className="text-center text-yellow-500/40 text-sm uppercase tracking-[0.3em] mb-10 flex items-center justify-center gap-4"
                  >
-                    <span className="w-12 h-px bg-yellow-900"></span> Brand Partners <span className="w-12 h-px bg-yellow-900"></span>
+                    <motion.span 
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8 }}
+                      className="w-12 h-px bg-yellow-900 origin-right"
+                    ></motion.span> 
+                    Brand Partners 
+                    <motion.span 
+                      initial={{ scaleX: 0 }}
+                      whileInView={{ scaleX: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8 }}
+                      className="w-12 h-px bg-yellow-900 origin-left"
+                    ></motion.span>
                  </motion.h3>
                  
                  <motion.div 
                    variants={staggerContainer}
                    initial="hidden"
                    whileInView="visible"
-                   viewport={{ once: true }}
+                   viewport={{ once: true, amount: 0.3 }}
                    className="flex flex-wrap justify-center gap-8"
                  >
                     {brandSponsors.map((sponsor, i) => (
                        <motion.div 
                          key={i} 
-                         variants={fadeInUp}
+                         variants={i % 2 === 0 ? fadeInLeft : fadeInRight}
                          whileHover={{ y: -5, transition: { duration: 0.2 } }}
                          className="group relative w-48 h-32 bg-white/5 border border-white/5 rounded-md flex items-center justify-center overflow-hidden hover:bg-white/10 hover:border-yellow-500/30 transition-all duration-500 cursor-pointer"
                        >
@@ -414,8 +480,9 @@ export default function AboutPage() {
               {/* --- PREVIOUS SPONSORS (Marquee) --- */}
               <div className="relative py-10 border-t border-yellow-900/20">
                  <motion.h3 
-                   initial={{ opacity: 0 }}
-                   whileInView={{ opacity: 1 }}
+                   initial={{ opacity: 0, y: 20 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
                    className="text-center text-yellow-500/40 text-xs uppercase tracking-[0.3em] mb-8"
                  >
                     The Legacy of Support
@@ -426,7 +493,7 @@ export default function AboutPage() {
                    initial={{ x: -100, opacity: 0 }} 
                    whileInView={{ x: 0, opacity: 0.6 }} 
                    transition={{ duration: 1 }}
-                   viewport={{ once: true }}
+                   viewport={{ once: true, amount: 0.3 }}
                    className="mb-6 hover:opacity-100 transition-opacity duration-500"
                  >
                     <MarqueeRow items={previousSponsorsRow1} direction="left" />
@@ -437,7 +504,7 @@ export default function AboutPage() {
                    initial={{ x: 100, opacity: 0 }} 
                    whileInView={{ x: 0, opacity: 0.6 }} 
                    transition={{ duration: 1 }}
-                   viewport={{ once: true }}
+                   viewport={{ once: true, amount: 0.3 }}
                    className="mb-6 hover:opacity-100 transition-opacity duration-500"
                  >
                     <MarqueeRow items={previousSponsorsRow2} direction="right" />
@@ -448,7 +515,7 @@ export default function AboutPage() {
                    initial={{ x: -100, opacity: 0 }} 
                    whileInView={{ x: 0, opacity: 0.6 }} 
                    transition={{ duration: 1 }}
-                   viewport={{ once: true }}
+                   viewport={{ once: true, amount: 0.3 }}
                    className="hover:opacity-100 transition-opacity duration-500"
                  >
                     <MarqueeRow items={previousSponsorsRow3} direction="left" />
