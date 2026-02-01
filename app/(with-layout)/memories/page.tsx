@@ -157,12 +157,12 @@ export default function MemoriesPage() {
 					</div>
 
 					<h1
-						className={`${cormorant.className} text-7xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-100 via-yellow-500 to-yellow-900 drop-shadow-[0_0_35px_rgba(234,179,8,0.3)] tracking-tighter`}>
+						className={`${cormorant.className} text-6xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-yellow-100 via-yellow-500 to-yellow-900 drop-shadow-[0_0_35px_rgba(234,179,8,0.3)] tracking-tighter`}>
 						MEMORIES
 					</h1>
 
 					<p
-						className={`${playfair.className} text-2xl md:text-3xl text-gray-400 italic max-w-2xl mx-auto`}>
+						className={`${playfair.className} text-xl md:text-3xl text-gray-400 italic max-w-2xl mx-auto`}>
 						"Time passes, but the echoes of our celebration remain eternal."
 					</p>
 
