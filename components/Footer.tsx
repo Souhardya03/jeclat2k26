@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
 
                 <div className="flex items-center gap-4 p-4 rounded-lg bg-white/5 border border-white/5 hover:bg-white/10 transition-colors group">
                    <Mail className="text-yellow-600 shrink-0 group-hover:text-yellow-400 transition-colors" size={20} />
-                   <a href="mailto:contact@jeclat.in" className="text-sm text-gray-400 group-hover:text-white transition-colors">contact@jeclat.in</a>
+                   <a href="mailto:contact@jeclat.in" className="text-sm text-gray-400 group-hover:text-white transition-colors">admin@jeclat2k26.in</a>
                 </div>
              </div>
           </div>
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
            <div className="text-center md:text-left">
               <p className="text-xs text-gray-600">
                  © 2026 JECLAT. All rights reserved. <br/>
-                 <span className="opacity-50">Forged with 🔥 by the Tech Team.</span>
+                 <span className="opacity-50">Forged with 🔥 by the Jeclat Team.</span>
               </p>
            </div>
 
