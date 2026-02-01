@@ -7,6 +7,7 @@ import { Crown, Users, Trophy, MapPin, Sparkles, Gem } from "lucide-react";
 // Assuming these components exist in your project
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import { GlareCard } from "@/components/ui/glare-card";
+import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 
 // --- FONTS ---
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
@@ -135,32 +136,28 @@ export default function AboutPage() {
                  className="h-[1px] w-12 md:w-32 bg-gradient-to-l from-transparent to-yellow-500 origin-left"
                ></motion.div>
             </div>
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-12 relative"
-          >
-
-            <motion.h1 
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className={`text-5xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-[#ffd700] via-[#ffb700] to-[#8b6914] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)] tracking-wider font-local mt-14`}
-            >
-              ABOUT JECLAT
-            </motion.h1>
-            
-            <motion.p 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
-              className="mt-4 text-yellow-500/80 tracking-[0.4em] text-xs md:text-sm uppercase font-bold drop-shadow-md"
-            >
-              The Crown Jewel of North Bengal
-            </motion.p>
-          </motion.div>
+         <div 
+  className="text-center mb-12 relative"
+>
+ 
+ <TextGenerateEffect 
+  words="ABOUT JECLAT"
+  className="text-7xl md:text-8xl font-bold font-local mt-14"
+  duration={1.5}
+  filter={true}
+  wordClassName="bg-clip-text text-transparent bg-gradient-to-b from-[#ffd700] via-[#ffb700] to-[#8b6914] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
+/>
+  
+  
+  
+    <TextGenerateEffect 
+      words="The Crown Jewel of North Bengal"
+      className="mt-4 text-yellow-500/80 tracking-[0.2em] text-xs md:text-sm uppercase font-bold drop-shadow-md"
+      duration={0.5}
+      filter={true}
+    />
+  
+</div>
 
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
@@ -181,7 +178,7 @@ export default function AboutPage() {
                   className="text-gray-100 drop-shadow-sm"
                   encryptedClassName="text-yellow-600"
                   revealedClassName="text-gray-100"
-                  revealDelayMs={10}
+                  revealDelayMs={20}
                   charset="⚡⚜️⚔️ABC"
                 />
                 
@@ -199,7 +196,7 @@ export default function AboutPage() {
                   className="text-yellow-100 font-bold"
                   encryptedClassName="text-yellow-600"
                   revealedClassName="text-yellow-100 font-bold"
-                  revealDelayMs={20}
+                  revealDelayMs={30}
                   charset="10000+"
                 />
              </div>
