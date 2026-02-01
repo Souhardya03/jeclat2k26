@@ -12,13 +12,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const myfont = localfont({
-  src: "./fonts/font1.ttf",
-  weight: "400",
-  variable: "--font-myfont",
-  display: "swap",
-  preload: true,
-})
+
 
 
 
@@ -35,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${myfont.variable}  antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased`}
       >
         {children}
       </body>
