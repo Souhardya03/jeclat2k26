@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Cinzel_Decorative, Eagle_Lake } from "next/font/google";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import MahabharataNavbar from "../../components/Navbar";
 
 interface TimeLeft {
@@ -70,18 +70,18 @@ export default function HomePage() {
   }, []);
 
   // Animation Variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: { 
       opacity: 1,
       transition: { staggerChildren: 0.2, delayChildren: 0.3 }
     },
-    exit: { opacity: 0, scale: 1.1, filter: "blur(10px)", transition: { duration: 0.8 } }
+    exit: { opacity: 0, scale: 1.1, filter: "blur(10px)", transition: { duration: 0.8 } as any }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } as any }
   };
 
   return (

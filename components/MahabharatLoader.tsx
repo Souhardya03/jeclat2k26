@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Cinzel, Rozha_One } from "next/font/google";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
 const rozhaOne = Rozha_One({ subsets: ["devanagari"], weight: ["400"] });
@@ -25,7 +25,7 @@ const quotes: Quote[] = [
 	},
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
 	hidden: { opacity: 0 },
 	visible: {
 		opacity: 1,
@@ -34,16 +34,16 @@ const containerVariants = {
 	exit: {
 		opacity: 0,
 		y: -20,
-		transition: { duration: 0.5, ease: "easeInOut" },
+		transition: { duration: 0.5, ease: "easeInOut" } as any,
 	},
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
 	hidden: { opacity: 0, y: 30 },
 	visible: {
 		opacity: 1,
 		y: 0,
-		transition: { duration: 0.8, ease: "easeOut" },
+		transition: { duration: 0.8, ease: "easeOut" } as any,
 	},
 };
 

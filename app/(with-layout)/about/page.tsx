@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Cinzel, Fauna_One } from "next/font/google";
-import { motion, useScroll, useTransform, useInView } from "framer-motion"; // Added useInView
+import { motion, useScroll, useTransform, useInView, Variants } from "framer-motion"; // Added useInView
 import { Crown, Users, Trophy, MapPin, Sparkles, Gem } from "lucide-react";
 // Assuming these components exist in your project
 import { EncryptedText } from "@/components/ui/encrypted-text";
@@ -56,16 +56,16 @@ const previousSponsorsRow3 = [
 ];
 
 // --- ANIMATION VARIANTS ---
-const fadeInUp = {
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 60 },
   visible: { 
     opacity: 1, 
     y: 0, 
-    transition: { duration: 0.8, ease: "easeOut" } 
+    transition: { duration: 0.8, ease: [0.33, 1, 0.68, 1] } 
   }
 };
 
-const staggerContainer = {
+const staggerContainer: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
