@@ -19,7 +19,7 @@ const associateSponsors = [
 
 const brandSponsors = [
   { name: "chaat-puchka", image: "/images/sponsorImages/chaat-puchka.png" },
-  { name: "sbi", image: "/images/sponsorImages/sbi.png" },
+  { name: "sbi", image: "/images/sponsorImages/sbi.svg" },
   { name: "globsyn", image: "/images/sponsorImages/globsyn.png" },
 ];
 
@@ -98,13 +98,13 @@ export default function AboutPage() {
       
       {/* --- BACKGROUND LAYER --- */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div  className="relative w-full h-[120%]">
+        <div  className="absolute inset-0 w-full h-[120%]">
            <Image
              src="/assets/home-bg.png"
              alt="Background"
              fill
              priority
-             className="object-cover blur-[4px]"
+             className="object-cover blur-xs"
            />
         </div>
         <div className="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
@@ -124,14 +124,7 @@ export default function AboutPage() {
         
         {/* --- HERO SECTION --- */}
         <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center px-4 py-20">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="text-center mb-12 relative"
-          >
-            <div className="flex fixed top-[5em] z-20 left-0 w-full items-center justify-center gap-4 mb-4 text-yellow-500/80">
+            <div className="flex md:fixed md:top-[4em]  z-20 left-0 w-full items-center justify-center gap-4 my-4 text-yellow-500/80">
                <motion.div 
                  initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.5 }}
                  className="h-[1px] w-12 md:w-32 bg-gradient-to-r from-transparent to-yellow-500 origin-right"
@@ -142,6 +135,13 @@ export default function AboutPage() {
                  className="h-[1px] w-12 md:w-32 bg-gradient-to-l from-transparent to-yellow-500 origin-left"
                ></motion.div>
             </div>
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-12 relative"
+          >
 
             <motion.h1 
               initial={{ opacity: 0, scale: 0.8 }}
