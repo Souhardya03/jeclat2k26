@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Cinzel_Decorative, Eagle_Lake } from "next/font/google";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import MahabharataNavbar from "../../components/Navbar";
+import Link from "next/link";
 
 interface TimeLeft {
   days: number; hours: number; minutes: number; seconds: number;
@@ -220,7 +221,7 @@ export default function HomePage() {
               </div>
 
               {/* Button Body */}
-              <div className="relative px-8 py-3 mx-2 overflow-hidden rounded-sm">
+              <Link href={"/about"} className="relative px-8 py-3 mx-2 overflow-hidden rounded-sm">
                 {/* Background Gradients */}
                 <div className="absolute inset-0 bg-gradient-to-b from-yellow-700 via-yellow-900 to-[#1a1300] border border-yellow-500/50 shadow-[0_0_15px_rgba(0,0,0,0.8)]"></div>
                 {/* Shine Effect */}
@@ -234,7 +235,7 @@ export default function HomePage() {
                 {/* Corner Accents */}
                 <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-yellow-200/50"></div>
                 <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-yellow-200/50"></div>
-              </div>
+              </Link>
 
               {/* Right Ornamental Arrow */}
               <div className="relative w-24 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
