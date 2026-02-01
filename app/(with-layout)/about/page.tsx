@@ -181,7 +181,7 @@ export default function AboutPage() {
                   className="text-gray-100 drop-shadow-sm"
                   encryptedClassName="text-yellow-600"
                   revealedClassName="text-gray-100"
-                  revealDelayMs={20}
+                  revealDelayMs={10}
                   charset="⚡⚜️⚔️ABC"
                 />
                 
@@ -199,7 +199,7 @@ export default function AboutPage() {
                   className="text-yellow-100 font-bold"
                   encryptedClassName="text-yellow-600"
                   revealedClassName="text-yellow-100 font-bold"
-                  revealDelayMs={30}
+                  revealDelayMs={20}
                   charset="10000+"
                 />
              </div>
@@ -266,7 +266,7 @@ export default function AboutPage() {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 drop-shadow-md"
+                      className="text-4xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 drop-shadow-md"
                     >
                       ELEMENTARY
                     </motion.h2>
