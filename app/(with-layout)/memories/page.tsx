@@ -262,7 +262,7 @@ function MemoryBlock({
 
 			{/* VIDEO CARD SIDE */}
 			<div
-				className={`flex-1 w-full max-w-2xl group relative px-4 lg:px-0 transition-transform duration-700 ${isInView ? "scale-105" : "scale-100"}`}>
+				className={`flex-1 w-full max-w-2xl group relative  lg:px-0 transition-transform duration-700 ${isInView ? "scale-105" : "scale-100"}`}>
 				<div
 					className={`absolute -inset-1 lg:-inset-3 bg-gradient-to-br from-yellow-700/30 via-transparent to-yellow-700/30 rounded-xl transition-opacity duration-500 blur-sm ${isInView ? "opacity-100" : "opacity-40"}`}></div>
 
