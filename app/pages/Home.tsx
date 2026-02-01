@@ -44,9 +44,9 @@ export default function HomePage() {
     const particles = Array.from({ length: 50 }).map((_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
-      size: Math.random() * 4 + 2,
+      size: Math.random() * 2 + 2,
       duration: Math.random() * 3 + 4,
-      delay: Math.random() * 5,
+      delay: Math.random() * 20,
       drift: Math.random() * 20 - 10,
     }));
     setFireParticles(particles);
