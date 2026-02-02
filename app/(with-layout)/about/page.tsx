@@ -145,12 +145,12 @@ export default function AboutPage() {
       <div className="relative z-10 flex flex-col items-center w-full">
         
         {/* --- HERO SECTION --- */}
-        <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center px-4 py-20">
+        <section className="relative w-full min-h-[90vh] flex flex-col items-center justify-center px-4  py-20 ">
             <motion.div 
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="flex md:fixed md:top-[4em] z-20 left-0 w-full items-center justify-center gap-4 my-4 text-yellow-500/80"
+              className="flex md:fixed md:top-[4em]   z-20 left-0 w-full items-center justify-center gap-4  my-4 text-yellow-500/80"
             >
                <motion.div 
                  initial={{ scaleX: 0 }} 
@@ -167,24 +167,25 @@ export default function AboutPage() {
                ></motion.div>
             </motion.div>
          
-         <div className="text-center mb-12 relative">
+         
+<div className="text-center mt-8 mb-8  relative px-4 sm:px-6">
  
-           <TextGenerateEffect 
-            words="ABOUT JECLAT"
-            className="text-7xl md:text-8xl font-bold font-local mt-14"
-            duration={1.5}
-            filter={true}
-            wordClassName="bg-clip-text text-transparent bg-gradient-to-b from-[#ffd700] via-[#ffb700] to-[#8b6914] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
-          />
-  
-            <TextGenerateEffect 
-              words="The Crown Jewel of North Bengal"
-              className="mt-4 text-yellow-500/80 tracking-[0.2em] text-xs md:text-sm uppercase font-bold drop-shadow-md"
-              duration={0.5}
-              filter={true}
-            />
-  
-          </div>
+  <TextGenerateEffect 
+    words="ABOUT JECLAT"
+    className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-local mt-3 sm:mt-4 leading-tight"
+    duration={1.5}
+    filter={true}
+    wordClassName="bg-clip-text text-transparent bg-gradient-to-b from-[#ffd700] via-[#ffb700] to-[#8b6914] drop-shadow-[0_4px_10px_rgba(0,0,0,0.8)]"
+  />
+
+  <TextGenerateEffect 
+    words="The Crown Jewel of North Bengal"
+    className="mt-2 sm:mt-4 text-yellow-500/80 tracking-[0.05em] sm:tracking-[0.15em] md:tracking-[0.2em] text-[0.55rem] sm:text-xs md:text-sm uppercase font-bold drop-shadow-md"
+    duration={0.5}
+    filter={true}
+  />
+
+</div>
 
           <motion.div 
             variants={fadeInUp}
