@@ -116,7 +116,7 @@ export default function AboutPage() {
     <div className={`relative min-h-screen w-full overflow-hidden bg-[#0a0502] text-[#e0e0e0] ${cinzel.className}`}>
       
       {/* --- BACKGROUND LAYER --- */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      <div className="fixed bg-black inset-0 z-0 pointer-events-none">
         <motion.div 
           style={{ y: bgY }}
           className="absolute inset-0 w-full h-[120%]"
@@ -129,7 +129,6 @@ export default function AboutPage() {
              className="object-cover blur-xs"
            />
         </motion.div>
-        <div className="absolute inset-0 bg-black/70 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black/90"></div>
         
         {/* Particles */}

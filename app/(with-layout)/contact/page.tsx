@@ -37,15 +37,14 @@ export default function ContactPage() {
 		<div
 			className={`relative min-h-screen w-full overflow-hidden bg-[#0a0502] text-[#e0e0e0] ${cinzel.className}`}>
 			{/* --- BACKGROUND LAYER --- */}
-			<div className="fixed inset-0 z-0">
+			<div className="fixed bg-black inset-0 z-0">
 				<Image
 					src="/assets/home-bg.png" // Ensure this path matches your project
 					alt="Background"
 					fill
 					priority
-					className="object-cover opacity-60"
+					className="object-cover blur-sm brightness-50"
 				/>
-				<div className="absolute inset-0 bg-black/80 mix-blend-multiply"></div>
 				<div className="absolute inset-0 bg-gradient-to-b from-black/90 via-transparent to-black/90"></div>
 
 				{/* Floating Embers/Gold Dust */}
