@@ -2,761 +2,843 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
-import { Cinzel, Playfair_Display, Montserrat, Cormorant_SC } from "next/font/google";
-import { Instagram, Linkedin, Crown, Swords } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+	Cinzel,
+	Montserrat,
+	Cormorant_SC,
+	Rajdhani,
+	Playfair_Display,
+} from "next/font/google";
+import {
+	Instagram,
+	Linkedin,
+	Crown,
+	Swords,
+	Shield,
+	Zap,
+	Sparkles,
+	Star,
+	ChevronUp,
+} from "lucide-react";
 import { EncryptedText } from "@/components/ui/encrypted-text";
-import { GlareCard } from "@/components/ui/glare-card";
 
 // --- FONTS ---
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700"] });
 const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  style: ["italic", "normal"],
+	subsets: ["latin"],
+	weight: ["400", "700", "900"],
+	style: ["italic", "normal"],
 });
 const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
+	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700"],
 });
 const cormorant = Cormorant_SC({ subsets: ["latin"], weight: ["400", "700"] });
+const rajdhani = Rajdhani({
+	subsets: ["latin"],
+	weight: ["500", "600", "700"],
+});
 
 // --- TEAM DATA ---
 const chiefCoordinators = [
-  {
-    name: "Chief Coordinator 1",
-    role: "Supreme Commander",
-    image: "/assets/team/cc1.jpg",
-    instagram: "https://instagram.com/",
-    linkedin: "https://linkedin.com/",
-  },
-  {
-    name: "Chief Coordinator 2",
-    role: "Supreme Commander",
-    image: "/assets/team/cc2.jpg",
-    instagram: "https://instagram.com/",
-    linkedin: "https://linkedin.com/",
-  },
+	{
+		name: "Sudip Biswas",
+		role: "Supreme Commander",
+		dept: "IT",
+		image: "/assets/teams/Sudip.jpeg",
+		instagram:
+			"https://www.instagram.com/_biswas_sudip_?igsh=MWExZ3hhbjNmbnd3aA%3D%3D&utm_source=qr",
+		linkedin: "http://www.linkedin.com/in/sudip9733",
+	},
+	{
+		name: "Chief Coordinator 2",
+		role: "Supreme Commander",
+		dept: "CSE",
+		image: "/assets/team/cc2.jpg",
+		instagram: "https://instagram.com/",
+		linkedin: "https://linkedin.com/",
+	},
 ];
-
 const socialSecretaries = [
-  {
-    name: "Social Secretary 1",
-    role: "Social Secretary",
-    image: "/assets/team/ss1.jpg",
-    instagram: "https://instagram.com/",
-    linkedin: "https://linkedin.com/",
-  },
-  {
-    name: "Social Secretary 2",
-    role: "Social Secretary",
-    image: "/assets/team/ss2.jpg",
-    instagram: "https://instagram.com/",
-    linkedin: "https://linkedin.com/",
-  },
+	{
+		name: "Kaustav De",
+		role: "Social Secretary",
+		dept: "CSE",
+		image: "/assets/teams/Kaustav.png",
+		instagram: "https://www.instagram.com/kaustav_de_19?igsh=ajdiYmpmeTRpd3Fw",
+		linkedin: "https://www.linkedin.com/in/dekaustav",
+	},
+	{
+		name: "Social Secretary 2",
+		role: "Social Secretary",
+		dept: "ME",
+		image: "/assets/team/ss2.jpg",
+		instagram: "https://instagram.com/",
+		linkedin: "https://linkedin.com/",
+	},
 ];
-
 const teams = [
-  {
-    category: "Collection Head",
-    mahabharat: "Dhanrakshak (Treasury Guards)",
-    members: [
+	{
+		category: "Collection Head",
+		mahabharat: "Dhanrakshak (Treasury Guards)",
+		members: [
+			{
+				name: "Somnath Kuiti",
+				dept: "ECE",
+				image: "/assets/teams/Somnath.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Laxminarayan Sen",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+		],
+	},
+	{
+		category: "Extended Collection",
+		mahabharat: "Dhana Samrakshak (Wealth Protectors)",
+		members: [
+			{
+				name: "Suman Chakraborty",
+				dept: "IT",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Debayan Ghosh",
+				dept: "CE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+		],
+	},
+	{
+		category: "Sponsor Head",
+		mahabharat: "Rajya Mitras (Kingdom Allies)",
+		members: [
+			{
+				name: "Zaid Mahmud",
+				dept: "CSE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Sudiksha Basu Thakur",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Apurba Shaw",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+		],
+	},
+	{
+		category: "Treasurers / Cashiers",
+		mahabharat: "Koshadhyakshas (Royal Treasurers)",
+		members: [
+			{
+				name: "Debanuj Barman",
+				dept: "CSE",
+				image: "/assets/teams/Debanuj.jpeg",
+				instagram:
+					"https://www.instagram.com/debanujbarman?igsh=eGlnMGs3cHAxN2p6&utm_source=qr",
+				linkedin:
+					"https://www.linkedin.com/in/debanuj-barman-745822240?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+			},
+			{
+				name: "Subhajit Tudu",
+				dept: "IT",
+				image: "/assets/teams/Subhajit.jpg",
+				instagram:
+					"https://www.instagram.com/_suuubbbb____?igsh=amJsdjcycjRnNzBl",
+				linkedin:
+					"https://www.linkedin.com/in/subhajit-tudu-79474b259?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+			{
+				name: "Swagata Mondal",
+				dept: "ECE",
+				image: "/assets/teams/Swagata.jpeg",
+				instagram:
+					"https://www.instagram.com/lilian_art_official?igsh=MXM3cXVrajF1MDVxbA%3D%3D&utm_source=qr",
+				linkedin: "https://www.linkedin.com/in/swagata-mondal-809968255/",
+			},
+			{
+				name: "Srijan Bhattacharya",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Prakash Garain",
+				dept: "EE",
+				image: "/assets/teams/Prakash.jpg",
+				instagram:
+					"https://www.instagram.com/prakash.garain.520?igsh=dXM1Z21sZ2MxOWFt",
+				linkedin:
+					"https://www.linkedin.com/in/prakash-garain-192703261?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+		],
+	},
+	{
+		category: "Web Lead",
+		mahabharat: "Yantra Vidya Gurus (Tech Wizards)",
+		members: [
+			{
+				name: "Souhardya Deb",
+				dept: "ECE",
+				image: "/assets/teams/Souhardya.jpeg",
+				instagram: "https://www.instagram.com/_souhardya_03/",
+				linkedin: "https://www.linkedin.com/in/souhardya-deb-921578254/",
+			},
+			{
+				name: "Saikat Bera",
+				dept: "IT",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Surajit Malty",
+				dept: "IT",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Kaustav Das",
+				dept: "CSE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+		],
+	},
+	{
+		category: "Tshirt Distribution",
+		mahabharat: "Vastra Vitaraks (Garment Distributors)",
+		members: [
+			{
+				name: "Shounak Batabyal",
+				dept: "CSE",
+				image: "/assets/teams/Shounak.jpg",
+				instagram: "#",
+				linkedin:
+					"https://www.linkedin.com/in/shounak-batabyal-641b54247?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+			},
+			{
+				name: "Sk. Momitul Haque",
+				dept: "CSE",
+				image: "/assets/teams/Momitul.jpg",
+				instagram:
+					"https://www.instagram.com/i_am_momi11?igsh=NGgzdGR1aTkwemE1",
+				linkedin:
+					"https://www.linkedin.com/in/sk-momitul-haque-92986a271?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+			},
+		],
+	},
+	{
+		category: "Event Head",
+		mahabharat: "Utsav Nayaks (Festival Leaders)",
+		members: [
+			{
+				name: "Simon Barua",
+				dept: "CSE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+
+			{
+				name: "Atanu Basak",
+				dept: "IT",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Pritam Chakraborty",
+				dept: "IT",
+				image: "/assets/teams/Pritam.jpg",
+				instagram:
+					"https://www.instagram.com/rahul_is_busy?igsh=NjRmaWc4dWxqaXRi",
+				linkedin: "https://www.linkedin.com/in/pritamchakraborty2003",
+			},
+			{
+				name: "Kaushik Saha",
+				dept: "ECE",
+				image: "/assets/teams/Kaushik.png",
+				instagram:
+					"https://www.instagram.com/i_kaushik__saha?igsh=MW81bjAxcGVtZnJpYg==",
+				linkedin:
+					"https://www.linkedin.com/in/kaushik-saha-7a10a225a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+			{
+				name: "Purbayan Kumar Das",
+				dept: "ECE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Sankosh Roy",
+				dept: "EE",
+				image: "/assets/teams/SANKOSH.jpg",
+				instagram:
+					"https://www.instagram.com/sankosh_here?igsh=M2MyNzVkdGF2bjZ1",
+				linkedin:
+					"https://www.linkedin.com/in/sankosh-roy-76b139255?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+		],
+	},
+	{
+		category: "Design Head",
+		mahabharat: "Shilpa Shastris (Design Artisans)",
+		members: [
+			{
+				name: "Soham Ahmed",
+				dept: "ECE",
+				image: "/assets/teams/Soham.jpeg",
+				instagram:
+					"https://www.instagram.com/half_engineer_soham?igsh=eWRiczQydXM4MTFj&utm_source=qr",
+				linkedin:
+					"https://www.linkedin.com/in/soham-ahmed-molla-29b381254?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+			},
+			{
+				name: "Anuvab Giri",
+				dept: "IT",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Aneek Karmakar",
+				dept: "CE",
+				image: "/assets/teams/Aneek.jpg",
+				instagram:
+					"https://www.instagram.com/rockaneek.karmakar?igsh=MW03NHpyM3BzNm9sMQ==",
+				linkedin:
+					"https://www.linkedin.com/in/aneek-karmakar?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+
+			{
+				name: "Rangan Daw",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+		],
+	},
+	{
+		category: "Production Head",
+		mahabharat: "Rangbhoomi Nirmatas (Stage Creators)",
+		members: [
+			{
+				name: "Rangan Daw",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Sampurna Sarkar",
+				dept: "CSE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+		],
+	},
+	{
+		category: "PR Head",
+		mahabharat: "Rajdoots (Royal Messengers)",
+		members: [
+			{
+				name: "Subhadip Bera",
+				dept: "CSE",
+				image: "/assets/teams/Subhadip.jpeg",
+				instagram: "https://www.instagram.com/_subhadip_bera_?igsh=NGNxNHg4dGJxdHU=",
+				linkedin: "https://www.linkedin.com/in/subhadipbera62?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+			},
+			{
+				name: "Abir Ganguly",
+				dept: "CE",
+				image: "/assets/teams/Abir.jpeg",
+				instagram: "https://www.instagram.com/abirganguly22101101005?igsh=ejI0dXh5dWU5N3B4",
+				linkedin: "https://www.linkedin.com/in/abir-ganguly-55892b260/?originalSubdomain=in",
+			},
+			{
+				name: "Shree Banerjee",
+				dept: "ME",
+				image: "/assets/teams/Shree.jpg",
+				instagram: "https://www.instagram.com/shreebanerjee85?igsh=MXMxeTFwbHJzc3U1Mg==",
+				linkedin: "https://www.linkedin.com/in/shree-banerjee-824814265?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+
+			{
+				name: "Sweta Pal",
+				dept: "ME",
+				image: "/assets/teams/Sweta.jpg",
+				instagram: "https://www.instagram.com/sleepy_koya308?igsh=emhpa255bHU5dWho",
+				linkedin: "https://www.linkedin.com/in/sweta-pal-86b70a255?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+			},
+		],
+	},
+	{
+		category: "Social Media Head",
+		mahabharat: "Varta Vahaks (News Carriers)",
+		members: [
+     {
+				name: "Soham Ahmed",
+				dept: "ECE",
+				image: "/assets/teams/Soham.jpeg",
+				instagram:
+					"https://www.instagram.com/half_engineer_soham?igsh=eWRiczQydXM4MTFj&utm_source=qr",
+				linkedin:
+					"https://www.linkedin.com/in/soham-ahmed-molla-29b381254?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+			},
+			{
+				name: "Ankit Biswas",
+				dept: "EE",
+				image: "/assets/teams/Ankit.png",
+				instagram: "https://www.instagram.com/ankit.biswas.20?igsh=MTVvbWZ5NXc2cGRycQ==",
+				linkedin: "https://www.linkedin.com/in/ankit-biswas0110?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+			{
+				name: "Rangan Daw",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Aneek Karmakar",
+				dept: "CE",
+				image: "/assets/teams/Aneek.jpg",
+				instagram:
+					"https://www.instagram.com/rockaneek.karmakar?igsh=MW03NHpyM3BzNm9sMQ==",
+				linkedin:
+					"https://www.linkedin.com/in/aneek-karmakar?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+		],
+	},
+	{
+		category: "Decoration Head",
+		mahabharat: "Alankara Kalavidhas (Decoration Artists)",
+		members: [
+			{
+				name: "Sitesh Kr. Saha",
+				dept: "ECE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Arunima Sarkar",
+				dept: "CE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Hriday Basak",
+				dept: "ME",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Kaushik Saha",
+				dept: "ECE",
+				image: "/assets/teams/Kaushik.png",
+				instagram:
+					"https://www.instagram.com/i_kaushik__saha?igsh=MW81bjAxcGVtZnJpYg==",
+				linkedin:
+					"https://www.linkedin.com/in/kaushik-saha-7a10a225a?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+			},
+		],
+	},
+	{
+		category: "Cultural Head",
+		mahabharat: "Kala Prabhus (Arts Masters)",
+		members: [
       {
-        name: "Somnath Kuiti",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
+				name: "Raktim Majhi",
+				dept: "ECE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			{
+				name: "Asif Shaikh",
+				dept: "IT",
+				image: "/assets/teams/Asif.jpg",
+				instagram: "https://www.instagram.com/asif4991sh?igsh=MTAyamF3enNyNHJzMw==",
+				linkedin: "https://www.linkedin.com/in/asif-shaikh-46340b263?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+			},
       {
-        name: "Laxminarayan Sen",
-        dept: "ME",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Extended Collection Coordinator",
-    mahabharat: "Dhana Samrakshak (Wealth Protectors)",
-    members: [
-      {
-        name: "Suman Chakraborty",
-        dept: "IT",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Debayan Ghosh",
-        dept: "CE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Sponsor Head",
-    mahabharat: "Rajya Mitras (Kingdom Allies)",
-    members: [
-      {
-        name: "Zaid Mahmud",
-        dept: "CSE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Sudiksha Basu Thakur",
-        dept: "ME",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Apurba Shaw",
-        dept: "ME",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Event Head",
-    mahabharat: "Utsav Nayaks (Festival Leaders)",
-    members: [
-      {
-        name: "Sankosh Roy",
-        dept: "EE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Kaushik Saha",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Simon Barua",
-        dept: "CSE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Atanu Basak",
-        dept: "IT",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Pritam Chakraborty",
-        dept: "IT",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Purbayan Kumar Das",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Cultural Head",
-    mahabharat: "Kala Prabhus (Arts Masters)",
-    members: [
-      {
-        name: "Pritam Kumar Hembram",
-        dept: "EE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Bithika Roy",
-        dept: "EE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Raktim Majhi",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Asif Shaikh",
-        dept: "IT",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Web Lead",
-    mahabharat: "Yantra Vidya Gurus (Tech Wizards)",
-    members: [
-      {
-        name: "Saikat Bera",
-        dept: "IT",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Souhardya Deb",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Surajit Malty",
-        dept: "IT",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Kaustav Das",
-        dept: "CSE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Design Head",
-    mahabharat: "Shilpa Shastris (Design Artisans)",
-    members: [
-      {
-        name: "Aneek Karmakar",
-        dept: "CE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Anuvab Giri",
-        dept: "IT",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Soham Ahmed",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Rangan Daw",
-        dept: "",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Production Head",
-    mahabharat: "Rangbhoomi Nirmatas (Stage Creators)",
-    members: [
-      {
-        name: "Rangan Daw",
-        dept: "",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Sampurna Sarkar",
-        dept: "CSE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "PR Head",
-    mahabharat: "Rajdoots (Royal Messengers)",
-    members: [
-      {
-        name: "Abir Ganguly",
-        dept: "CE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Shree Banerjee",
-        dept: "ME",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Subhodeep Bera",
-        dept: "CSE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Sweta Pal",
-        dept: "ME",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Social Media Head",
-    mahabharat: "Varta Vahaks (News Carriers)",
-    members: [
-      {
-        name: "Ankit Biswas",
-        dept: "EE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Soham Ahmed Molla",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Rangan Daw",
-        dept: "",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Aneek Karmakar",
-        dept: "CE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Decoration Head",
-    mahabharat: "Alankara Kalavidhas (Decoration Artists)",
-    members: [
-      {
-        name: "Sitesh Kr. Saha",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Arunima Sarkar",
-        dept: "CE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Hriday Basak",
-        dept: "ME",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Kaushik Saha",
-        dept: "ECE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
-  {
-    category: "Tshirt Distribution",
-    mahabharat: "Vastra Vitaraks (Garment Distributors)",
-    members: [
-      {
-        name: "Shounak Batabyal",
-        dept: "CSE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-      {
-        name: "Sk. Momitul Haque",
-        dept: "CSE",
-        image: "/assets/team/default.jpg",
-        instagram: "https://instagram.com/",
-        linkedin: "https://linkedin.com/",
-      },
-    ],
-  },
+				name: "Bithika Roy",
+				dept: "EE",
+				image: "/assets/teams/Bithika.jpg",
+				instagram: "https://www.instagram.com/___b_i_t_h_i_?igsh=MWYzZGFjeXBydnZoaw==",
+				linkedin: "https://www.linkedin.com/in/bithika-roy-84863a279?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+			},
+			{
+				name: "Pritam Kumar Hembram",
+				dept: "EE",
+				image: "/assets/team/default.jpg",
+				instagram: "#",
+				linkedin: "#",
+			},
+			
+			
+		],
+	},
 ];
 
-// --- GLITCH HEADER COMPONENT ---
-function GlitchHeader({ 
-  normalText, 
-  glitchText, 
-  className = "" 
-}: { 
-  normalText: string; 
-  glitchText: string; 
-  className?: string;
+function CinematicLeaderCard({
+	member,
+	index,
+}: {
+	member: any;
+	index: number;
 }) {
-  const [isHovered, setIsHovered] = useState(false);
+	return (
+		<motion.div
+			initial={{ opacity: 0, scale: 0.95 }}
+			whileInView={{ opacity: 1, scale: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, delay: index * 0.2 }}
+			className="group relative w-full max-w-sm mx-auto h-[500px] rounded-2xl overflow-hidden">
+			<div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_180deg,#eab308_180deg,#fef08a_220deg,#eab308_260deg,transparent_260deg)] animate-[spin_4s_linear_infinite] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
-  return (
-    <div
-      className={`relative inline-block ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {isHovered ? (
-        <EncryptedText
-          text={glitchText}
-          className={`${cormorant.className} text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600`}
-          revealDelayMs={30}
-          flipDelayMs={30}
-          encryptedClassName="text-yellow-500/40"
-          revealedClassName="text-yellow-400"
-        />
-      ) : (
-        <h2 className={`${cormorant.className} text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600 drop-shadow-[0_0_25px_rgba(250,204,21,0.4)]`}>
-          {normalText}
-        </h2>
-      )}
-    </div>
-  );
+			<div className="absolute inset-[3px] bg-[#050505] rounded-2xl z-10 overflow-hidden">
+				<div className="absolute inset-0 z-0">
+					<Image
+						src={member.image}
+						alt={member.name}
+						fill
+						className="object-cover transition-transform grayscale-50 group-hover:grayscale-0 duration-1000 group-hover:scale-110"
+					/>
+					<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
+				</div>
+
+				<div className="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-yellow-500/50 rounded-tl-lg z-20"></div>
+				<div className="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-yellow-500/50 rounded-tr-lg z-20"></div>
+				<div className="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-yellow-500/50 rounded-bl-lg z-20"></div>
+				<div className="absolute bottom-4 right-4 w-6 h-6 border-b-2 border-r-2 border-yellow-500/50 rounded-br-lg z-20"></div>
+
+				<div className="absolute bottom-6 left-6 right-6 z-20">
+					<div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-5 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] transition-all duration-500 group-hover:border-yellow-500/50 group-hover:bg-black/80">
+						<div className="flex justify-between items-start mb-2">
+							<div className="flex flex-col">
+								<span
+									className={`${rajdhani.className} text-yellow-500 text-xs font-bold uppercase tracking-[0.2em] mb-1 flex items-center gap-2`}>
+									<Crown
+										size={12}
+										fill="currentColor"
+									/>{" "}
+									{member.role}
+								</span>
+								<h3
+									className={`${cinzel.className} text-2xl font-bold text-white leading-tight group-hover:text-yellow-100 transition-colors`}>
+									{member.name}
+								</h3>
+							</div>
+						</div>
+
+						<div className="w-full h-px bg-white/10 my-4 group-hover:bg-gradient-to-r from-yellow-500 to-transparent transition-all duration-500"></div>
+
+						<div className="flex items-center gap-4">
+							<a
+								href={member.instagram}
+								target="_blank"
+								className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-yellow-600 hover:text-black text-gray-300 transition-all duration-300 border border-transparent hover:border-yellow-400">
+								<Instagram size={18} />
+							</a>
+							<a
+								href={member.linkedin}
+								target="_blank"
+								className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-blue-600 hover:text-white text-gray-300 transition-all duration-300 border border-transparent hover:border-blue-400">
+								<Linkedin size={18} />
+							</a>
+							<div className="ml-auto">
+								<div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-yellow-900/30 to-black border border-yellow-600/30 group-hover:border-yellow-500/60 shadow-lg transition-all duration-300">
+									<Shield
+										size={10}
+										className="text-yellow-400 fill-yellow-400/20"
+									/>
+									<span
+										className={`${montserrat.className} text-[10px] font-bold text-yellow-100 uppercase tracking-widest`}>
+										{member.dept || "CORE"}
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</motion.div>
+	);
 }
 
-// --- CHIEF COORDINATOR CARD ---
-function ChiefCoordinatorCard({ member, index }: { member: any; index: number }) {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+// --- 2. REGAL MEMBER CARD (Standard Team Design) ---
+function RegalMemberCard({ member, index }: { member: any; index: number }) {
+	return (
+		<motion.div
+			initial={{ opacity: 0, y: 30 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.5, delay: index * 0.05 }}
+			className="group relative w-full h-[420px]">
+			{/* Standard Border Glow */}
+			<div className="absolute -inset-[1px] bg-gradient-to-b from-yellow-600/0 via-yellow-600/0 to-yellow-600/0 rounded-lg group-hover:from-yellow-500 group-hover:via-yellow-300 group-hover:to-yellow-600 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all duration-500"></div>
 
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, delay: index * 0.2 }}
-      className="w-full max-w-md mx-auto"
-    >
-      <div className="relative group">
-        {/* Outer glow */}
-        <div className="absolute -inset-2 bg-gradient-to-br from-yellow-600/40 via-orange-500/30 to-red-600/40 rounded-2xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Main card */}
-        <div className="relative bg-gradient-to-br from-[#1a0f0a] via-[#2a1810] to-[#1a0f0a] rounded-2xl overflow-hidden border-2 border-yellow-600/30 group-hover:border-yellow-500/60 transition-all duration-500">
-          {/* Corner decorations */}
-          <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-yellow-500/60 rounded-tl-2xl" />
-          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-yellow-500/60 rounded-br-2xl" />
-          
-          {/* Crown icon */}
-          <div className="absolute top-4 right-4 z-10">
-            <div className="relative">
-              <div className="absolute inset-0 bg-yellow-400 blur-md opacity-50 animate-pulse" />
-              <Crown className="w-8 h-8 text-yellow-400 relative z-10" />
-            </div>
-          </div>
+			<div className="relative h-full w-full rounded-lg overflow-hidden bg-[#050505] border border-white/10 group-hover:border-transparent transition-all duration-500">
+				<div className="absolute inset-0 z-0 h-full w-full">
+					<Image
+						src={member.image}
+						alt={member.name}
+						fill
+						className="object-cover transition-transform duration-700 grayscale-25 group-hover:grayscale-0 group-hover:scale-110 filter sepia-[0.3] group-hover:sepia-0 contrast-125"
+					/>
+					<div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-black/40 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500"></div>
+				</div>
 
-          {/* Image container */}
-          <div className="relative h-80 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-700"
-            />
-          </div>
+				{member.dept && (
+					<div className="absolute top-0 right-0 z-20">
+						<div className="bg-yellow-600 text-black px-3 py-1.5 rounded-bl-xl font-bold border-l border-b border-yellow-300 shadow-lg">
+							<span
+								className={`${montserrat.className} text-[10px] uppercase tracking-widest flex items-center gap-1`}>
+								{member.dept}
+							</span>
+						</div>
+					</div>
+				)}
 
-          {/* Content */}
-          <div className="p-8 space-y-4">
-            <div className="space-y-2">
-              <h3 className={`${cinzel.className} text-3xl font-bold text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.5)]`}>
-                {member.name}
-              </h3>
-              <p className={`${montserrat.className} text-yellow-600/80 text-sm uppercase tracking-widest`}>
-                {member.role}
-              </p>
-            </div>
+				<div className="absolute bottom-0 left-0 w-full p-6 flex flex-col justify-end z-20">
+					<div className="transform group-hover:-translate-y-2 transition-transform duration-500 ease-out border-l-2 border-yellow-600/0 group-hover:border-yellow-500 pl-0 group-hover:pl-3">
+						<h4
+							className={`${cinzel.className} text-xl font-bold text-white group-hover:text-yellow-100 transition-colors`}>
+							{member.name}
+						</h4>
+						<p
+							className={`${montserrat.className} text-xs text-gray-400 mt-1 uppercase tracking-widest group-hover:text-yellow-500/80`}>
+							Core Member
+						</p>
+					</div>
 
-            {/* Social links */}
-            <div className="flex gap-4 pt-4">
-              <a
-                href={member.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/social relative"
-              >
-                <div className="absolute inset-0 bg-pink-500 blur-md opacity-0 group-hover/social:opacity-50 transition-opacity" />
-                <div className="relative w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center border border-pink-400/30 group-hover/social:border-pink-400 transition-all group-hover/social:scale-110">
-                  <Instagram className="w-5 h-5 text-white" />
-                </div>
-              </a>
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/social relative"
-              >
-                <div className="absolute inset-0 bg-blue-500 blur-md opacity-0 group-hover/social:opacity-50 transition-opacity" />
-                <div className="relative w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center border border-blue-400/30 group-hover/social:border-blue-400 transition-all group-hover/social:scale-110">
-                  <Linkedin className="w-5 h-5 text-white" />
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Decorative pattern overlay */}
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-10 pointer-events-none" />
-        </div>
-      </div>
-    </motion.div>
-  );
+					<div className="h-0 overflow-hidden opacity-0 group-hover:h-12 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+						<div className="flex gap-4 pt-4 border-t border-white/10 mt-2">
+							<a
+								href={member.instagram}
+								target="_blank"
+								className="text-gray-400 hover:text-pink-500 transition-colors hover:scale-110">
+								<Instagram size={18} />
+							</a>
+							<a
+								href={member.linkedin}
+								target="_blank"
+								className="text-gray-400 hover:text-blue-500 transition-colors hover:scale-110">
+								<Linkedin size={18} />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</motion.div>
+	);
 }
 
-// --- REGULAR TEAM MEMBER CARD ---
-function TeamMemberCard({ member, index }: { member: any; index: number }) {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={isInView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="w-full"
-    >
-      <div className="relative group">
-        {/* Glow effect */}
-        <div className="absolute -inset-1 bg-gradient-to-br from-yellow-600/20 to-orange-600/20 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        {/* Main card */}
-        <div className="relative bg-gradient-to-br from-[#1a0f0a] to-[#2a1810] rounded-xl overflow-hidden border border-yellow-700/30 group-hover:border-yellow-600/50 transition-all duration-500">
-          {/* Image */}
-          <div className="relative h-64 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10" />
-            <Image
-              src={member.image}
-              alt={member.name}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="p-5 space-y-3">
-            <div className="space-y-1">
-              <h4 className={`${cinzel.className} text-xl font-bold text-yellow-300`}>
-                {member.name}
-              </h4>
-              {member.dept && (
-                <p className={`${montserrat.className} text-yellow-600/70 text-xs uppercase tracking-wider`}>
-                  {member.dept}
-                </p>
-              )}
-            </div>
-
-            {/* Social links */}
-            <div className="flex gap-3">
-              <a
-                href={member.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/social"
-              >
-                <div className="w-9 h-9 rounded-md bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-pink-500/30 flex items-center justify-center group-hover/social:border-pink-500 group-hover/social:from-purple-600/40 group-hover/social:to-pink-600/40 transition-all">
-                  <Instagram className="w-4 h-4 text-pink-400" />
-                </div>
-              </a>
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/social"
-              >
-                <div className="w-9 h-9 rounded-md bg-gradient-to-br from-blue-600/20 to-blue-800/20 border border-blue-500/30 flex items-center justify-center group-hover/social:border-blue-500 group-hover/social:from-blue-600/40 group-hover/social:to-blue-800/40 transition-all">
-                  <Linkedin className="w-4 h-4 text-blue-400" />
-                </div>
-              </a>
-            </div>
-          </div>
-
-          {/* Corner accents */}
-          <div className="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-yellow-500/40" />
-          <div className="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-yellow-500/40" />
-        </div>
-      </div>
-    </motion.div>
-  );
+// --- GLITCH HEADER ---
+function GlitchHeader({
+	normalText,
+	glitchText,
+}: {
+	normalText: string;
+	glitchText: string;
+}) {
+	const [isHovered, setIsHovered] = useState(false);
+	return (
+		<div
+			className="relative inline-block cursor-default"
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}>
+			{isHovered ? (
+				<EncryptedText
+					text={glitchText}
+					className={`${cormorant.className} text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600`}
+					revealDelayMs={30}
+					encryptedClassName="text-yellow-500/40"
+					revealedClassName="text-yellow-400"
+				/>
+			) : (
+				<h2
+					className={`${cormorant.className} text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600 drop-shadow-[0_0_25px_rgba(250,204,21,0.4)]`}>
+					{normalText}
+				</h2>
+			)}
+		</div>
+	);
 }
 
-// --- MAIN TEAM PAGE ---
+// ==========================================
+// --- MAIN PAGE ---
+// ==========================================
+
 export default function TeamPage() {
-  return (
-    <div className={`relative min-h-screen w-full bg-black text-[#e0e0e0] overflow-x-hidden ${cinzel.className}`}>
-      {/* Background */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 opacity-40">
-          <Image
-            src="/assets/home-bg.png"
-            alt="Background"
-            fill
-            priority
-            className="object-cover brightness-50"
-          />
-        </div>
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 animate-pulse-slow" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-[14em]">
-        {/* Hero Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-center mb-20 space-y-6"
-        >
-          <div className="inline-flex items-center gap-2 border border-yellow-600/30 rounded-full px-4 py-1 mb-4 bg-black/40 backdrop-blur-md">
-            <Swords size={14} className="text-yellow-500" />
-            <span className={`${montserrat.className} text-xs uppercase tracking-widest text-yellow-500/80`}>
-              The Warriors
-            </span>
-          </div>
-<br/>
-          <GlitchHeader
-            normalText="Our Team"
-            glitchText="Our Maharathis"
-          />
-
-          <p className={`${playfair.className} text-xl md:text-2xl text-gray-400 italic max-w-3xl mx-auto`}>
-            The Faces Behind the Phenomenon: Presenting you the JECLAT 2K26 Core Team!
-          </p>
-
-          <div className="h-px w-64 mx-auto bg-gradient-to-r from-transparent via-yellow-600/50 to-transparent" />
-        </motion.div>
-
-        {/* Chief Coordinators */}
-        <section className="mb-32">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <GlitchHeader
-              normalText="Supreme Commanders"
-              glitchText="Sarathi Samrat"
-              className="mb-4"
-            />
-            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 rounded-full" />
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {chiefCoordinators.map((member, index) => (
-              <ChiefCoordinatorCard key={index} member={member} index={index} />
-            ))}
-          </div>
-        </section>
-
-        {/* Social Secretaries */}
-        <section className="mb-32">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <GlitchHeader
-              normalText="Social Secretaries"
-              glitchText="Samaj Sachivas"
-              className="mb-4"
-            />
-            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-yellow-600 via-yellow-400 to-yellow-600 rounded-full" />
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            {socialSecretaries.map((member, index) => (
-              <ChiefCoordinatorCard key={index} member={member} index={index} />
-            ))}
-          </div>
-        </section>
-
-        {/* Team Categories */}
-        {teams.map((team, teamIndex) => (
-          <section key={teamIndex} className="mb-28">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="mb-12"
-            >
-              <GlitchHeader
-                normalText={team.category}
-                glitchText={team.mahabharat}
-                className="mb-4"
-              />
-              <div className="h-0.5 w-24 bg-gradient-to-r from-yellow-600 to-transparent" />
-            </motion.div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {team.members.map((member, index) => (
-                <TeamMemberCard key={index} member={member} index={index} />
-              ))}
+	return (
+		<div
+			className={`relative min-h-screen w-full bg-[#020202] text-[#e0e0e0] overflow-x-hidden ${cinzel.className}`}>
+			{/* Background */}
+			<div className="fixed bg-black inset-0 z-0 overflow-hidden pointer-events-none">
+              
+                <Image
+                  src="/assets/home-bg.png"
+                  alt="Background"
+                  fill
+                  priority
+                  className="object-cover brightness-50 grayscale-50 blur-sm"
+                />
+      
+              {/* Texture Overlay (Stays constant) */}
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 animate-pulse-slow"></div>
             </div>
-          </section>
-        ))}
 
-        {/* Closing Quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-32 space-y-4"
-        >
-          <div className="h-px w-64 mx-auto bg-gradient-to-r from-transparent via-yellow-600/50 to-transparent mb-8" />
-          <p className={`${playfair.className} text-2xl md:text-3xl text-yellow-400/80 italic max-w-3xl mx-auto`}>
-            "Together, we write the epic of JECLAT 2K26"
-          </p>
-          <div className="inline-flex items-center gap-2 text-yellow-600/60">
-            <div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse" />
-            <span className={`${montserrat.className} text-sm tracking-widest`}>
-              Jai JECLAT
-            </span>
-            <div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse" />
-          </div>
-        </motion.div>
-      </div>
-    </div>
-  );
+			{/* Content */}
+			<div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-20 pt-[12em]">
+				{/* Hero Header */}
+				<motion.div
+					initial={{ opacity: 0, y: -30 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 1 }}
+					className="text-center mb-20 space-y-6">
+					<div className="inline-flex items-center gap-2 border border-yellow-600/30 rounded-full px-5 py-2 mb-4 bg-black/40 backdrop-blur-md">
+						<Swords
+							size={14}
+							className="text-yellow-500"
+						/>
+						<span
+							className={`${montserrat.className} text-xs uppercase tracking-[0.25em] font-bold text-yellow-500/80`}>
+							The Warriors
+						</span>
+					</div>
+					<br />
+					<GlitchHeader
+						normalText="OUR TEAM"
+						glitchText="MAHARATHIS"
+					/>
+					<p
+						className={`${playfair.className} text-xl md:text-2xl text-gray-400 italic max-w-3xl mx-auto mt-4`}>
+						"The Faces Behind the Phenomenon: Presenting you the JECLAT 2K26
+						Core Team!"
+					</p>
+					<div className="h-px w-64 mx-auto bg-gradient-to-r from-transparent via-yellow-600/50 to-transparent mt-8" />
+				</motion.div>
+
+				{/* Chief Coordinators */}
+				<section className="mb-32">
+					<div className="text-center mb-16">
+						<h3
+							className={`${rajdhani.className} text-3xl uppercase tracking-[0.2em] text-yellow-500 font-bold`}>
+							Supreme Commanders
+						</h3>
+						<div className="h-1 w-24 mx-auto bg-gradient-to-r from-yellow-900 via-yellow-500 to-yellow-900 rounded-full mt-4 opacity-50"></div>
+					</div>
+					<div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+						{chiefCoordinators.map((member, index) => (
+							<CinematicLeaderCard
+								key={index}
+								member={member}
+								index={index}
+							/>
+						))}
+					</div>
+				</section>
+
+				{/* Social Secretaries */}
+				<section className="mb-32">
+					<div className="text-center mb-16">
+						<h3
+							className={`${rajdhani.className} text-3xl uppercase tracking-[0.2em] text-yellow-500 font-bold`}>
+							Social Secretaries
+						</h3>
+						<div className="h-1 w-24 mx-auto bg-gradient-to-r from-yellow-900 via-yellow-500 to-yellow-900 rounded-full mt-4 opacity-50"></div>
+					</div>
+					<div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+						{socialSecretaries.map((member, index) => (
+							<CinematicLeaderCard
+								key={index}
+								member={member}
+								index={index}
+							/>
+						))}
+					</div>
+				</section>
+
+				{/* Team Categories */}
+				{teams.map((team, teamIndex) => (
+					<section
+						key={teamIndex}
+						className="mb-32">
+						<div className="flex items-center gap-4 mb-8 pl-4 border-l-4 border-yellow-600">
+							<h3
+								className={`${cormorant.className} text-4xl text-white font-bold`}>
+								{team.category}
+							</h3>
+							<p
+								className={`${rajdhani.className} text-sm text-yellow-600 uppercase tracking-[0.2em] mt-2`}>
+								// {team.mahabharat}
+							</p>
+						</div>
+
+						<div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+							{team.members.map((member, index) => (
+								<RegalMemberCard
+									key={index}
+									member={member}
+									index={index}
+								/>
+							))}
+						</div>
+					</section>
+				))}
+
+				{/* Closing Quote */}
+				<motion.div
+					initial={{ opacity: 0, y: 50 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					className="text-center mt-32 space-y-4">
+					<div className="h-px w-64 mx-auto bg-gradient-to-r from-transparent via-yellow-600/50 to-transparent mb-8" />
+					<p
+						className={`${playfair.className} text-2xl md:text-3xl text-yellow-400/80 italic max-w-3xl mx-auto`}>
+						"Together, we write the epic of JECLAT 2K26"
+					</p>
+					<div className="inline-flex items-center gap-2 text-yellow-600/60">
+						<div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse" />
+						<span className={`${montserrat.className} text-sm tracking-widest`}>
+							Jai JECLAT
+						</span>
+						<div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse" />
+					</div>
+				</motion.div>
+			</div>
+		</div>
+	);
 }
