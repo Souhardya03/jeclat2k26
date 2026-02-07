@@ -607,7 +607,7 @@ function RegalMemberCard({ member, index }: { member: any; index: number }) {
 			transition={{ duration: 0.5, delay: index * 0.05 }}
 			className="group relative w-full h-[420px]">
 			{/* Standard Border Glow */}
-			<div className="absolute -inset-[1px] bg-gradient-to-b from-yellow-600/0 via-yellow-600/0 to-yellow-600/0 rounded-lg group-hover:from-yellow-500 group-hover:via-yellow-300 group-hover:to-yellow-600 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all duration-500"></div>
+			<div className="absolute -inset-px bg-gradient-to-b from-yellow-600/0 via-yellow-600/0 to-yellow-600/0 rounded-lg group-hover:from-yellow-500 group-hover:via-yellow-300 group-hover:to-yellow-600 group-hover:shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all duration-500"></div>
 
 			<div className="relative h-full w-full rounded-lg overflow-hidden bg-[#050505] border border-white/10 group-hover:border-transparent transition-all duration-500">
 				<div className="absolute inset-0 z-0 h-full w-full">
