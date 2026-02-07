@@ -52,12 +52,12 @@ const chiefCoordinators = [
 		linkedin: "http://www.linkedin.com/in/sudip9733",
 	},
 	{
-		name: "Chief Coordinator 2",
+		name: "Akash Debnath",
 		role: "Supreme Commander",
-		dept: "CSE",
-		image: "/assets/team/cc2.jpg",
-		instagram: "https://instagram.com/",
-		linkedin: "https://linkedin.com/",
+		dept: "EE",
+		image: "/assets/teams/Akash.jpg",
+		instagram: "https://www.instagram.com/akash_d02?igsh=aGFtb2lrNmZuOWEz",
+		linkedin: "https://www.linkedin.com/in/akash-debnath-a34508254/",
 	},
 ];
 const socialSecretaries = [
@@ -70,12 +70,12 @@ const socialSecretaries = [
 		linkedin: "https://www.linkedin.com/in/dekaustav",
 	},
 	{
-		name: "Social Secretary 2",
+		name: "BARUNENDRA GHOSH",
 		role: "Social Secretary",
-		dept: "ME",
-		image: "/assets/team/ss2.jpg",
-		instagram: "https://instagram.com/",
-		linkedin: "https://linkedin.com/",
+		dept: "CE",
+		image: "/assets/teams/Barun.jpg",
+		instagram: "https://www.instagram.com/itsbarunendra?igsh=MW1hYWlzaWYzbThsdQ==",
+		linkedin: "https://www.linkedin.com/in/barunendra-ghosh-4b4635230?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
 	},
 ];
 const teams = [
@@ -91,11 +91,11 @@ const teams = [
 				linkedin: "#",
 			},
 			{
-				name: "Laxminarayan Sen",
+				name: "Laxminarayan Saren",
 				dept: "ME",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Laxminarayan.jpg",
+				instagram: "https://www.instagram.com/_l0ucky_?igsh=MWt3Y2QwcW85YWhlcw==",
+				linkedin: "https://in.linkedin.com/in/laxminarayan-saren-133630254",
 			},
 		],
 	},
@@ -321,9 +321,9 @@ const teams = [
 			{
 				name: "Anuvab Giri",
 				dept: "IT",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Anuvab.jpeg",
+				instagram: "https://www.instagram.com/a6_editzz?igsh=MXRsc21scWw2dDUzMw%3D%3D&utm_source=qr",
+				linkedin: "https://www.linkedin.com/in/anubhab-giri-309800257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 			},
 			{
 				name: "Aneek Karmakar",
