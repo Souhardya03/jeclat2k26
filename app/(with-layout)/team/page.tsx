@@ -54,7 +54,7 @@ const socialSecretaries = [
 		name: "Kaustav De",
 		role: "Social Secretary",
 		dept: "CSE",
-		image: "/assets/teams/Kaustav.jpeg",
+		image: "/assets/teams/kaustav.jpeg",
 		instagram: "https://www.instagram.com/kaustav_de_19?igsh=ajdiYmpmeTRpd3Fw",
 		linkedin: "https://www.linkedin.com/in/dekaustav",
 	},
