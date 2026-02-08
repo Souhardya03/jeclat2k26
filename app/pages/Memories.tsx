@@ -26,7 +26,13 @@ const montserrat = Montserrat({
 const cormorant = Cormorant_SC({ subsets: ["latin"], weight: ["400", "700"] });
 
 
-
+type Memory = {
+  title: string;
+  year: string;
+  type: "youtube" | "video"; // Changed 'instagram' to generic 'video' for Cloudinary
+  url: string;
+  thumbnail?: string;
+};
 const getYoutubeId = (url: string) => {
   try {
     const parts = url.split("/embed/");
