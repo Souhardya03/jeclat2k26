@@ -41,7 +41,7 @@ export const eventData = [
     registrationOpen: false,
     eventInfo: {
       title: "Flash Mob",
-      description: "Flashmob, the thrilling pre-event spectacle, surprises and delights audiences with spontaneous bursts of choreographed dance and music in unexpected locations. Participants, often disguised as ordinary bystanders, suddenly break into synchronized routines, captivating onlookers with their coordinated movements and infectious energy. With each performance carefully planned yet seemingly impromptu, Flashmob adds an element of excitement and surprise to the event atmosphere, setting the stage for an unforgettable experience ahead.",
+      description: "A thrilling pre-event spectacle of spontaneous choreographed dance and music.",
       category: "Pre Events",
       venue: "Not Decided",
       date: "8th March, 2026"
@@ -152,8 +152,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Priya Mahato", contact: "7029391071" },
-          { name: "Rajat Nandi", contact: "8900352943" },
+          // { name: "Priya Mahato", contact: "7029391071" },
+          // { name: "Rajat Nandi", contact: "8900352943" },
         ],
       },
     ],
@@ -175,8 +175,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Anup Sharma", contact: "9475740532" },
-          { name: "Mahek Parvez", contact: "8597530118" },
+          // { name: "Anup Sharma", contact: "9475740532" },
+          // { name: "Mahek Parvez", contact: "8597530118" },
         ],
       },
     ],
@@ -200,8 +200,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Priya Mahato", contact: "7029391071" },
-          { name: "Dip Roy", contact: "9749021886" },
+          // { name: "Priya Mahato", contact: "7029391071" },
+          // { name: "Dip Roy", contact: "9749021886" },
         ],
       },
     ],
@@ -223,8 +223,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Sourav Ganguly", contact: "8918708847" },
-          { name: "Malay Poulik", contact: "7679185576" },
+          // { name: "Sourav Ganguly", contact: "8918708847" },
+          // { name: "Malay Poulik", contact: "7679185576" },
         ],
       },
     ],
@@ -246,8 +246,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Ankit Sengupta", contact: "9679409501" },
-          { name: "Paramita Saha", contact: "9614234324" },
+          // { name: "Ankit Sengupta", contact: "9679409501" },
+          // { name: "Paramita Saha", contact: "9614234324" },
         ],
       },
     ],
@@ -269,9 +269,9 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Atri Sukul", contact: "8900519836" },
-          { name: "Spandan Bhattacharya", contact: "9330184706" },
-          { name: "Om Kumar Sha", contact: "6290889507" },
+          // { name: "Atri Sukul", contact: "8900519836" },
+          // { name: "Spandan Bhattacharya", contact: "9330184706" },
+          // { name: "Om Kumar Sha", contact: "6290889507" },
         ],
       },
     ],
@@ -293,8 +293,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Souvik Mondal", contact: "9883164350" },
-          { name: "Liza Goswami", contact: "9832675856" },
+          // { name: "Souvik Mondal", contact: "9883164350" },
+          // { name: "Liza Goswami", contact: "9832675856" },
         ],
       },
     ],
@@ -316,8 +316,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Nilesh Kumar Hansda", contact: "9547944653" },
-          { name: "Choyan Biswas", contact: "8436381621" },
+          // { name: "Nilesh Kumar Hansda", contact: "9547944653" },
+          // { name: "Choyan Biswas", contact: "8436381621" },
         ],
       },
     ],
@@ -339,8 +339,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Sourav Ganguly", contact: "8918708847" },
-          { name: "Malay Poulik", contact: "7679185576" },
+          // { name: "Sourav Ganguly", contact: "8918708847" },
+          // { name: "Malay Poulik", contact: "7679185576" },
         ],
       },
     ],
@@ -364,8 +364,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Pankaj Barman", contact: "8101480752" },
-          { name: "Priya Mahato", contact: "7029391071" },
+          // { name: "Pankaj Barman", contact: "8101480752" },
+          // { name: "Priya Mahato", contact: "7029391071" },
         ],
       },
     ],
@@ -387,8 +387,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Rohit Mondal", contact: "9735245251" },
-          { name: "Abhirup Banerjee", contact: "9883915504" },
+          // { name: "Rohit Mondal", contact: "9735245251" },
+          // { name: "Abhirup Banerjee", contact: "9883915504" },
         ],
       },
     ],
@@ -410,8 +410,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Arijit Saha", contact: "8617673489" },
-          { name: "Aditi Pal", contact: "8902797178" },
+          // { name: "Arijit Saha", contact: "8617673489" },
+          // { name: "Aditi Pal", contact: "8902797178" },
         ],
       },
     ],
@@ -433,8 +433,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Uttaran Kundu", contact: "9064894622" },
-          { name: "Subham Kar", contact: "8670338017" },
+          // { name: "Uttaran Kundu", contact: "9064894622" },
+          // { name: "Subham Kar", contact: "8670338017" },
         ],
       },
     ],
@@ -455,7 +455,9 @@ export const eventData = [
     coordinators: [
       {
         type: "Coordinators",
-        members: [{ name: "Souvik Mondal", contact: "9883164350" }],
+        members: [
+          // { name: "Souvik Mondal", contact: "9883164350" }
+        ],
       },
     ],
   },
@@ -476,9 +478,9 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Bhumika Roy", contact: "7864008846" },
-          { name: "Sagnik Banerjee", contact: "7044709722" },
-          { name: "Pankaj Barman", contact: "8101480752" },
+          // { name: "Bhumika Roy", contact: "7864008846" },
+          // { name: "Sagnik Banerjee", contact: "7044709722" },
+          // { name: "Pankaj Barman", contact: "8101480752" },
         ],
       },
     ],
@@ -502,8 +504,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Anup Sharma", contact: "9475740532" },
-          { name: "Mahek Parvez", contact: "8597530118" },
+          // { name: "Anup Sharma", contact: "9475740532" },
+          // { name: "Mahek Parvez", contact: "8597530118" },
         ],
       },
     ],
@@ -525,8 +527,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Spandan Bhattacharya", contact: "9330184706" },
-          { name: "Ankit Sengupta", contact: "9679409501" },
+          // { name: "Spandan Bhattacharya", contact: "9330184706" },
+          // { name: "Ankit Sengupta", contact: "9679409501" },
         ],
       },
     ],
@@ -548,8 +550,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Ankit Sengupta", contact: "9679409501" },
-          { name: "Paramita Saha", contact: "9614234324" },
+          // { name: "Ankit Sengupta", contact: "9679409501" },
+          // { name: "Paramita Saha", contact: "9614234324" },
         ],
       },
     ],
@@ -571,8 +573,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Rohit Mondal", contact: "9735245251" },
-          { name: "Abhirup Banerjee", contact: "9883915504" },
+          // { name: "Rohit Mondal", contact: "9735245251" },
+          // { name: "Abhirup Banerjee", contact: "9883915504" },
         ],
       },
     ],
@@ -594,8 +596,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Spandan Bhattacharya", contact: "9330184706" },
-          { name: "Ananya Mondal", contact: "7866954016" },
+          // { name: "Spandan Bhattacharya", contact: "9330184706" },
+          // { name: "Ananya Mondal", contact: "7866954016" },
         ],
       },
     ],
@@ -616,7 +618,10 @@ export const eventData = [
     coordinators: [
       {
         type: "Coordinators",
-        members: [{ name: "CORE COMMITTEE", contact: "" }],
+        members: [
+          // { name: "CORE COMMITTEE", contact: "" }
+
+        ],
       },
     ],
   },
@@ -639,9 +644,9 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Atri Sukul", contact: "8900519836" },
-          { name: "Spandan Bhattacharya", contact: "9330184706" },
-          { name: "Om Kumar Sha", contact: "6290889507" },
+          // { name: "Atri Sukul", contact: "8900519836" },
+          // { name: "Spandan Bhattacharya", contact: "9330184706" },
+          // { name: "Om Kumar Sha", contact: "6290889507" },
         ],
       },
     ],
@@ -663,8 +668,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Anup Sharma", contact: "9475740532" },
-          { name: "Mahek Parvez", contact: "8597530118" },
+          // { name: "Anup Sharma", contact: "9475740532" },
+          // { name: "Mahek Parvez", contact: "8597530118" },
         ],
       },
     ],
@@ -686,8 +691,8 @@ export const eventData = [
       {
         type: "Coordinators",
         members: [
-          { name: "Sumit Majumder", contact: "7739164949" },
-          { name: "Mahek Parvez", contact: "8597530118" },
+          // { name: "Sumit Majumder", contact: "7739164949" },
+          // { name: "Mahek Parvez", contact: "8597530118" },
         ],
       },
     ],
