@@ -130,7 +130,7 @@ export default function AboutPage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover brightness-75"
+            className="object-cover brightness-75 blur-xs"
           />
         </motion.div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')] opacity-20 mix-blend-soft-light"></div>

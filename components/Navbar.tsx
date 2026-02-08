@@ -17,6 +17,9 @@ import {
   Menu,
   X,
   Crown,
+  Users,
+  Brain,
+  Mic2,
 } from "lucide-react";
 
 const murecho = Murecho({ subsets: ["latin"], weight: ["700"] });
@@ -39,10 +42,10 @@ const Navbar = () => {
 
   const navItems = [
     { name: "Events", href: "/events", icon: <Swords size={18} /> },
-    { name: "Socials", href: "/socials", icon: <Share2 size={18} /> },
+    { name: "Socials", href: "/socials", icon: <Mic2 size={18} /> },
     { name: "Memories", href: "/memories", icon: <ImageIcon size={18} /> },
-    { name: "Team", href: "/team", icon: <Shield size={18} /> },
-    { name: "Elementary", href: "/elementary", icon: <Sparkles size={18} /> },
+    { name: "Team", href: "/team", icon: <Users size={18} /> },
+    { name: "Elementary", href: "/elementary", icon: <Brain size={18} /> },
     { name: "Contact", href: "/contact", icon: <Mail size={18} /> },
   ];
 

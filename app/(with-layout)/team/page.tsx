@@ -118,16 +118,16 @@ const teams = [
 			{
 				name: "Zaid Mahmud",
 				dept: "CSE",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Zaid.jpeg",
+				instagram: "https://www.instagram.com/_zaid_.flow?igsh=ejhvMWliaThkd2N2",
+				linkedin: "https://www.linkedin.com/in/zaid-mahmud-7b6b90249?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 			},
 			{
 				name: "Sudiksha Basu Thakur",
 				dept: "ME",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Sudiksha.jpeg",
+				instagram: "https://www.instagram.com/sushi_wushi__/",
+				linkedin: "https://www.linkedin.com/in/sudiksha-basu-thakur-817802241/",
 			},
 			{
 				name: "Apurba Shaw",
@@ -332,9 +332,9 @@ const teams = [
 			{
 				name: "Rangan Daw",
 				dept: "ME",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Rangan.jpg",
+				instagram: "https://www.instagram.com/the_snapperbong?igsh=MTNqeGZkYWNmYzB1bg==",
+				linkedin: "https://www.linkedin.com/in/rangan-daw-4b951b1b6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 			},
 		],
 	},
@@ -345,9 +345,9 @@ const teams = [
 			{
 				name: "Rangan Daw",
 				dept: "ME",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Rangan.jpg",
+				instagram: "https://www.instagram.com/the_snapperbong?igsh=MTNqeGZkYWNmYzB1bg==",
+				linkedin: "https://www.linkedin.com/in/rangan-daw-4b951b1b6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 			},
 			{
 				name: "Sampurna Sarkar",
@@ -426,9 +426,9 @@ const teams = [
 			{
 				name: "Rangan Daw",
 				dept: "ME",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Rangan.jpg",
+				instagram: "https://www.instagram.com/the_snapperbong?igsh=MTNqeGZkYWNmYzB1bg==",
+				linkedin: "https://www.linkedin.com/in/rangan-daw-4b951b1b6?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 			},
 			{
 				name: "Aneek Karmakar",
