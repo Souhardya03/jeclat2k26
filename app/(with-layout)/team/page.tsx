@@ -723,7 +723,7 @@ function GlitchHeader({
 export default function TeamPage() {
 	return (
 		<div
-			className={`relative min-h-screen w-full bg-[#020202] text-[#e0e0e0] overflow-x-hidden ${cinzel.className}`}>
+			className={`relative min-h-screen w-full  bg-[#020202] text-[#e0e0e0] overflow-x-hidden ${cinzel.className}`}>
 			{/* Background */}
 			<div className="fixed bg-black inset-0 z-0 overflow-hidden pointer-events-none">
 				<Image
@@ -731,7 +731,7 @@ export default function TeamPage() {
 					alt="Background"
 					fill
 					priority
-					className="object-cover brightness-50 blur-sm"
+					className="object-cover brightness-25 blur-sm"
 				/>
 
 				{/* Texture Overlay (Stays constant) */}
