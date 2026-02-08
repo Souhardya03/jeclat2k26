@@ -37,6 +37,13 @@ const mono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"] });
 // --- DATA (Unchanged) ---
 const pastPerformers = [
 	{
+		year: "2K25",
+		artist: "Amit Mishra",
+		genre: "Singer",
+		image: "/assets/socials/AmitMishra.JPG",
+		ticketNo: "NO. 002025",
+	},
+	{
 		year: "2K24",
 		artist: "TRAP",
 		genre: "Rock and Metal",
