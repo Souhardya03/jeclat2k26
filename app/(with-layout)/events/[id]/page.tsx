@@ -75,7 +75,7 @@ const EpicSelect = ({ value, onChange, options, placeholder = "Select" }: { valu
 );
 
 // ==========================================
-// --- SANKALP FORM ---
+// --- SANKALP FORM COMPONENT ---
 // ==========================================
 function SankalpForm({ event }: { event: any }) {
   const isSolo = event.maxMembers === 1;
@@ -111,17 +111,17 @@ function SankalpForm({ event }: { event: any }) {
   return (
     <form onSubmit={handleSubmit} className="w-full space-y-16 p-8 border-y-2 border-[#fbba06]/10 bg-[#000000]/60 backdrop-blur-md relative">
       
-      {/* Borders */}
+      {/* Decorative Corner Borders */}
       <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#fbba06]"></div>
       <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#fbba06]"></div>
       <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#fbba06]"></div>
       <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#fbba06]"></div>
 
-      {/* 1. IDENTITY */}
+      {/* 1. IDENTITY SECTION */}
       <div className="space-y-8">
         <div className="text-center">
            <h3 className={`${cinzel.className} text-2xl text-[#fbba06]`}>Pratham Adhyaya: Parichay</h3>
-           <p className={`${cormorant.className} text-[#fbba06]/60 italic`}>"Identity of the Warrior"</p>
+           <p className={`${cormorant.className} text-[#fbba06]/60 italic`}>&quot;Identity of the Warrior&quot;</p>
         </div>
 
         <div className="grid gap-8">
@@ -165,13 +165,13 @@ function SankalpForm({ event }: { event: any }) {
 
       <Divider />
 
-      {/* 2. SQUADRON */}
+      {/* 2. SQUADRON SECTION */}
       {!isSolo && (
         <div className="space-y-8">
            <div className="flex items-center justify-between">
               <div>
                  <h3 className={`${cinzel.className} text-xl text-[#fbba06]`}>Dwitiya Adhyaya: Sena</h3>
-                 <p className={`${cormorant.className} text-[#fbba06]/60 italic`}>"Assemble your Army"</p>
+                 <p className={`${cormorant.className} text-[#fbba06]/60 italic`}>&quot;Assemble your Army&quot;</p>
               </div>
               {members.length < event.maxMembers - 1 && (
                  <button type="button" onClick={addMember} className="flex items-center gap-2 px-4 py-2 border border-[#fbba06]/40 text-[#fbba06] text-xs uppercase tracking-widest hover:bg-[#fbba06] hover:text-[#1a0b0b] transition-all">
@@ -209,10 +209,10 @@ function SankalpForm({ event }: { event: any }) {
         </div>
       )}
 
-      {/* 3. OATH */}
+      {/* 3. OATH & SUBMIT */}
       <div className="pt-8 text-center space-y-6">
          <p className={`${cormorant.className} text-lg text-[#f0e6d2]/80 italic max-w-lg mx-auto`}>
-            "I hereby pledge my skill and honor to the arena. I accept the Dharma of the competition."
+            &quot;I hereby pledge my skill and honor to the arena. I accept the Dharma of the competition.&quot;
          </p>
          <button 
             type="submit"
@@ -231,14 +231,15 @@ function SankalpForm({ event }: { event: any }) {
 }
 
 // ==========================================
-// --- MAIN PAGE ---
+// --- MAIN PAGE COMPONENT ---
 // ==========================================
 export default function EventDetailsPage() {
   const { id } = useParams();
   const event = eventData.find((e) => e.id === id);
   const { scrollY } = useScroll();
   
-  // Opacity fade for background image only, NO Y MOVEMENT
+  // Opacity fade for background image only. 
+  // IMPORTANT: Removed 'y' transform to fix "image scrolling down" issue.
   const opacity = useTransform(scrollY, [0, 600], [1, 0.2]);
 
   if (!event) return null;
@@ -246,9 +247,9 @@ export default function EventDetailsPage() {
   return (
     <div className={`min-h-screen bg-[#0a0502] text-[#f0e6d2] ${montserrat.className} selection:bg-[#fbba06] selection:text-[#1a0b0b]`}>
       
-      {/* --- FIXED BACKGROUND (NO PARALLAX Y) --- */}
-      {/* This div is completely removed from flow and stays fixed */}
-      <div className="fixed bg-black inset-0 w-full h-screen z-0">
+      {/* --- FIXED BACKGROUND LAYER --- */}
+      {/* 'fixed' ensures the image stays perfectly still while the page scrolls */}
+      <div className="fixed inset-0 w-full h-screen z-0 bg-black">
          <motion.div style={{ opacity }} className="relative w-full h-full">
             <Image 
               src={event.image} 
@@ -257,17 +258,17 @@ export default function EventDetailsPage() {
               className="object-cover" 
               priority 
             />
-            {/* Gradients to blend image into black */}
+            {/* Gradients for readability */}
             <div className="absolute inset-0 bg-gradient-to-b from-[#0a0502]/40 via-[#0a0502]/80 to-[#0a0502]"></div>
             <div className="absolute inset-0 bg-[#4a0404]/20 mix-blend-multiply"></div>
          </motion.div>
          
-         {/* Decorative Mandalas (Fixed in background) */}
+         {/* Fixed Decorative Mandalas */}
          <div className="absolute top-[-20%] right-[-20%] w-[80vw] h-[80vw] border-[1px] border-[#fbba06]/10 rounded-full animate-spin-slow pointer-events-none"></div>
       </div>
 
-      {/* --- SCROLLABLE CONTENT --- */}
-      {/* z-10 puts this above the background. relative puts it in flow. */}
+      {/* --- SCROLLABLE CONTENT LAYER --- */}
+      {/* 'relative' positioning keeps this in the document flow */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-40">
          
          {/* 1. HEADER */}
@@ -294,16 +295,16 @@ export default function EventDetailsPage() {
                </h1>
                
                <div className="flex justify-center gap-8 text-[#fbba06]/80 font-serif italic text-lg">
-                  <span className="flex items-center gap-2"><Calendar size={18} /> Feb 2026</span>
-                  <span className="flex items-center gap-2"><MapPin size={18} /> Kurukshetra</span>
+                  <span className="flex items-center gap-2"><Calendar size={18} />{event.eventInfo.date}</span>
+                  <span className="flex items-center gap-2"><MapPin size={18} /> {event.eventInfo.venue}</span>
                </div>
             </motion.div>
          </div>
 
-         {/* 2. MAIN GRID (Katha & Dharma) */}
+         {/* 2. MAIN CONTENT GRID */}
          <div className="grid lg:grid-cols-12 gap-16 mb-20">
             
-            {/* LEFT COL: Story & Rules */}
+            {/* LEFT COL: Katha (Story) & Dharma (Rules) */}
             <div className="lg:col-span-7 space-y-20">
                
                {/* Katha */}
@@ -317,7 +318,7 @@ export default function EventDetailsPage() {
                      </p>
                   </div>
                   
-                  {/* Command */}
+                  {/* Command Structure */}
                   <div className="mt-8 grid sm:grid-cols-2 gap-6">
                      {event.coordinators.map((group: any, idx: number) => (
                         <div key={idx}>
@@ -354,7 +355,7 @@ export default function EventDetailsPage() {
 
             </div>
 
-            {/* RIGHT COL: Ranbheri (Form) */}
+            {/* RIGHT COL: Ranbheri (Registration) */}
             <div className="lg:col-span-5 relative">
                <div className="sticky top-24">
                   <div className="mb-6 flex items-center gap-3">
@@ -363,7 +364,15 @@ export default function EventDetailsPage() {
                      <div className="h-[2px] flex-grow bg-[#fbba06]/30"></div>
                   </div>
                   
-                  <SankalpForm event={event} />
+                  {event.registrationOpen ? (
+                     <SankalpForm event={event} />
+                  ) : (
+                     <div className="p-8 border border-[#fbba06]/30 bg-[#fbba06]/10 text-center">
+                        <Shield className="mx-auto h-12 w-12 text-[#fbba06] mb-4 opacity-50" />
+                        <h3 className={`${cinzel.className} text-xl text-[#fbba06]`}>Portals Closed</h3>
+                        <p className="text-sm text-[#f0e6d2]/60 mt-2 font-serif">Registration for this event has not yet commenced.</p>
+                     </div>
+                  )}
                </div>
             </div>
 

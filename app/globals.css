@@ -144,3 +144,11 @@
             drop-shadow(0 0 20px rgba(255, 60, 0, 1));
   }
 }
+
+.no-scrollbar{
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
