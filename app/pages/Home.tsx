@@ -143,7 +143,7 @@ export default function HomePage() {
         </div>
 
         {/* --- CONTENT OVERLAY --- */}
-        <div className="z-10 relative flex flex-col h-full w-full px-6 py-4 md:px-12 md:py-2">
+        <div className="z-10 relative flex flex-col h-full w-full px-4 py-4 md:px-12 md:py-2">
           
           {/* Header */}
           <motion.header variants={itemVariants} className="flex justify-between items-center shrink-0">
