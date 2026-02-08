@@ -49,7 +49,7 @@ const Navbar = () => {
 				initial={{ opacity: 0, scale: 0.8 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 1, delay: 0.2 }}
-				className="flex md:fixed md:-top-[33.8em] absolute inset-0 z-10 left-0 w-full items-center justify-center gap-4  my-4 text-yellow-500/80">
+				className="lg:flex hidden md:fixed md:-top-[33.8em] absolute inset-0 z-10 left-0 w-full items-center justify-center gap-4  my-4 text-yellow-500/80">
 				<motion.div
 					initial={{ scaleX: 0 }}
 					animate={{ scaleX: 1 }}
