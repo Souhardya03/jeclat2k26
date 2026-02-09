@@ -60,14 +60,12 @@ const Footer: React.FC = () => {
 							{/* The Hindi Verse */}
 							<p
 								className={`${rozhaOne.className} text-yellow-100/90 text-xl text-center mb-3 leading-snug drop-shadow-md`}>
-								यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।<br/> अभ्युत्थानमधर्मस्य
-								तदात्मानं सृजाम्यहम्‌ ॥<br/> परित्राणाय साधूनां विनाशाय च दुष्कृताम्‌
-								।<br/> धर्मसंस्थापनार्थाय सम्भवामि युगे युगे ॥।
+								यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।<br /> अभ्युत्थानमधर्मस्य
+								तदात्मानं सृजाम्यहम्‌ ॥<br /> परित्राणाय साधूनां विनाशाय च
+								दुष्कृताम्‌ ।<br /> धर्मसंस्थापनार्थाय सम्भवामि युगे युगे ॥।
 							</p>
 
 							<div className="h-px w-20 bg-yellow-600/30 mx-auto my-3 group-hover:w-32 transition-all duration-500"></div>
-
-							
 						</div>
 					</div>
 
@@ -76,22 +74,20 @@ const Footer: React.FC = () => {
 						<h3
 							className={`${cinzel.className} text-xl text-yellow-500 font-bold flex items-center gap-2`}>
 							<span className="w-2 h-2 rounded-full bg-yellow-500 shadow-[0_0_10px_gold]"></span>
-							Realm
+							Archieves
 						</h3>
 						<ul className="space-y-3 w-full flex flex-col items-center md:items-start">
 							{[
-								"Events",
-								"Gallery",
-								"Sponsors",
-								"Our Team",
-								"Privacy Policy",
+								{ name: "Jeclat 2k25", link: "https://jeclat2k25.in" },
+								{ name: "Jeclat 2k24", link: "https://jeclat2k24.vercel.app" },
+								{ name: "Jeclat 2k23", link: "https://jeclat2k23.vercel.app" },
 							].map((item) => (
-								<li key={item}>
+								<li key={item.name}>
 									<Link
-										href="#"
+										href={item.link}
 										className="relative group flex items-center gap-2 text-sm text-gray-400 hover:text-yellow-200 transition-colors">
 										<span className="w-0 group-hover:w-4 h-px bg-yellow-500 transition-all duration-300"></span>
-										{item}
+										{item.name}
 									</Link>
 								</li>
 							))}

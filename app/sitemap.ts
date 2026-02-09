@@ -1,14 +1,14 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://jeclat2k25.in'
+  const baseUrl = 'https://jeclat2k26.in'
   
   const routes = [
     '',
     '/about',
     '/events',
     '/contact',
-    '/memory',
+    '/memories',
     '/team',
   ].map((route) => ({
     url: `${baseUrl}${route}`,

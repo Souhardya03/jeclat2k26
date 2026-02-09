@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jeclat2k26.in"), // 🔥 replace with real domain
+  metadataBase: new URL("https://jeclat2k26.in"), 
 
   title: {
     default: "JECLAT 2K26",
@@ -22,6 +22,15 @@ export const metadata: Metadata = {
 
   description:
     "Introducing you to the biggest cultural extravaganza in North Bengal. Join JECLAT 2K26 for music, dance, competitions, and unforgettable moments.",
+  
+  icons: {
+  icon: [
+    { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+  ],
+  apple: "/apple-touch-icon.png",
+  shortcut: "/favicon.ico",
+},
+
 
   keywords: [
     "JECLAT",
@@ -44,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "JECLAT 2K26",
     images: [
       {
-        url: "/assets/logo.png", // 🔥 create this inside /public
+        url: "/assets/logo.png",
         width: 1200,
         height: 630,
         alt: "JECLAT 2K26 Cultural Fest Banner",
@@ -71,10 +80,6 @@ export const metadata: Metadata = {
     },
   },
 
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
 
   alternates: {
     canonical: "https://jeclat2k26.in",
