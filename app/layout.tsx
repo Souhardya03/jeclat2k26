@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "JECLAT 2K26",
     images: [
       {
-        url: "https://jeclat2k26.in/assets/logo.png",
+        url: "https://jeclat2k26.in/assets/logo.jpeg",
         width: 1200,
         height: 630,
         alt: "JECLAT 2K26 Cultural Fest Banner",
