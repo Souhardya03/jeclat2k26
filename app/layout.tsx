@@ -105,8 +105,8 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				<AudioPlayer />
-				<ComingSoon/>
-				{/* {children} */}
+				{/* <ComingSoon/> */}
+				{children}
 			</body>
 		</html>
 	);
