@@ -172,16 +172,16 @@ export const teams = [
 			{
 				name: "Saikat Bera",
 				dept: "IT",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Saikat.jpg",
+				instagram: "https://www.instagram.com/saikat2635?igsh=d3N1dTBuZXdsMjF1",
+				linkedin: "https://www.linkedin.com/in/saikat-bera-29a9b5250?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 			},
 			{
 				name: "Surajit Malty",
 				dept: "IT",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Surajit.jpg",
+				instagram: "https://www.instagram.com/surajit_ma.it.y?igsh=N2Y3bjQ0ZGJxc3Zj",
+				linkedin: "https://www.linkedin.com/in/surajit-maity23",
 			},
 			{
 				name: "Kaustav Das",

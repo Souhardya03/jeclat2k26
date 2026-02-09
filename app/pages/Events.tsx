@@ -158,6 +158,7 @@ function TiltCard({ event, color }: { event: any; color: string }) {
             src={event.image}
             alt={event.eventInfo.title}
             fill
+            loading="lazy"
             className="object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-[0.6] group-hover:brightness-90 sepia-[0.2] group-hover:sepia-0"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-90"></div>
