@@ -163,7 +163,7 @@ export const eventData = [
     type: "competitive-event",
     image: roadies,
     maxMembers: 1,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Roadies Interview",
       description: "Interview session for Roadies",
@@ -188,7 +188,7 @@ export const eventData = [
     type: "competitive-event",
     image: tshirt_painting,
     maxMembers: 2,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "T-Shirt Painting",
       description: "Creative t-shirt painting competition",
@@ -211,7 +211,7 @@ export const eventData = [
     type: "competitive-event",
     image: mock_auction,
     maxMembers: 4,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Mock Auction Prelims",
       description: "Preliminary rounds of Mock Auction",
@@ -234,7 +234,7 @@ export const eventData = [
     type: "competitive-event",
     image: malle,
     maxMembers: 2,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Malle Prelims",
       description: "Preliminary rounds of Malle",
@@ -257,7 +257,7 @@ export const eventData = [
     type: "competitive-event",
     image: treasure_hunt,
     maxMembers: 4,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Treasure Hunt Prelims",
       description: "Preliminary rounds of Treasure Hunt",
@@ -281,7 +281,7 @@ export const eventData = [
     type: "non-competitive-event",
     image: made_for_each_other,
     maxMembers: 2,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Made For Each Other",
       description: "Student competition tests compatibility & skills.",
@@ -304,7 +304,7 @@ export const eventData = [
     type: "competitive-event",
     image: cs_go, // Using Quiz placeholder if CSGO image is missing
     maxMembers: 5,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "CS-GO",
       description: "Counter-Strike: Global Offensive tournament",
@@ -352,7 +352,7 @@ export const eventData = [
     type: "competitive-event",
     image: wall_painting,
     maxMembers: 4,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Wall Painting",
       description: "Creative wall painting competition",
@@ -375,7 +375,7 @@ export const eventData = [
     type: "competitive-event",
     image: antakshari,
     maxMembers: 2,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Antakshari Prelims",
       description: "Preliminary rounds of Antakshari",
@@ -398,7 +398,7 @@ export const eventData = [
     type: "competitive-event",
     image: pen_your_love,
     maxMembers: 1,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Pen Your Love",
       description: "Creative writing competition",
@@ -421,7 +421,7 @@ export const eventData = [
     type: "competitive-event",
     image: quiz,
     maxMembers: 2,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Precognition",
       description: "General knowledge quiz competition",
@@ -444,7 +444,7 @@ export const eventData = [
     type: "competitive-event",
     image: band_blast,
     maxMembers: 8,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Band Blast",
       description: "Live band performance competition",
@@ -466,7 +466,7 @@ export const eventData = [
     type: "competitive-event",
     image: fashion_show,
     maxMembers: 6,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Fashion Show",
       description: "Glamorous fashion show event",
@@ -561,7 +561,7 @@ export const eventData = [
     type: "competitive-event",
     image: antakshari,
     maxMembers: 2,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Antakshari Final",
       description: "Final round of Antakshari",
@@ -584,7 +584,7 @@ export const eventData = [
     type: "competitive-event",
     image: j_factor,
     maxMembers: 1,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "J-Factor",
       description: "Talent showcase competition",
@@ -607,7 +607,7 @@ export const eventData = [
     type: "non-competitive-event",
     image: prom_night,
     maxMembers: 2,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Prom Night",
       description: "Formal dance and social gathering",
@@ -632,7 +632,7 @@ export const eventData = [
     type: "competitive-event",
     image: treasure_hunt,
     maxMembers: 4,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Treasure Hunt",
       description: "Final day of treasure hunt",
@@ -702,7 +702,7 @@ export const eventData = [
     type: "non-competitive-event",
     image: wavez_night,
     maxMembers: 0,
-    registrationOpen: true,
+    registrationOpen: false,
     eventInfo: {
       title: "Wavezz Night",
       description: "The grand dance night featuring electrifying performances.",
