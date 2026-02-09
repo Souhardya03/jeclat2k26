@@ -36,12 +36,12 @@ export default function AudioPlayer() {
   };
 
   return (
-    <button onClick={toggleMute} className="fixed cursor-pointer bottom-10 right-10 z-100">
+    <button onClick={toggleMute} className="fixed cursor-pointer bottom-6 right-6 z-100">
        <Image 
          src={isMuted ? "/assets/cassette-tape.png" : "/assets/tape-recorder.png"} 
          alt="Audio Toggle" 
-         width={72} 
- height={72} 
+         width={64} 
+ height={64} 
        />
     </button>
   );
