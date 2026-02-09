@@ -1,5 +1,13 @@
 export const chiefCoordinators = [
 	{
+		name: "Akash Debnath",
+		role: "Supreme Commander",
+		dept: "EE",
+		image: "/assets/teams/Akash.jpg",
+		instagram: "https://www.instagram.com/akash_d02?igsh=aGFtb2lrNmZuOWEz",
+		linkedin: "https://www.linkedin.com/in/akash-debnath-a34508254/",
+	},
+	{
 		name: "Sudip Biswas",
 		role: "Supreme Commander",
 		dept: "IT",
@@ -8,14 +16,7 @@ export const chiefCoordinators = [
 			"https://www.instagram.com/_biswas_sudip_?igsh=MWExZ3hhbjNmbnd3aA%3D%3D&utm_source=qr",
 		linkedin: "http://www.linkedin.com/in/sudip9733",
 	},
-	{
-		name: "Akash Debnath",
-		role: "Supreme Commander",
-		dept: "EE",
-		image: "/assets/teams/Akash.jpg",
-		instagram: "https://www.instagram.com/akash_d02?igsh=aGFtb2lrNmZuOWEz",
-		linkedin: "https://www.linkedin.com/in/akash-debnath-a34508254/",
-	},
+	
 ];
 export const socialSecretaries = [
 	{
