@@ -183,7 +183,7 @@ export default function AboutPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5, duration: 1 }}
-              className="absolute bottom-8 md:bottom-12 left-6 right-6 flex justify-between items-end text-[#F2E8CF]/60"
+              className="absolute bottom-8 md:bottom-12 left-6 right-6 flex justify-between items-end text-[#F2E8CF]/60 "
            >
               <div className="hidden md:block text-xs max-w-[200px] leading-relaxed">
                  Celebrating art, culture, and competition in the heart of North Bengal.
@@ -256,7 +256,7 @@ export default function AboutPage() {
                  </motion.p>
 
                  <motion.div variants={fadeInUp}>
-                   <Link href="/events/elementary" className="inline-block group">
+                   <Link href="/elementary" className="inline-block group">
                       <div className="flex items-center gap-4 text-[#D4AF37] border-b border-[#D4AF37]/30 pb-1 group-hover:border-[#D4AF37] transition-colors">
                          <span className="uppercase tracking-[0.2em] text-xs md:text-sm font-semibold">Coming Soon</span>
                          <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={16} />
