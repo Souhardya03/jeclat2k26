@@ -71,9 +71,9 @@ export const teams = [
 			{
 				name: "Srijan Bhattacharya",
 				dept: "ME",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Srijan.jpeg",
+				instagram: "https://www.instagram.com/srijan_.og._?igsh=MWczNWU4eWU4b2l6MA%3D%3D&utm_source=qr",
+				linkedin: "https://www.linkedin.com/in/srijan-bhattacharya-b33bb4259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 			},
 			{
 				name: "Prakash Garain",
