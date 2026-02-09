@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	metadataBase: new URL("https://jeclat2k26.in"),
+	metadataBase: new URL("https://www.jeclat2k26.in"),
 
 	title: {
 		default:
@@ -48,11 +48,11 @@ export const metadata: Metadata = {
 		title: "JECLAT 2K26 - North Bengal's Biggest Cultural Festival",
 		description:
 			"North Bengal’s biggest cultural fest is back. Experience music, dance, and competitions at JECLAT 2K26.",
-		url: "https://jeclat2k26.in",
+		url: "https://www.jeclat2k26.in",
 		siteName: "JECLAT 2K26",
 		images: [
 			{
-				url: "https://jeclat2k26.in/assets/logo.jpeg",
+				url: "https://www.jeclat2k26.in/assets/logo.jpeg",
 				width: 1200,
 				height: 630,
 				alt: "JECLAT 2K26 Cultural Fest Banner",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 	},
   other: {
     "og:site_name": "JECLAT 2K26",
-    "og:url": "https://jeclat2k26.in",
+    "og:url": "https://www.jeclat2k26.in",
     "og:image:width": "1200",
     "og:image:height": "630",
     "og:locale": "en_IN",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
 	},
 
 	alternates: {
-		canonical: "https://jeclat2k26.in",
+		canonical: "https://www.jeclat2k26.in",
 	},
 };
 
