@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Cinzel, Rozha_One } from "next/font/google";
 import { motion, AnimatePresence, Variants } from "framer-motion";
+import Image from "next/image";
 
 // Font configurations
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"], display: "swap" });
@@ -237,25 +238,7 @@ export default function MahabharatLoader() {
     <div className={`relative h-screen w-full overflow-hidden flex flex-col items-center bg-black ${cinzel.className}`}>
       
       {/* --- MUTE TOGGLE --- */}
-      <button
-        onClick={toggleMute}
-        className="absolute bottom-10 right-10 z-50 group flex items-center justify-center w-12 h-12 border border-amber-500 rounded-full bg-black/50 backdrop-blur-md hover:bg-amber-900/50 transition-all cursor-pointer outline-none focus:ring-2 focus:ring-amber-500"
-        aria-label={isMuted ? "Unmute sound" : "Mute sound"}
-      >
-        {isMuted ? (
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-          </svg>
-        ) : (
-          <div className="relative">
-            <div className="absolute inset-0 bg-amber-500 rounded-full blur animate-ping opacity-50"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-amber-500 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            </svg>
-          </div>
-        )}
-      </button>
+     
 
       {/* --- BACKGROUND VIDEO --- */}
       <div className="absolute inset-0 w-full h-full z-0">

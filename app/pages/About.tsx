@@ -202,7 +202,7 @@ export default function AboutPage() {
               </motion.div>
 
               <div className="hidden md:block text-xs text-right">
-                 10K+ Footfall <br/> 25+ Events
+                 5K+ Footfall <br/> 25+ Events
               </div>
            </motion.div>
         </section>
@@ -226,7 +226,7 @@ export default function AboutPage() {
               
               <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-4 md:gap-8">
                  <MinimalStat value="25+" label="Events" />
-                 <MinimalStat value="10K" label="People" />
+                 <MinimalStat value="5K" label="People" />
                  <MinimalStat value="XXL" label="Prizes" />
               </div>
            </motion.div>
