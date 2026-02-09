@@ -17,12 +17,21 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://jeclat2k26.in"), 
 
   title: {
-    default: "JECLAT 2K26",
+    default: "JECLAT 2K26 | JGEC Annual Cultural Festival | The Queen of All Fests",
     template: "%s | JECLAT 2K26",
   },
 
   description:
-    "Introducing you to the biggest cultural extravaganza in North Bengal. Join JECLAT 2K26 for music, dance, competitions, and unforgettable moments.",
+    "JECLAT 2K25 is North Bengal's biggest cultural festival at Jalpaiguri Government Engineering College. Experience 7 days of music, dance, fashion shows, gaming tournaments & celebrity performances.",
+  keywords: [
+    "JECLAT",
+    "JECLAT 2K26",
+    "JGEC fest",
+    "Jalpaiguri cultural fest",
+    "North Bengal college fest",
+    "engineering college festival",
+    "cultural events Bengal",
+  ],
   
   icons: {
   icon: [
@@ -31,16 +40,6 @@ export const metadata: Metadata = {
   apple: "/apple-touch-icon.png",
   shortcut: "/favicon.ico",
 },
-
-
-  keywords: [
-    "JECLAT",
-    "JECLAT 2K26",
-    "Cultural Fest North Bengal",
-    "Jalpaiguri Engineering College Fest",
-    "College Fest 2026",
-    "Events in North Bengal",
-  ],
 
   authors: [{ name: "JECLAT Team" }],
 
@@ -54,7 +53,7 @@ export const metadata: Metadata = {
     siteName: "JECLAT 2K26",
     images: [
       {
-        url: "/assets/logo.png",
+        url: "https://jeclat2k26.in/assets/logo.png",
         width: 1200,
         height: 630,
         alt: "JECLAT 2K26 Cultural Fest Banner",
@@ -69,7 +68,7 @@ export const metadata: Metadata = {
     title: "JECLAT 2K26",
     description:
       "Join the biggest cultural extravaganza of North Bengal — JECLAT 2K26.",
-    images: ["/assets/logo.png"],
+    images: ["/assets/logo.jpeg"],
   },
 
   robots: {
