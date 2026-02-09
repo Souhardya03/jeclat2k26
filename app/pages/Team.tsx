@@ -369,7 +369,7 @@ export default function TeamPage() {
 						<div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse" />
 						<span
 							className={`${montserrat.className} text-xs sm:text-sm tracking-widest`}>
-							Jai JECLAT
+							JECLAT IS ON
 						</span>
 						<div className="w-2 h-2 bg-yellow-600 rounded-full animate-pulse" />
 					</div>
