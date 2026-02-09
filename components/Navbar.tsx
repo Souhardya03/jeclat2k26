@@ -118,9 +118,9 @@ const Navbar = () => {
                 variants={navContainerVariants}
                 initial="hidden"
                 animate="visible"
-                className={`hidden z-10 lg:flex items-center justify-center w-full max-w-7xl mx-auto rounded-full border transition-all duration-700 relative h-20
+                className={`hidden z-10 md:flex items-center justify-center w-full max-w-7xl mx-auto rounded-full border transition-all duration-700 relative h-20
         ${scrolled ? "bg-[#0a0502]/90 backdrop-blur-md border-yellow-600/40" : "bg-[#0a0502]/40 backdrop-blur-sm border-white/10"}`}>
-                <div className="flex-1 flex justify-end gap-2 pr-16">
+                <div className="flex-1 flex justify-end gap-2 lg:pr-16">
                     {navItems.slice(0, 3).map((item) => (
                         <motion.div
                             key={item.name}
@@ -151,7 +151,7 @@ const Navbar = () => {
                     </motion.div>
                 </Link>
 
-                <div className="flex-1 flex justify-start gap-2 pl-16">
+                <div className="flex-1 flex justify-start gap-2 lg:pl-16">
                     {navItems.slice(3).map((item) => (
                         <motion.div
                             key={item.name}
@@ -167,7 +167,7 @@ const Navbar = () => {
 
             {/* Mobile Nav Toggle */}
             <div
-                className={`lg:hidden flex items-center justify-between px-6 h-16 w-full max-w-md mx-auto rounded-full bg-[#0a0502]/90 backdrop-blur-xl border border-yellow-900/50 shadow-2xl transition-all duration-500`}>
+                className={`md:hidden flex items-center justify-between px-6 h-16 w-full max-w-md mx-auto rounded-full bg-[#0a0502]/90 backdrop-blur-xl border border-yellow-900/50 shadow-2xl transition-all duration-500`}>
                 <div className="flex gap-3 items-center">
                     <Link href="/">
                         <Image

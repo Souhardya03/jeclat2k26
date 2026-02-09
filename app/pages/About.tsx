@@ -194,7 +194,7 @@ export default function AboutPage() {
                 onClick={scrollToStats}
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-                className="flex flex-col absolute lg:left-1/2 items-center gap-2 text-[#D4AF37] w-full md:w-auto cursor-pointer"
+                className="flex flex-col absolute md:left-1/2 items-center gap-2 text-[#D4AF37] w-full md:w-auto cursor-pointer"
               >
                  <div className="w-[1px] h-8 md:h-12 bg-gradient-to-b from-transparent to-[#D4AF37]"></div>
                  <span className="text-[8px] md:text-[10px] uppercase tracking-widest">Scroll</span>
