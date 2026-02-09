@@ -114,9 +114,9 @@ export const teams = [
 			{
 				name: "Suman Chakraborty",
 				dept: "IT",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Suman.jpeg",
+				instagram: "https://www.instagram.com/suman_chakraborty299?igsh=MTV4ZzJmeHd1NG80NQ==",
+				linkedin: "https://www.linkedin.com/in/suman-chakraborty-99660a203?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 			},
 			{
 				name: "Debayan Ghosh",
@@ -222,17 +222,17 @@ export const teams = [
 			{
 				name: "Simon Barua",
 				dept: "CSE",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Simon.jpg",
+				instagram: "https://www.instagram.com/_.simone.b._?igsh=MTA1NGw2NWFmbnE3eQ==",
+				linkedin: "https://www.linkedin.com/in/simon-b-93128a271",
 			},
 
 			{
 				name: "Atanu Basak",
 				dept: "IT",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Atanu.jpeg",
+				instagram: "https://www.instagram.com/snowzieeee?igsh=aWFyanl3eW4ycjE3",
+				linkedin: "https://www.linkedin.com/in/atanu-basak-3a940a256?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
 			},
 			{
 				name: "Pritam Chakraborty",
@@ -462,11 +462,11 @@ export const teams = [
 		mahabharat: "Kala Prabhus (Arts Masters)",
 		members: [
 			{
-				name: "Raktim Majhi",
+				name: "Raktim Maji",
 				dept: "ECE",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Raktim.jpg",
+				instagram: "https://www.instagram.com/raktim.maji.39?igsh=MXh1OWxmbzkzOWg0cA==",
+				linkedin: "https://www.linkedin.com/in/raktim-maji-772111259?utm_source=share_via&utm_content=profile&utm_medium=member_android",
 			},
 			{
 				name: "Asif Shaikh",
