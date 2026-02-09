@@ -186,7 +186,7 @@ export const teams = [
 			{
 				name: "Kaustav Das",
 				dept: "CSE",
-				image: "/assets/team/default.jpg",
+				image: "/assets/teams/user.png",
 				instagram: "#",
 				linkedin: "#",
 			},
