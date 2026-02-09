@@ -221,7 +221,7 @@ export default function HomePage() {
                   transition={{ duration: 1.5 }}
                   className="h-[2px] w-12 md:w-24 bg-gradient-to-r from-transparent via-yellow-600 to-transparent"
                 />
-                <h3 className={`${cinzel.className} text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-b text-center from-yellow-100 to-yellow-600 tracking-[0.2em] font-bold drop-shadow-sm`}>
+                <h3 className={`${cinzel.className} text-xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-b text-center from-yellow-100 to-yellow-600 tracking-[0.2em] font-bold drop-shadow-sm`}>
                   STAY TUNED
                 </h3>
                 <motion.div 
@@ -232,7 +232,7 @@ export default function HomePage() {
                 />
               </div>
               
-              <p className={`${eagleLake.className} text-center text-yellow-500/80 text-lg md:text-xl tracking-wider animate-pulse`}>
+              <p className={`${eagleLake.className} text-center text-yellow-500/80 text-sm md:text-xl tracking-wider animate-pulse`}>
                 Dates To Be Announced Soon
               </p>
             </motion.div>
