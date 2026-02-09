@@ -83,6 +83,7 @@ function GoldenTicketCard({ data, index }: { data: any; index: number }) {
 									src={data.image}
 									alt={data.artist}
 									fill
+									loading="lazy"
 									className="object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale-[0.2] brightness-[0.7] group-hover:brightness-100"
 								/>
 								<div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent z-10"></div>
