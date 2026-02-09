@@ -151,8 +151,8 @@ export const teams = [
 			{
 				name: "Apurba Shaw",
 				dept: "ME",
-				image: "/assets/team/default.jpg",
-				instagram: "#",
+				image: "/assets/teams/Apurba.jpeg",
+				instagram: "https://www.instagram.com/_apurvashaw_74?igsh=MTh0czMydGR4eG91bg==",
 				linkedin: "#",
 			},
 		],
@@ -428,7 +428,7 @@ export const teams = [
 			{
 				name: "Sitesh Kr. Saha",
 				dept: "ECE",
-				image: "/assets/team/default.jpg",
+				image: "/assets/teams/Sitesh.jpeg",
 				instagram: "#",
 				linkedin: "#",
 			},
