@@ -152,19 +152,16 @@ const Footer: React.FC = () => {
 					<div className="flex items-center gap-4">
 						<SocialIcon
 							icon={<Facebook size={20} />}
-							href="#"
+							href="https://www.facebook.com/ItIsOnn/"
 						/>
 						<SocialIcon
 							icon={<Instagram size={20} />}
-							href="#"
+							href="https://www.instagram.com/jeclat.jgec/"
 						/>
-						<SocialIcon
-							icon={<Twitter size={20} />}
-							href="#"
-						/>
+						
 						<SocialIcon
 							icon={<Youtube size={20} />}
-							href="#"
+							href="https://www.youtube.com/@atelierjgec2585"
 						/>
 					</div>
 				</div>
