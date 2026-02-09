@@ -19,7 +19,7 @@ import pen_your_love from "@/public/images/eventImages/pen-your-love1.jpeg";
 import treasure_hunt from "@/public/images/eventImages/treasure-hunt1.jpeg";
 import mock_auction from "@/public/images/eventImages/mock-auction.jpg";
 import band_blast from "@/public/images/eventImages/band-blast.png";
-import depicta from "@/public/images/eventImages/depicta.jpg";
+import depicta from "@/public/images/eventImages/Depicta.png";
 import wavez_night from "@/public/images/eventImages/wavezz1.jpg";
 import reunion from "@/public/images/eventImages/reunion.jpg";
 import calliphony_night from "@/public/images/eventImages/caliphony_night1.png";
