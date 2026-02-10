@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { Cinzel } from "next/font/google";
 import { Crown, Menu, X } from "lucide-react";
 
@@ -12,7 +12,7 @@ const cinzel = Cinzel({ subsets: ["latin"], weight: ["700"] });
 
 /* ---------------- Animation Variants ---------------- */
 
-const navContainerVariants = {
+const navContainerVariants: Variants = {
 	hidden: {},
 	show: {
 		transition: {
@@ -22,7 +22,7 @@ const navContainerVariants = {
 	},
 };
 
-const navItemVariants = {
+const navItemVariants: Variants= {
 	hidden: { opacity: 0, y: 20, scale: 0.9 },
 	show: {
 		opacity: 1,
