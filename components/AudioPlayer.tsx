@@ -64,7 +64,7 @@ export default function AudioPlayer() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-2 right-2 z-50">
       <motion.button
         onClick={toggleMute}
         whileHover={{ scale: 1.05 }}
