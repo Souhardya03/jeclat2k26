@@ -80,6 +80,8 @@ const Navbar = () => {
 		{ name: "Contact", href: "/contact", img: "/assets/nav/ContactIcon.png" },
 	];
 
+	if(pathname.startsWith("/events/")) return null; 
+
 	return (
 		<nav className="fixed top-6 left-0 right-0 flex flex-col items-center justify-center px-4 z-50">
 			{/* 1. Login Emblem (Desktop) */}
