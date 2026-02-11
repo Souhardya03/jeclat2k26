@@ -17,6 +17,7 @@ import {
     Eye,
     EyeOff,
 } from "lucide-react";
+import { showDivineToast } from "@/components/CustomToast";
 
 // --- FONTS (Assume these are configured in your layout) ---
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
@@ -42,6 +43,7 @@ export default function MahabharatLogin() {
         e.preventDefault();
         setIsLoading(true);
         setTimeout(() => setIsLoading(false), 2000);
+        showDivineToast("Entrance Denied", "Registration has not yet started.","error")
     };
 
     const handleGoogleLogin = () => {
@@ -98,7 +100,7 @@ export default function MahabharatLogin() {
                                 || पुनः स्वागतम् ||
                             </h2>
                             <h1 className={`${cinzel.className} text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-500 to-yellow-700`}>
-                                LOGIN
+                                WARRIOR LOGIN
                             </h1>
                             <p className={`${cormorant.className} text-lg text-gray-400 italic mt-2 px-4`}>
                                 &quot;Identify yourself to the divine gatekeepers.&quot;
@@ -166,7 +168,7 @@ export default function MahabharatLogin() {
                                 >
                                     <motion.div variants={{ initial: { opacity: 0 }, hover: { opacity: 1 } }} className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.2)_0%,transparent_70%)]" />
                                     <div className="relative z-10 flex flex-col items-center justify-center">
-                                        <span className={`${sanskrit.className} text-lg text-orange-200/80 tracking-widest group-hover:text-orange-400 transition-colors`}>
+                                        <span className={`${sanskrit.className} text-sm lg:text-lg text-orange-200/80 tracking-widest group-hover:text-orange-400 transition-colors`}>
                                             {isLoading ? "प्रविशति..." : "प्रविश (ENTER THE GATES)"}
                                         </span>
                                     </div>

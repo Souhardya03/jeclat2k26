@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/sonner";
 
 export default function WithLayout({
   children,
@@ -8,6 +9,7 @@ export default function WithLayout({
   return (
     <>
       {children}
+      <Toaster/>
     </>
   );
 }

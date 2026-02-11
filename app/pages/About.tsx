@@ -156,16 +156,47 @@ export default function AboutPage() {
                  <Star size={10} className="md:w-3 md:h-3" />
               </motion.div>
 
-              <motion.div variants={scaleIn} className="flex items-center justify-center py-2 md:py-4">
-                 <Image
-                    src="/assets/jeclatfont.svg"
-                    alt="JECLAT"
-                    width={800}
-                    height={200}
-                    className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] drop-shadow-2xl h-auto"
-                    priority
-                 />
-              </motion.div>
+              <motion.div 
+  initial="initial"
+  whileHover="hover"
+  className="relative flex items-center justify-center py-2 md:py-4 cursor-pointer"
+>
+  {/* 1. Subtle Orange Ambient Glow */}
+  <motion.div
+    variants={{
+      initial: { opacity: 0, scale: 0.9 },
+      hover: { 
+        opacity: 0.3, // Kept minimal as requested
+        scale: 1.1,
+        transition: { duration: 0.8, ease: "easeInOut" } 
+      }
+    }}
+    className="absolute inset-0 bg-orange-500/20 blur-[80px] rounded-full pointer-events-none"
+  />
+
+  {/* 2. Logo with Soft Orange Drop-Shadow */}
+  <motion.div
+    variants={{
+      initial: { 
+        filter: "brightness(1) contrast(1) drop-shadow(0 0 0px rgba(245, 158, 11, 0))" 
+      },
+      hover: { 
+        filter: "brightness(1.15) contrast(1.05) drop-shadow(0 0 15px rgba(245, 158, 11, 0.4))",
+        transition: { duration: 0.6, ease: "easeOut" }
+      }
+    }}
+    className="relative z-10"
+  >
+    <Image
+      src="/assets/jeclatfont.svg"
+      alt="JECLAT"
+      width={800}
+      height={200}
+      className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] h-auto"
+      priority
+    />
+  </motion.div>
+</motion.div>
               
               <div className="overflow-hidden px-4">
                  <motion.p 
