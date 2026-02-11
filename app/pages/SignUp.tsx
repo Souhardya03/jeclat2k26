@@ -265,7 +265,6 @@ export default function MahabharatSignup() {
 								<DharmaSelect
 									icon={<Calendar size={16} />}
 									label="Era (Year)"
-									name="year"
 									{...register("year")}
 									options={["1st Year", "2nd Year", "3rd Year", "4th Year"]}
 								/>
