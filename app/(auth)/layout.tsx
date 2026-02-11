@@ -1,5 +1,3 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 export default function WithLayout({
   children,
@@ -9,9 +7,7 @@ export default function WithLayout({
 
   return (
     <>
-      <Navbar />
       {children}
-      <Footer />
     </>
   );
 }

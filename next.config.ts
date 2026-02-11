@@ -9,6 +9,12 @@ const nextConfig: NextConfig = {
         hostname:"img.youtube.com",
         port:"",
         pathname:"/**"
+      },
+       {
+        protocol:"https",
+        hostname:"upload.wikimedia.org",
+        port:"",
+        pathname:"/**"
       }
     ]
   }
