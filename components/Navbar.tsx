@@ -98,7 +98,7 @@ const Navbar = () => {
 							transition={{ repeat: Infinity, duration: 4 }}
 						/>
 						<Image
-							src="/assets/nav/login.png"
+							src="/assets/nav/Login.png"
 							alt="login"
 							width={48}
 							height={48}
@@ -161,39 +161,39 @@ const Navbar = () => {
 					href="/"
 					className="group relative flex items-center gap-4 z-20 lg:mx-10 shrink-0">
 					<motion.div
-    initial={{ opacity: 1, scale: 1, rotate: 0 }} // Rest state
-    whileHover={{ 
-        scale: 1.1, 
-        filter: "brightness(1.2) drop-shadow(0 0 15px rgba(213,190,137,0.6))" 
-    }}
-    transition={{ 
-        type: "spring", 
-        stiffness: 300, 
-        damping: 15 
-    }}
-    className="w-12 h-12 lg:w-28 lg:h-28 relative cursor-pointer"
->
-    <Image
-        src="/assets/logo.png"
-        alt="Logo"
-        fill
-        priority
-        className="object-contain contrast-105"
-    />
-</motion.div>
-				<motion.div
-					initial={{ opacity: 0, scale: 0.5 }}
-					animate={{ opacity: 1, scale: 1 }}
-					transition={{ delay: 0.2, duration: 0.8 }}
-					className="w-32 h-28 lg:hidden relative">
-					<Image
-						src="/assets/jeclatfont.svg"
-						alt="Logo"
-						fill
-						priority
-						className="object-contain contrast-125"
-					/>
-				</motion.div>
+						initial={{ opacity: 1, scale: 1, rotate: 0 }} // Rest state
+						whileHover={{
+							scale: 1.1,
+							filter:
+								"brightness(1.2) drop-shadow(0 0 15px rgba(213,190,137,0.6))",
+						}}
+						transition={{
+							type: "spring",
+							stiffness: 300,
+							damping: 15,
+						}}
+						className="w-12 h-12 lg:w-28 lg:h-28 relative cursor-pointer">
+						<Image
+							src="/assets/logo.png"
+							alt="Logo"
+							fill
+							priority
+							className="object-contain contrast-105"
+						/>
+					</motion.div>
+					<motion.div
+						initial={{ opacity: 0, scale: 0.5 }}
+						animate={{ opacity: 1, scale: 1 }}
+						transition={{ delay: 0.2, duration: 0.8 }}
+						className="w-32 h-28 lg:hidden relative">
+						<Image
+							src="/assets/jeclatfont.svg"
+							alt="Logo"
+							fill
+							priority
+							className="object-contain contrast-125"
+						/>
+					</motion.div>
 				</Link>
 
 				<div className="hidden lg:flex items-center gap-8 relative z-10 w-full justify-start">
@@ -273,7 +273,7 @@ const Navbar = () => {
 								onClick={() => setMobileMenuOpen(false)}
 								className="flex items-center gap-4 justify-center py-6 group">
 								<Image
-									src="/assets/nav/login.png"
+									src="/assets/nav/Login.png"
 									alt="login"
 									width={40}
 									height={40}
