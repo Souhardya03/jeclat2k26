@@ -12,6 +12,28 @@ const cinzel = Cinzel({ subsets: ["latin"], weight: ["700"] });
 
 /* ---------------- Cinematic & Fluid Variants ---------------- */
 
+
+const capsuleVariantsMobile: Variants = {
+	hidden: {
+		width: "100%",
+		opacity: 0,
+		y: 0,
+		filter: "blur(10px)",
+	},
+	show: {
+		width: "100%",
+		opacity: 1,
+		y: 0,
+		filter: "blur(0px)",
+		transition: {
+			duration: 1.2,
+			ease: [0.16, 1, 0.3, 1],
+			when: "beforeChildren",
+			staggerChildren: 0.08,
+		},
+	},
+};
+
 const capsuleVariants: Variants = {
 	hidden: {
 		width: "40%",
@@ -56,12 +78,23 @@ const Navbar = () => {
 	const pathname = usePathname();
 	const [scrolled, setScrolled] = useState(false);
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
 
 	useEffect(() => {
+		const handleResize = () => setIsMobile(window.innerWidth < 1024);
 		const handleScroll = () => setScrolled(window.scrollY > 20);
+
+		handleResize();
+		window.addEventListener("resize", handleResize);
 		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+			window.removeEventListener("scroll", handleScroll);
+		};
 	}, []);
+
+	console.log(isMobile);
+	
 
 	const navItems = [
 		{ name: "Events", href: "/events", img: "/assets/nav/EventIcon.png" },
@@ -141,7 +174,8 @@ const Navbar = () => {
 
 			{/* 3. Main Capsule */}
 			<motion.div
-				variants={capsuleVariants}
+				key={isMobile ? "mobile" : "desktop"}
+				variants={isMobile ? capsuleVariantsMobile : capsuleVariants}
 				initial="hidden"
 				animate="show"
 				className={`relative flex items-center justify-between lg:justify-center px-5 lg:px-8 rounded-full border md:max-w-xl lg:max-w-6xl h-16 lg:h-20 shadow-[0_15px_40px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-700 ${
