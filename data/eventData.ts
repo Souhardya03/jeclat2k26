@@ -38,7 +38,7 @@ export const eventData = [
     type: "pre-event",
     image: flash_mob,
     maxMembers: 1,
-    registrationOpen: false,
+    registrationOpen: true,
     eventInfo: {
       title: "Flash Mob",
       description: "A thrilling pre-event spectacle of spontaneous choreographed dance and music.",
