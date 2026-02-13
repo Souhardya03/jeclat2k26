@@ -37,7 +37,7 @@ export const eventData = [
     id: "flash-mob",
     type: "pre-event",
     image: flash_mob,
-    maxMembers: 1,
+    maxMembers: 4,
     registrationOpen: true,
     eventInfo: {
       title: "Flash Mob",
