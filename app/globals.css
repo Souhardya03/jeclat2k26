@@ -168,3 +168,45 @@
 body{
   background: #000;
 }
+
+/* 1. The Scrollbar Width/Height */
+::-webkit-scrollbar {
+  width: 8px;  /* Vertical scrollbar width */
+  height: 8px; /* Horizontal scrollbar height */
+}
+
+/* 2. The Track (The Obsidian Path) */
+::-webkit-scrollbar-track {
+  background: #050201; /* Deepest black/brown */
+  border-left: 1px solid rgba(255, 255, 255, 0.05); /* Subtle glass edge */
+}
+
+/* 3. The Thumb (The Forged Gold) */
+::-webkit-scrollbar-thumb {
+  /* Gradient mimicking forged gold metal */
+  background: linear-gradient(to bottom, #713f12 0%, #eab308 50%, #713f12 100%);
+  border-radius: 10px; /* Rounded pill shape */
+  border: 1px solid rgba(250, 204, 21, 0.3); /* Subtle gold glow edge */
+}
+
+/* Horizontal Thumb Gradient adjustment */
+::-webkit-scrollbar-thumb:horizontal {
+  background: linear-gradient(to right, #713f12 0%, #eab308 50%, #713f12 100%);
+}
+
+/* 4. The Thumb on Hover (Glowing Gold) */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #92400e 0%, #fef08a 50%, #92400e 100%);
+  border: 1px solid rgba(250, 204, 21, 0.8); /* Brighter edge on hover */
+}
+
+/* Horizontal Thumb Hover adjustment */
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: linear-gradient(to right, #92400e 0%, #fef08a 50%, #92400e 100%);
+}
+
+/* Firefox compatibility (Firefox handles scrollbars differently) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #eab308 #050201;
+}
