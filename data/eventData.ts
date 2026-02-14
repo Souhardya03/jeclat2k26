@@ -44,7 +44,7 @@ export const eventData = [
       description: "A thrilling pre-event spectacle of spontaneous choreographed dance and music.",
       category: "Pre Events",
       venue: "Not Decided",
-      date: "8th March, 2026"
+      date: "Not Decided"
     },
     coordinators: [
       {
