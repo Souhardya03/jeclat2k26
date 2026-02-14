@@ -183,7 +183,7 @@ export default function HomePage() {
                   transition={{ delay: 1, duration: 1 }}
                   className="h-[1px] bg-gradient-to-r from-transparent to-yellow-600"
                 ></motion.span>
-                <span className={`${eagleLake.className} text-xl text-center md:text-3xl tracking-widest`}>30th March — 5th April</span>
+                <span className={`${eagleLake.className} text-sm text-center md:text-3xl tracking-widest`}>30th March — 5th April</span>
                 <motion.span 
                   initial={{ width: 0 }}
                   animate={{ width: 40 }}
