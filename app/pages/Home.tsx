@@ -112,7 +112,7 @@ export default function HomePage() {
             src="/assets/home-bg.png"
             alt="Background"
             fill
-            preload
+            preload = {true}
             className="object-cover blur-[1px]"
           />
           <div className="absolute inset-0 bg-radial-vignette"></div>
