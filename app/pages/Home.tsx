@@ -147,7 +147,7 @@ export default function HomePage() {
           
           {/* Header */}
           <motion.header variants={itemVariants} className="flex justify-between items-center shrink-0">
-            <Image src="/assets/logo.png" alt="Logo" width={120} height={120} className="drop-shadow-glow" />
+            <Image src="/assets/logo.png" preload alt="Logo" width={120} height={120} className="drop-shadow-glow" />
             <div className="text-right border-r-2 border-yellow-600/40 pr-4">
               <h2 className={`${cinzel.className} text-sm md:text-lg text-yellow-100`}>
                 The Largest Cultural Fest of North Bengal
@@ -168,6 +168,7 @@ export default function HomePage() {
                <Image 
                 src="/assets/jeclatfont.svg" 
                 alt="Jeclat 2026" 
+                preload
                 width={1000} 
                 height={300} 
                 className="w-full h-auto brightness-110 drop-shadow-[0_0_25px_rgba(255,140,0,0.5)]"
@@ -183,7 +184,7 @@ export default function HomePage() {
                   transition={{ delay: 1, duration: 1 }}
                   className="h-[1px] bg-gradient-to-r from-transparent to-yellow-600"
                 ></motion.span>
-                <span className={`${eagleLake.className} text-xl text-center md:text-3xl tracking-widest`}>30th March — 5th April</span>
+                <span className={`${eagleLake.className} text-sm text-center md:text-3xl tracking-widest`}>30th March — 5th April</span>
                 <motion.span 
                   initial={{ width: 0 }}
                   animate={{ width: 40 }}
