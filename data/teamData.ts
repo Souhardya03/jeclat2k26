@@ -185,6 +185,13 @@ export const teams = [
 				linkedin: "https://www.linkedin.com/in/surajit-maity23",
 			},
 			{
+				name: "Akash Saha",
+				dept: "IT",
+				image: "/assets/teams/AkashSaha.jpeg",
+				instagram: "https://www.instagram.com/akashsaha9153?igsh=bGRza2thZGluNTdq",
+				linkedin: "https://www.linkedin.com/in/akash-saha-270000351/",
+			},
+			{
 				name: "Kaustav Das",
 				dept: "CSE",
 				image: "/assets/teams/user.png",
