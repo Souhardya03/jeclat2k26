@@ -290,11 +290,11 @@ export default function EventDetailsPage() {
                   <Flame size={16} className="text-[#fbba06]" />
                </div>
                
-               <h1 className={`${rozha.className} text-6xl md:text-9xl text-[#f0e6d2] leading-none mb-6 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]`}>
+               <h1 className={`${rozha.className} text-5xl   md:text-9xl text-[#f0e6d2] leading-none mb-6 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]`}>
                   {event.eventInfo.title}
                </h1>
                
-               <div className="flex justify-center gap-8 text-[#fbba06]/80 font-serif italic text-lg">
+               <div className="flex justify-center gap-8 text-[#fbba06]/80 font-serif italic md:text-lg text-sm">
                   <span className="flex items-center gap-2"><Calendar size={18} />{event.eventInfo.date}</span>
                   <span className="flex items-center gap-2"><MapPin size={18} /> {event.eventInfo.venue}</span>
                </div>
@@ -313,7 +313,7 @@ export default function EventDetailsPage() {
                      <Scroll size={28} /> Katha <span className="text-sm opacity-50 ml-2 font-sans tracking-wide">(The Tale)</span>
                   </h2>
                   <div className="p-8 border-l-2 border-[#fbba06]/30 bg-gradient-to-r from-[#fbba06]/5 to-transparent">
-                     <p className={`${cormorant.className} text-2xl leading-relaxed text-[#f0e6d2]/90`}>
+                     <p className={`${cormorant.className} md:text-2xl text-xl leading-relaxed text-[#f0e6d2]/90`}>
                         {event.eventInfo.description}
                      </p>
                   </div>

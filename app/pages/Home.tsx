@@ -163,7 +163,7 @@ export default function HomePage() {
             <motion.div 
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              className="relative w-full max-w-[75vw] md:max-w-[55vw]"
+              className="relative w-full max-w-[85vw] md:max-w-[55vw]"
             >
                <Image 
                 src="/assets/jeclatfont.svg" 
@@ -286,7 +286,7 @@ export default function HomePage() {
 
           {/* Footer */}
           <motion.footer variants={itemVariants} className="shrink-0 text-center flex justify-center py-2">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-yellow-700 font-bold opacity-60">
+              <p className="md:text-[10px] text-[9px] uppercase tracking-[0.4em] text-yellow-700 font-bold opacity-60">
                 Prepare for Battle • Unleash the Soul
               </p>
           </motion.footer>
@@ -347,7 +347,7 @@ function CompactUnit({ value, label }: { value: number; label: string }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-3xl lg:text-5xl font-bold bg-gradient-to-b from-yellow-50 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm tabular-nums"
+            className="md:text-3xl text-2xl lg:text-5xl font-bold bg-gradient-to-b from-yellow-50 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm tabular-nums"
           >
             {value.toString().padStart(2, '0')}
           </motion.span>
