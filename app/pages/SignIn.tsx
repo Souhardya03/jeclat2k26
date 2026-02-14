@@ -48,6 +48,7 @@ export default function MahabharatLogin() {
 
     const handleGoogleLogin = () => {
         console.log("Google Login Clicked");
+        showDivineToast("Entrance Denied", "Registration has not yet started.","error")
     };
 
     return (

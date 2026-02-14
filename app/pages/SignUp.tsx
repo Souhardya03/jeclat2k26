@@ -100,15 +100,16 @@ export default function MahabharatSignup() {
         // Simulate API call
         setTimeout(() => {
             setIsLoading(false);
-            showDivineToast(
-                "Entrance Denied",
-                "Registration has not yet started.",
-                "error",
-            );
         }, 2000);
+		showDivineToast(
+			"Entrance Denied",
+			"Registration has not yet started.",
+			"error",
+		);
     };
 	const handleGoogleLogin = () => {
 		console.log("Google Login Clicked");
+		showDivineToast("Entrance Denied", "Registration has not yet started.","error")
 	};
 
 	return (

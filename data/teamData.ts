@@ -194,9 +194,9 @@ export const teams = [
 			{
 				name: "Kaustav Das",
 				dept: "CSE",
-				image: "/assets/teams/user.png",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/KaustavDas.jpg",
+				instagram: "https://www.instagram.com/kaustav9845",
+				linkedin: "https://www.linkedin.com/in/kaustav-das-48b903251",
 			},
 		],
 	},
@@ -450,9 +450,9 @@ export const teams = [
 			{
 				name: "Hriday Basak",
 				dept: "ME",
-				image: "/assets/teams/user.png",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Hridoy.webp",
+				instagram: "https://www.instagram.com/sj_hriday",
+				linkedin: "https://www.linkedin.com/in/hriday-basak",
 			},
 			{
 				name: "Kaushik Saha",

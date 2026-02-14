@@ -157,7 +157,7 @@ export default function HomePage() {
           </motion.header>
 
           {/* Central Hero Section */}
-          <div className="flex-grow flex flex-col items-center justify-center space-y-6 md:space-y-4 lg:space-y-8">
+          <div className="flex-grow flex flex-col items-center justify-center space-y-8 md:space-y-4 lg:space-y-8">
             
             {/* Main Titl */}
             <motion.div 
@@ -246,7 +246,7 @@ export default function HomePage() {
               className="group relative mt-6 flex items-center"
             >
               {/* Left Ornamental Arrow (Rotated 180deg) */}
-              <div className="relative w-24 h-8 transform rotate-180 opacity-80 group-hover:opacity-100 transition-opacity">
+              <div className="relative w-14 md:w-24 h-14 transform rotate-180 opacity-80 group-hover:opacity-100 transition-opacity">
                 <Image 
                   src="/assets/arrow.png" 
                   alt="" 
@@ -263,7 +263,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"></div>
                 
                 {/* Text Content */}
-                <span className={`${cinzel.className} relative z-10 text-sm md:text-base tracking-[0.2em] text-yellow-100 group-hover:text-white transition-colors`}>
+                <span className={`${cinzel.className} truncate relative z-10 text-sm md:text-base md:tracking-[0.2em] text-yellow-100 group-hover:text-white transition-colors`}>
                   Explore the Realm
                 </span>
 
@@ -273,7 +273,7 @@ export default function HomePage() {
               </Link>
 
               {/* Right Ornamental Arrow */}
-              <div className="relative w-24 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
+              <div className="relative w-14 md:w-24 h-14 opacity-80 group-hover:opacity-100 transition-opacity">
                 <Image 
                   src="/assets/arrow.png" 
                   alt="" 
