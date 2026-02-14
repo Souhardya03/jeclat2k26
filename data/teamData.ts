@@ -443,9 +443,9 @@ export const teams = [
 			{
 				name: "Arunima Sarkar",
 				dept: "CE",
-				image: "/assets/teams/user.png",
-				instagram: "#",
-				linkedin: "#",
+				image: "/assets/teams/Arunima.jpg",
+				instagram: "https://www.instagram.com/s_arunima2002?igsh=MW50eWh3dmNramwyOQ==",
+				linkedin: "https://www.linkedin.com/in/arunima-sarkar-6a0120256?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
 			},
 			{
 				name: "Hriday Basak",
