@@ -328,6 +328,7 @@ export const eventData = [
     image: mock_auction,
     maxMembers: 0,
     registrationOpen: false,
+    hideFromRegistration: true,
     eventInfo: {
       title: "Mock Auction Final",
       description: "Final round of Mock Auction",
@@ -493,6 +494,7 @@ export const eventData = [
     image: roadies,
     maxMembers: 0,
     registrationOpen: false,
+    hideFromRegistration: true,
     eventInfo: {
       title: "Roadies",
       description: "Adventure and challenge based competition",
@@ -515,6 +517,7 @@ export const eventData = [
     type: "competitive-event",
     image: quiz,
     maxMembers: 0,
+    hideFromRegistration: true,
     registrationOpen: false,
     eventInfo: {
       title: "Clairvoyance",
@@ -538,6 +541,7 @@ export const eventData = [
     type: "competitive-event",
     image: malle,
     maxMembers: 0,
+    hideFromRegistration: true,
     registrationOpen: false,
     eventInfo: {
       title: "Malle Final",
@@ -561,6 +565,7 @@ export const eventData = [
     type: "competitive-event",
     image: antakshari,
     maxMembers: 2,
+    hideFromRegistration: true,
     registrationOpen: false,
     eventInfo: {
       title: "Antakshari Final",
@@ -632,6 +637,7 @@ export const eventData = [
     type: "competitive-event",
     image: treasure_hunt,
     maxMembers: 4,
+    hideFromRegistration: true,
     registrationOpen: false,
     eventInfo: {
       title: "Treasure Hunt",
@@ -656,6 +662,7 @@ export const eventData = [
     type: "competitive-event",
     image: roadies,
     maxMembers: 0,
+    hideFromRegistration: true,
     registrationOpen: false,
     eventInfo: {
       title: "Roadies Final Event",

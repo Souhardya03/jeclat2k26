@@ -24,6 +24,8 @@ import {
   Calendar,
   Users,
 } from "lucide-react";
+
+// Assuming eventData is correctly exported from this path
 import { eventData } from "@/data/eventData";
 
 // --- FONTS ---
@@ -31,6 +33,15 @@ const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
 const cormorant = Cormorant_SC({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const rozha = Rozha_One({ subsets: ["latin"], weight: ["400"] });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500"] });
+
+// ==========================================
+// --- TYPES ---
+// ==========================================
+type TeamMember = {
+  name: string;
+  dept: string;
+  year: string;
+};
 
 // ==========================================
 // --- UI PRIMITIVES ---
@@ -54,13 +65,23 @@ const EpicInput = (props: React.InputHTMLAttributes<HTMLInputElement>) => (
   <div className="relative group">
     <input
       {...props}
-      className={`block w-full border-b border-[#fbba06]/30 bg-transparent px-2 py-3 text-[#f0e6d2] placeholder:text-[#f0e6d2]/20 focus:border-[#fbba06] focus:ring-0 focus:outline-none transition-all font-serif ${props.className}`}
+      className={`block w-full border-b border-[#fbba06]/30 bg-transparent px-2 py-3 text-[#f0e6d2] placeholder:text-[#f0e6d2]/20 focus:border-[#fbba06] focus:ring-0 focus:outline-none transition-all font-serif ${props.className || ""}`}
     />
     <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#fbba06] transition-all duration-700 group-focus-within:w-full shadow-[0_0_10px_#fbba06]"></div>
   </div>
 );
 
-const EpicSelect = ({ value, onChange, options, placeholder = "Select" }: { value: string, onChange: (e: any) => void, options: string[], placeholder?: string }) => (
+const EpicSelect = ({ 
+  value, 
+  onChange, 
+  options, 
+  placeholder = "Select" 
+}: { 
+  value: string; 
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void; 
+  options: string[]; 
+  placeholder?: string;
+}) => (
   <div className="relative group">
     <select 
       value={value} 
@@ -68,7 +89,11 @@ const EpicSelect = ({ value, onChange, options, placeholder = "Select" }: { valu
       className="block w-full appearance-none border-b border-[#fbba06]/30 bg-transparent px-2 py-3 text-[#f0e6d2] focus:border-[#fbba06] focus:ring-0 focus:outline-none cursor-pointer font-serif"
     >
       <option value="" disabled className="bg-[#1a0b0b] text-[#f0e6d2]/50">{placeholder}</option>
-      {options.map(opt => <option key={opt} value={opt} className="bg-[#1a0b0b] text-[#fbba06] py-2">{opt}</option>)}
+      {options.map(opt => (
+        <option key={opt} value={opt} className="bg-[#1a0b0b] text-[#fbba06] py-2">
+          {opt}
+        </option>
+      ))}
     </select>
     <ChevronDown className="absolute right-2 top-4 h-4 w-4 opacity-70 pointer-events-none text-[#fbba06]" />
   </div>
@@ -81,7 +106,7 @@ function SankalpForm({ event }: { event: any }) {
   const isSolo = event.maxMembers === 1;
   const [teamName, setTeamName] = useState("");
   const [captain, setCaptain] = useState({ name: "", email: "", dept: "", year: "", phone: "" });
-  const [members, setMembers] = useState<{ name: string; dept: string; year: string }[]>([]);
+  const [members, setMembers] = useState<TeamMember[]>([]);
 
   const addMember = () => {
     if (members.length < event.maxMembers - 1) {
@@ -95,9 +120,8 @@ function SankalpForm({ event }: { event: any }) {
     setMembers(newMembers);
   };
 
-  const updateMember = (index: number, field: string, value: string) => {
+  const updateMember = (index: number, field: keyof TeamMember, value: string) => {
     const newMembers = [...members];
-    // @ts-ignore
     newMembers[index][field] = value;
     setMembers(newMembers);
   };
@@ -191,7 +215,9 @@ function SankalpForm({ event }: { event: any }) {
                        </button>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
-                       <div><EpicInput placeholder="Name" value={member.name} onChange={(e) => updateMember(idx, 'name', e.target.value)} required /></div>
+                       <div>
+                         <EpicInput placeholder="Name" value={member.name} onChange={(e) => updateMember(idx, 'name', e.target.value)} required />
+                       </div>
                        <div className="grid grid-cols-2 gap-4">
                           <EpicSelect placeholder="Dept" options={["CSE", "IT", "ECE", "EE", "ME", "CE"]} value={member.dept} onChange={(e) => updateMember(idx, 'dept', e.target.value)} />
                           <EpicSelect placeholder="Year" options={["1st", "2nd", "3rd", "4th"]} value={member.year} onChange={(e) => updateMember(idx, 'year', e.target.value)} />
@@ -234,12 +260,12 @@ function SankalpForm({ event }: { event: any }) {
 // --- MAIN PAGE COMPONENT ---
 // ==========================================
 export default function EventDetailsPage() {
-  const { id } = useParams();
+  const params = useParams();
+  const id = params?.id as string;
   const event = eventData.find((e) => e.id === id);
   const { scrollY } = useScroll();
   
   // Opacity fade for background image only. 
-  // IMPORTANT: Removed 'y' transform to fix "image scrolling down" issue.
   const opacity = useTransform(scrollY, [0, 600], [1, 0.2]);
 
   if (!event) return null;
@@ -248,7 +274,6 @@ export default function EventDetailsPage() {
     <div className={`min-h-screen bg-[#0a0502] text-[#f0e6d2] ${montserrat.className} selection:bg-[#fbba06] selection:text-[#1a0b0b]`}>
       
       {/* --- FIXED BACKGROUND LAYER --- */}
-      {/* 'fixed' ensures the image stays perfectly still while the page scrolls */}
       <div className="fixed inset-0 w-full h-screen z-0 bg-black">
          <motion.div style={{ opacity }} className="relative w-full h-full">
             <Image 
@@ -268,7 +293,6 @@ export default function EventDetailsPage() {
       </div>
 
       {/* --- SCROLLABLE CONTENT LAYER --- */}
-      {/* 'relative' positioning keeps this in the document flow */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-40">
          
          {/* 1. HEADER */}
@@ -290,7 +314,7 @@ export default function EventDetailsPage() {
                   <Flame size={16} className="text-[#fbba06]" />
                </div>
                
-               <h1 className={`${rozha.className} text-5xl   md:text-9xl text-[#f0e6d2] leading-none mb-6 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]`}>
+               <h1 className={`${rozha.className} text-5xl md:text-9xl text-[#f0e6d2] leading-none mb-6 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]`}>
                   {event.eventInfo.title}
                </h1>
                
@@ -364,14 +388,35 @@ export default function EventDetailsPage() {
                      <div className="h-[2px] flex-grow bg-[#fbba06]/30"></div>
                   </div>
                   
-                  {event.registrationOpen ? (
-                     <SankalpForm event={event} />
-                  ) : (
-                     <div className="p-8 border border-[#fbba06]/30 bg-[#fbba06]/10 text-center">
-                        <Shield className="mx-auto h-12 w-12 text-[#fbba06] mb-4 opacity-50" />
-                        <h3 className={`${cinzel.className} text-xl text-[#fbba06]`}>Portals Closed</h3>
-                        <p className="text-sm text-[#f0e6d2]/60 mt-2 font-serif">Registration for this event has not yet commenced.</p>
+                  {/* --- CONDITIONAL REGISTRATION RENDERING --- */}
+                  {event.hideFromRegistration ? (
+                     
+                     /* 1. FINALS / QUALIFIER ONLY STATE */
+                     <div className="p-8 border border-[#fbba06]/30 bg-black/60 backdrop-blur-md text-center rounded-lg shadow-[0_0_30px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#fbba06]/50 to-transparent"></div>
+                        <Target className="mx-auto h-14 w-14 text-[#fbba06] mb-4 opacity-80" />
+                        <h3 className={`${cinzel.className} text-2xl text-[#fbba06]`}>The Final Battle</h3>
+                        <p className={`${montserrat.className} text-sm text-[#f0e6d2]/70 mt-4 leading-relaxed`}>
+                           Direct registration is not permitted. Warriors must prove their mettle and qualify from the preliminary rounds to enter this arena.
+                        </p>
                      </div>
+
+                  ) : event.registrationOpen ? (
+                     
+                     /* 2. REGISTRATION OPEN STATE */
+                     <SankalpForm event={event} />
+
+                  ) : (
+                     
+                     /* 3. REGISTRATION CLOSED STATE */
+                     <div className="p-8 border border-red-900/40 bg-[#1a0505]/80 backdrop-blur-md text-center rounded-lg">
+                        <Shield className="mx-auto h-12 w-12 text-red-500 mb-4 opacity-60" />
+                        <h3 className={`${cinzel.className} text-xl text-red-400`}>Portals Closed</h3>
+                        <p className={`${montserrat.className} text-sm text-[#f0e6d2]/60 mt-2`}>
+                           Registration for this event has concluded or not yet commenced.
+                        </p>
+                     </div>
+
                   )}
                </div>
             </div>
