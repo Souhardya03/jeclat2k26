@@ -3,9 +3,15 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Cinzel, Rozha_One } from "next/font/google";
 import { motion, AnimatePresence, Variants } from "framer-motion";
-import Image from "next/image";
 
-// Font configurations
+
+const CLOUD_NAME = "dzq2fx6ej"; 
+const VIDEO_PUBLIC_ID = "loader_vdo_pcpgl1"; 
+
+
+const OPTIMIZED_VIDEO_URL = `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/f_auto,q_auto:eco,vc_vp9/${VIDEO_PUBLIC_ID}.mp4`;
+const VIDEO_POSTER_URL = `https://res.cloudinary.com/${CLOUD_NAME}/video/upload/f_auto,q_auto:eco/${VIDEO_PUBLIC_ID}.jpg`;
+
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"], display: "swap" });
 const rozhaOne = Rozha_One({ subsets: ["devanagari"], weight: ["400"], display: "swap" });
 
@@ -57,26 +63,23 @@ export default function MahabharatLoader() {
   const soundInstance = useRef<HTMLAudioElement | null>(null);
   const [isMuted, setIsMuted] = useState(true);
 
-  // --- AUDIO SETUP ---
+  // --- AUDIO & VIDEO SETUP ---
   useEffect(() => {
-    // Video rate adjustment
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.5;
     }
 
-    // Audio initialization
     const audio = new Audio("/assets/fire-sound.mp3");
     audio.loop = true;
     audio.volume = 0.08;
-    audio.muted = true; // Start muted for autoplay policy
+    audio.muted = true; 
     soundInstance.current = audio;
 
     const playAudio = async () => {
       try {
         await audio.play();
-        console.log("Background audio started (muted)");
       } catch (err) {
-        console.log("Autoplay blocked by browser, waiting for interaction");
+        console.log("Autoplay blocked");
       }
     };
 
@@ -106,11 +109,11 @@ export default function MahabharatLoader() {
     return () => clearInterval(interval);
   }, []);
 
-  // --- OPTIMIZED CANVAS ANIMATION ---
+  // --- CANVAS ANIMATION ---
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d", { alpha: true }); // Optimize for transparency
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     let animationFrameId: number;
@@ -118,10 +121,9 @@ export default function MahabharatLoader() {
     let fireParticles: any[] = [];
     let chakraYPosition = window.innerHeight * 0.35;
 
-    // Initialize particles once or on resize
     const initParticles = () => {
       bgParticles = [];
-      const particleCount = 25; // Reduced for performance
+      const particleCount = 25; 
       for (let i = 0; i < particleCount; i++) {
         bgParticles.push({
           x: Math.random() * canvas.width,
@@ -140,11 +142,9 @@ export default function MahabharatLoader() {
         const rect = chakraRef.current.getBoundingClientRect();
         chakraYPosition = rect.top + rect.height / 2;
       }
-      // Re-init background particles on resize to fill screen
       initParticles();
     };
 
-    // Debounce resize to avoid thrashing
     let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
@@ -152,34 +152,27 @@ export default function MahabharatLoader() {
     };
 
     window.addEventListener("resize", handleResize);
-    resizeCanvas(); // Initial setup
+    resizeCanvas();
 
     const draw = () => {
-      // Clear with a transparent fill instead of clearRect for trail effect?
-      // For this loader, clearRect is cleaner.
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // 1. Draw Background Particles
-      ctx.fillStyle = "#FF8C00"; // Set color once for batch
+      ctx.fillStyle = "#FF8C00";
       bgParticles.forEach((p) => {
         p.y -= p.speedY;
         p.x += Math.sin(p.y * 0.02) * 0.3;
-        
         if (p.y < 0) {
           p.y = canvas.height;
           p.x = Math.random() * canvas.width;
         }
-
-        ctx.globalAlpha = p.opacity; // Use globalAlpha for opacity variation
+        ctx.globalAlpha = p.opacity;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
       });
-      ctx.globalAlpha = 1.0; // Reset
+      ctx.globalAlpha = 1.0;
 
-      // 2. Fire Particles Logic
-      // Add fewer particles per frame for performance
-      if (Math.random() > 0.5) { // Add particle every other frame roughly
+      if (Math.random() > 0.5) {
         const angle = Math.random() * Math.PI * 2;
         const velocity = Math.random() * 2 + 1;
         fireParticles.push({
@@ -190,11 +183,10 @@ export default function MahabharatLoader() {
           life: 1.0,
           decay: Math.random() * 0.02 + 0.015,
           size: Math.random() * 3 + 1,
-          colorType: Math.random() > 0.5 ? 0 : 1, // 0 for orange-red, 1 for gold
+          colorType: Math.random() > 0.5 ? 0 : 1,
         });
       }
 
-      // Update and Draw Fire Particles
       for (let i = fireParticles.length - 1; i >= 0; i--) {
         const p = fireParticles[i];
         p.x += p.vx;
@@ -209,17 +201,8 @@ export default function MahabharatLoader() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        
-        // Optimize color string creation
-        const color = p.colorType === 0 ? `rgba(255, 69, 0, ${p.life})` : `rgba(255, 215, 0, ${p.life})`;
-        ctx.fillStyle = color;
-        
-        // Shadow is expensive, maybe disable if performance is critical
-        // ctx.shadowBlur = 5; 
-        // ctx.shadowColor = p.colorType === 0 ? "#ff4500" : "#ffd700";
-        
+        ctx.fillStyle = p.colorType === 0 ? `rgba(255, 69, 0, ${p.life})` : `rgba(255, 215, 0, ${p.life})`;
         ctx.fill();
-        // ctx.shadowBlur = 0; // Reset shadow
       }
 
       animationFrameId = requestAnimationFrame(draw);
@@ -237,8 +220,8 @@ export default function MahabharatLoader() {
   return (
     <div className={`relative h-screen w-full overflow-hidden flex flex-col items-center bg-black ${cinzel.className}`}>
       
-      {/* --- MUTE TOGGLE --- */}
-     
+      {/* 1. PRELOADER LINK (Invisible but tells browser to fetch video early) */}
+      <link rel="preload" href={OPTIMIZED_VIDEO_URL} as="video" type="video/mp4" />
 
       {/* --- BACKGROUND VIDEO --- */}
       <div className="absolute inset-0 w-full h-full z-0">
@@ -249,11 +232,11 @@ export default function MahabharatLoader() {
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover blur-sm brightness-[0.4] scale-105"
+          poster={VIDEO_POSTER_URL}
+          className="w-full h-full object-cover blur-sm brightness-[0.4] scale-105 transition-opacity duration-1000"
         >
-          <source src="/assets/loader_vdo.mp4" type="video/mp4" />
+          <source src={OPTIMIZED_VIDEO_URL} type="video/mp4" />
         </video>
-        {/* Overlays for better text visibility */}
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-90 pointer-events-none"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none"></div>
       </div>
@@ -268,13 +251,9 @@ export default function MahabharatLoader() {
       <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-5xl pt-24 md:pt-32">
         {/* Chakra / Spinner */}
         <div ref={chakraRef} className="mb-10 relative shrink-0 group">
-          {/* Static Blur Background */}
           <div className="absolute inset-0 bg-orange-600/40 rounded-full blur-[50px] animate-pulse"></div>
-
-          {/* Rotating Dashed Border */}
           <div className="absolute inset-[-10px] rounded-full border-2 border-orange-500/30 border-dashed animate-[spin_10s_linear_infinite_reverse]"></div>
 
-          {/* SVG Chakra */}
           <motion.svg
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
@@ -286,7 +265,6 @@ export default function MahabharatLoader() {
             <circle cx="50" cy="50" r="40" stroke="#FFD700" strokeWidth="1.5" className="opacity-90" />
             <circle cx="50" cy="50" r="8" fill="#590d0d" stroke="#FFD700" strokeWidth="1" />
 
-            {/* Render Blades */}
             {[...Array(12)].map((_, i) => (
               <path
                 key={i}
@@ -298,7 +276,6 @@ export default function MahabharatLoader() {
               />
             ))}
 
-            {/* Render Spokes */}
             {[...Array(12)].map((_, i) => (
               <line
                 key={`line-${i}`}
@@ -322,12 +299,10 @@ export default function MahabharatLoader() {
           </motion.svg>
         </div>
 
-        {/* Loading Text */}
         <h2 className="text-sm md:text-lg text-amber-500 tracking-[0.6em] uppercase mb-8 font-bold opacity-80 shrink-0">
           Loading The Epic
         </h2>
 
-        {/* Quotes Section */}
         <div className="w-full h-75 flex flex-col items-center justify-start overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
