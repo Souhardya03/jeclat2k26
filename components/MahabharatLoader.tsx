@@ -248,7 +248,7 @@ export default function MahabharatLoader() {
       />
 
       {/* --- CONTENT --- */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 max-w-5xl pt-24 md:pt-32">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-5xl pt-24 md:pt-24">
         {/* Chakra / Spinner */}
         <div ref={chakraRef} className="mb-10 relative shrink-0 group">
           <div className="absolute inset-0 bg-orange-600/40 rounded-full blur-[50px] animate-pulse"></div>
@@ -257,7 +257,7 @@ export default function MahabharatLoader() {
           <motion.svg
             animate={{ rotate: 360 }}
             transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-            className="w-32 h-32 md:w-56 md:h-56 drop-shadow-[0_0_15px_rgba(255,69,0,0.9)] filter"
+            className="xl:h-48 xl:w-48 lg:h-36 lg:w-36 md:w-56 md:h-56 h-36 w-36 drop-shadow-[0_0_15px_rgba(255,69,0,0.9)] filter"
             viewBox="0 0 100 100"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

@@ -7,10 +7,10 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 // import MahabharataNavbar from "../../components/Navbar"; // Kept commented as per your original code
 import Link from "next/link";
 
-/* interface TimeLeft {
+ interface TimeLeft {
   days: number; hours: number; minutes: number; seconds: number;
 }
-*/
+
 
 // Particle Interface
 interface Particle {
@@ -35,11 +35,11 @@ const eagleLake = Eagle_Lake({
 });
 
 export default function HomePage() {
-  /* // --- COMMENTED OUT TIMER STATE ---
+  // --- COMMENTED OUT TIMER STATE ---
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0, hours: 0, minutes: 0, seconds: 0,
   });
-  */
+  
 
   // State for particles
   const [fireParticles, setFireParticles] = useState<Particle[]>([]);
@@ -56,8 +56,8 @@ export default function HomePage() {
     }));
     setFireParticles(particles);
 
-    /* // --- COMMENTED OUT COUNTDOWN LOGIC ---
-    const targetDate = new Date("2026-04-28T00:00:00");
+     // --- COMMENTED OUT COUNTDOWN LOGIC ---
+    const targetDate = new Date("2026-03-30T00:00:00");
     const interval = setInterval(() => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
@@ -71,7 +71,7 @@ export default function HomePage() {
       }
     }, 1000);
     return () => clearInterval(interval);
-    */
+    
   }, []);
 
   // Animation Variants
@@ -98,7 +98,7 @@ export default function HomePage() {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className={`relative h-screen w-full overflow-hidden bg-black text-white ${cinzel.variable} ${eagleLake.variable} flex flex-col`}
+        className={`relative h-screen w-full no-scrollbar overflow-auto bg-black text-white ${cinzel.variable} ${eagleLake.variable} flex flex-col`}
       >
         
         {/* --- BACKGROUND --- */}
@@ -112,10 +112,10 @@ export default function HomePage() {
             src="/assets/home-bg.png"
             alt="Background"
             fill
-            priority
-            className="object-cover blur-[1px]"
+            preload = {true}
+            className="object-cover blur-[2px]"
           />
-          <div className="absolute inset-0 bg-radial-vignette"></div>
+          {/* <div className="absolute inset-0 bg-radial-vignette"></div> */}
         </motion.div>
 
         {/* --- LAYER 1: ATMOSPHERIC DUST --- */}
@@ -147,7 +147,7 @@ export default function HomePage() {
           
           {/* Header */}
           <motion.header variants={itemVariants} className="flex justify-between items-center shrink-0">
-            <Image src="/assets/logo.png" alt="Logo" width={120} height={120} className="drop-shadow-glow" />
+            <Image src="/assets/logo.png" preload alt="Logo" width={120} height={120} className="drop-shadow-glow" />
             <div className="text-right border-r-2 border-yellow-600/40 pr-4">
               <h2 className={`${cinzel.className} text-sm md:text-lg text-yellow-100`}>
                 The Largest Cultural Fest of North Bengal
@@ -157,17 +157,18 @@ export default function HomePage() {
           </motion.header>
 
           {/* Central Hero Section */}
-          <div className="flex-grow flex flex-col items-center justify-center space-y-6 md:space-y-8">
+          <div className="flex-grow flex flex-col items-center justify-center space-y-8 md:space-y-4 lg:space-y-8">
             
-            {/* Main Title */}
+            {/* Main Titl */}
             <motion.div 
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
-              className="relative w-full max-w-[75vw] md:max-w-[55vw]"
+              className="relative w-full max-w-[85vw] md:max-w-[55vw]"
             >
                <Image 
                 src="/assets/jeclatfont.svg" 
                 alt="Jeclat 2026" 
+                preload
                 width={1000} 
                 height={300} 
                 className="w-full h-auto brightness-110 drop-shadow-[0_0_25px_rgba(255,140,0,0.5)]"
@@ -175,7 +176,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* --- OLD DATE & SUBTITLE (COMMENTED OUT) --- */}
-            {/* <motion.div variants={itemVariants} className="flex flex-col -mt-4 items-center">
+            <motion.div variants={itemVariants} className="flex flex-col -mt-4 items-center">
               <div className="flex items-center gap-4 text-yellow-200/90 mb-1">
                 <motion.span 
                   initial={{ width: 0 }}
@@ -183,7 +184,7 @@ export default function HomePage() {
                   transition={{ delay: 1, duration: 1 }}
                   className="h-[1px] bg-gradient-to-r from-transparent to-yellow-600"
                 ></motion.span>
-                <span className={`${eagleLake.className} text-xl text-center md:text-3xl tracking-widest`}>28th April — 5th May</span>
+                <span className={`${eagleLake.className} text-sm text-center md:text-lg lg:text-3xl tracking-widest`}>30th March — 5th April</span>
                 <motion.span 
                   initial={{ width: 0 }}
                   animate={{ width: 40 }}
@@ -192,12 +193,12 @@ export default function HomePage() {
                 ></motion.span>
               </div>
             </motion.div>
-            */}
+           
 
             {/* --- OLD COUNTDOWN DISPLAY (COMMENTED OUT) --- */}
-            {/* <motion.div 
+            <motion.div 
               variants={itemVariants}
-              className="flex items-center justify-center gap-4 md:gap-10 py-4 px-8 bg-black/40 backdrop-blur-sm border-y border-yellow-900/30 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+              className="flex items-center justify-center gap-4 md:gap-12 lg:py-4 px-8 bg-black/40 backdrop-blur-sm border-y border-yellow-900/30 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
             >
               <CompactUnit value={timeLeft.days} label="Days" />
               <span className="text-2xl text-yellow-700/50">:</span>
@@ -207,10 +208,10 @@ export default function HomePage() {
               <span className="text-2xl text-yellow-700/50">:</span>
               <CompactUnit value={timeLeft.seconds} label="Secs" />
             </motion.div>
-            */}
+           
 
             {/* --- NEW STAY TUNED SECTION --- */}
-            <motion.div 
+            {/* <motion.div 
               variants={itemVariants} 
               className="flex flex-col items-center justify-center space-y-3 py-6"
             >
@@ -235,7 +236,7 @@ export default function HomePage() {
               <p className={`${eagleLake.className} text-center text-yellow-500/80 text-sm md:text-xl tracking-wider animate-pulse`}>
                 Dates To Be Announced Soon
               </p>
-            </motion.div>
+            </motion.div> */}
 
             {/* --- UPDATED EPIC EXPLORE BUTTON --- */}
             <motion.button 
@@ -245,7 +246,7 @@ export default function HomePage() {
               className="group relative mt-6 flex items-center"
             >
               {/* Left Ornamental Arrow (Rotated 180deg) */}
-              <div className="relative w-24 h-8 transform rotate-180 opacity-80 group-hover:opacity-100 transition-opacity">
+              <div className="relative w-14 md:w-24 h-14 transform rotate-180 opacity-80 group-hover:opacity-100 transition-opacity">
                 <Image 
                   src="/assets/arrow.png" 
                   alt="" 
@@ -262,7 +263,7 @@ export default function HomePage() {
                 <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[-20deg]"></div>
                 
                 {/* Text Content */}
-                <span className={`${cinzel.className} relative z-10 text-sm md:text-base tracking-[0.2em] text-yellow-100 group-hover:text-white transition-colors`}>
+                <span className={`${cinzel.className} truncate relative z-10 text-sm md:text-base md:tracking-[0.2em] text-yellow-100 group-hover:text-white transition-colors`}>
                   Explore the Realm
                 </span>
 
@@ -272,7 +273,7 @@ export default function HomePage() {
               </Link>
 
               {/* Right Ornamental Arrow */}
-              <div className="relative w-24 h-8 opacity-80 group-hover:opacity-100 transition-opacity">
+              <div className="relative w-14 md:w-24 h-14 opacity-80 group-hover:opacity-100 transition-opacity">
                 <Image 
                   src="/assets/arrow.png" 
                   alt="" 
@@ -285,7 +286,7 @@ export default function HomePage() {
 
           {/* Footer */}
           <motion.footer variants={itemVariants} className="shrink-0 text-center flex justify-center py-2">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-yellow-700 font-bold opacity-60">
+              <p className="md:text-[10px] text-[9px] uppercase tracking-[0.4em] text-yellow-700 font-bold opacity-60">
                 Prepare for Battle • Unleash the Soul
               </p>
           </motion.footer>
@@ -338,7 +339,7 @@ export default function HomePage() {
 function CompactUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
-      <div className="relative h-[40px] md:h-[60px] overflow-hidden flex items-center justify-center">
+      <div className="relative h-[40px] md:h-[55px] lg:h-[60px] overflow-hidden flex items-center justify-center">
         <AnimatePresence mode="popLayout">
           <motion.span
             key={value}
@@ -346,13 +347,13 @@ function CompactUnit({ value, label }: { value: number; label: string }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-yellow-50 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm tabular-nums"
+            className="md:text-3xl text-2xl lg:text-5xl font-bold bg-gradient-to-b from-yellow-50 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm tabular-nums"
           >
             {value.toString().padStart(2, '0')}
           </motion.span>
         </AnimatePresence>
       </div>
-      <span className={`${cinzel.className} text-[9px] text-yellow-600 font-bold tracking-widest uppercase mt-1`}>
+      <span className={`${cinzel.className} text-[9px] lg:text-[12px] text-yellow-600 font-bold tracking-widest uppercase lg:mt-1 md:-mt-1 pb-2`}>
         {label}
       </span>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -13,6 +13,16 @@ import {
 import { Instagram, Linkedin, Crown, Swords, Shield, Zap } from "lucide-react";
 import { EncryptedText } from "@/components/ui/encrypted-text";
 import { chiefCoordinators, socialSecretaries, teams } from "@/data/teamData";
+
+// Shuffle function to randomize array order
+function shuffleArray<T>(array: T[]): T[] {
+	const shuffled = [...array];
+	for (let i = shuffled.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	}
+	return shuffled;
+}
 
 // --- FONTS ---
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700"] });
@@ -56,7 +66,8 @@ function CinematicLeaderCard({
 						src={member.image}
 						alt={member.name}
 						fill
-						loading="lazy"
+						priority
+						// loading="lazy"
 						className="object-cover transition-transform duration-1000 group-hover:scale-110"
 					/>
 					<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>
@@ -237,6 +248,24 @@ function GlitchHeader({
 }
 
 export default function TeamPage() {
+	// Shuffle members on each page load
+	const shuffledChiefCoordinators = useMemo(
+		() => shuffleArray(chiefCoordinators),
+		[]
+	);
+	const shuffledSocialSecretaries = useMemo(
+		() => shuffleArray(socialSecretaries),
+		[]
+	);
+	const shuffledTeams = useMemo(
+		() =>
+			teams.map((team) => ({
+				...team,
+				members: shuffleArray(team.members),
+			})),
+		[]
+	);
+
 	return (
 		<div
 			className={`relative min-h-screen w-full  bg-[#020202] text-[#e0e0e0] overflow-x-hidden ${cinzel.className}`}>
@@ -295,7 +324,7 @@ export default function TeamPage() {
 						<div className="h-1 w-24 mx-auto bg-gradient-to-r from-yellow-900 via-yellow-500 to-yellow-900 rounded-full mt-4 opacity-50"></div>
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-						{chiefCoordinators.map((member, index) => (
+						{shuffledChiefCoordinators.map((member, index) => (
 							<CinematicLeaderCard
 								key={index}
 								member={member}
@@ -315,7 +344,7 @@ export default function TeamPage() {
 						<div className="h-1 w-24 mx-auto bg-gradient-to-r from-yellow-900 via-yellow-500 to-yellow-900 rounded-full mt-4 opacity-50"></div>
 					</div>
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-						{socialSecretaries.map((member, index) => (
+						{shuffledSocialSecretaries.map((member, index) => (
 							<CinematicLeaderCard
 								key={index}
 								member={member}
@@ -326,7 +355,7 @@ export default function TeamPage() {
 				</section>
 
 				{/* Team Categories */}
-				{teams.map((team, teamIndex) => (
+				{shuffledTeams.map((team, teamIndex) => (
 					<section
 						key={teamIndex}
 						className="mb-32">

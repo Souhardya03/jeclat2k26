@@ -35,7 +35,7 @@ export default function ContactPage() {
 
 	return (
 		<div
-			className={`relative min-h-screen w-full overflow-hidden bg-[#0a0502] text-[#e0e0e0] ${cinzel.className}`}>
+			className={`relative min-h-screen mt-4 w-full overflow-hidden bg-[#0a0502] text-[#e0e0e0] ${cinzel.className}`}>
 			{/* --- BACKGROUND LAYER --- */}
 			<div className="fixed bg-black inset-0 z-0">
 				<Image
@@ -64,13 +64,13 @@ export default function ContactPage() {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 1 }}
 					className="text-center mb-16">
-					<h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-yellow-300 via-yellow-500 to-yellow-800 drop-shadow-md mb-4">
+					<h1 className="text-4xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-yellow-300 via-yellow-500 to-yellow-800 drop-shadow-md mb-4">
 						Get in touch
 					</h1>
 					<div className="flex items-center justify-center gap-4 text-yellow-500/60">
 						<div className="h-px w-16 bg-gradient-to-r from-transparent to-yellow-600"></div>
 						<p
-							className={`${fauna.className} text-sm tracking-widest uppercase`}>
+							className={`${fauna.className} md:text-sm text-xs md:tracking-widest uppercase`}>
 							We await your missive
 						</p>
 						<div className="h-px w-16 bg-gradient-to-l from-transparent to-yellow-600"></div>
@@ -96,7 +96,7 @@ export default function ContactPage() {
 										Location
 									</h3>
 									<p
-										className={`${fauna.className} text-gray-400 leading-relaxed`}>
+										className={`${fauna.className} text-gray-400 leading-relaxed md:text-lg text-sm`}>
 										Jalpaiguri Government Engineering College,
 										<br />
 										Jalpaiguri, West Bengal - 735102
@@ -116,12 +116,12 @@ export default function ContactPage() {
 									<h3 className="text-xl font-bold text-yellow-100 mb-2">
 										Contact us
 									</h3>
-									<p className={`${fauna.className} text-gray-400 mb-2`}>
+									<p className={`${fauna.className} md:text-lg text-xs text-gray-400 mb-2`}>
 										General Enquiries & Sponsorships
 									</p>
 									<a
 										href={"mailto:admin@jeclat2k26.in"}
-										className={`${fauna.className} text-yellow-500 hover:text-yellow-300 underline underline-offset-4 transition-colors`}>
+										className={`${fauna.className} text-yellow-500 hover:text-yellow-300 underline underline-offset-4 transition-colors `}>
 										admin@jeclat2k26.in
 									</a>
 								</div>
@@ -308,7 +308,7 @@ function ContactForm() {
 				className="group w-full py-4 bg-gradient-to-r from-yellow-700 to-yellow-600 text-black font-bold uppercase tracking-[0.2em] rounded overflow-hidden relative hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] transition-all disabled:opacity-70 disabled:cursor-not-allowed">
 				<div className="absolute inset-0 cursor-pointer bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
 				<span
-					className={`relative ${fauna.className} flex items-center justify-center gap-2`}>
+					className={`relative ${fauna.className} text-sm lg:text-lg flex items-center justify-center gap-2`}>
 					{isSubmitting ? (
 						<>
 							<Loader2

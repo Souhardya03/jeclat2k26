@@ -156,16 +156,47 @@ export default function AboutPage() {
                  <Star size={10} className="md:w-3 md:h-3" />
               </motion.div>
 
-              <motion.div variants={scaleIn} className="flex items-center justify-center py-2 md:py-4">
-                 <Image
-                    src="/assets/jeclatfont.svg"
-                    alt="JECLAT"
-                    width={800}
-                    height={200}
-                    className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] drop-shadow-2xl h-auto"
-                    priority
-                 />
-              </motion.div>
+              <motion.div 
+  initial="initial"
+  whileHover="hover"
+  className="relative flex items-center justify-center py-2 md:py-4 cursor-pointer"
+>
+  {/* 1. Subtle Orange Ambient Glow */}
+  <motion.div
+    variants={{
+      initial: { opacity: 0, scale: 0.9 },
+      hover: { 
+        opacity: 0.3, // Kept minimal as requested
+        scale: 1.1,
+        transition: { duration: 0.8, ease: "easeInOut" } 
+      }
+    }}
+    className="absolute inset-0 bg-orange-500/20 blur-[80px] rounded-full pointer-events-none"
+  />
+
+  {/* 2. Logo with Soft Orange Drop-Shadow */}
+  <motion.div
+    variants={{
+      initial: { 
+        filter: "brightness(1) contrast(1) drop-shadow(0 0 0px rgba(245, 158, 11, 0))" 
+      },
+      hover: { 
+        filter: "brightness(1.15) contrast(1.05) drop-shadow(0 0 15px rgba(245, 158, 11, 0.4))",
+        transition: { duration: 0.6, ease: "easeOut" }
+      }
+    }}
+    className="relative z-10"
+  >
+    <Image
+      src="/assets/jeclatfont.svg"
+      alt="JECLAT"
+      width={800}
+      height={200}
+      className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] h-auto"
+      priority
+    />
+  </motion.div>
+</motion.div>
               
               <div className="overflow-hidden px-4">
                  <motion.p 
@@ -300,19 +331,23 @@ export default function AboutPage() {
                 transition={{ duration: 0.8 }}
                 className="flex justify-center mb-20 md:mb-32"
               >
-                 <div className="relative w-full max-w-[300px] md:max-w-lg aspect-[16/9] md:aspect-[16/8] group cursor-default">
-                    <div className="absolute inset-0 border border-[#D4AF37]/50 transition-all duration-500 group-hover:inset-[-10px] group-hover:border-[#D4AF37] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)]"></div>
+                 <div className="relative border-[#D4AF37]/40 border w-full max-w-[300px] md:max-w-lg hover:border-[#D4AF37]  aspect-[16/9] md:aspect-[16/8] group duration-300 cursor-default">
+                    <div className="absolute inset-0   transition-all duration-500   group-hover:border-[#D4AF37] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.2)]"></div>
                     <div className="absolute inset-0 bg-[#050505] flex items-center justify-center overflow-hidden">
                        <div className="absolute top-4 left-4 text-[8px] md:text-[10px] uppercase tracking-widest text-[#D4AF37]/70">Title Associate</div>
-                       <div className="relative w-[60%] h-[60%] md:w-[70%] md:h-[70%] opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
-                          <Image src={associateSponsors[0].image} alt="Associate" fill className="object-contain" />
+                       <div className="relative flex items-center justify-center w-[60%] h-[60%] md:w-[70%] md:h-[70%] opacity-90 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                          {/* <Image src={associateSponsors[0].image} alt="Associate" fill className="object-contain" /> */}
+                          <h2 className={`${cinzel.className} text-2xl`}>
+                           
+                          Coming Soon
+                          </h2>
                        </div>
                     </div>
                  </div>
               </motion.div>
 
               {/* Brand Partners */}
-              <div className="mb-20 md:mb-32">
+              {/* <div className="mb-20 md:mb-32">
                  <motion.div 
                    initial="hidden"
                    whileInView="visible"
@@ -331,7 +366,7 @@ export default function AboutPage() {
                        </motion.div>
                     ))}
                  </motion.div>
-              </div>
+              </div> */}
 
               {/* Legacy Marquee */}
               <motion.div 
