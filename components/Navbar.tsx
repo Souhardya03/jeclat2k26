@@ -118,7 +118,7 @@ const Navbar = () => {
 	return (
 		<nav className="fixed top-6 left-0 right-0 flex flex-col items-center justify-center px-4 z-50">
 			{/* 1. Login Emblem (Desktop) */}
-			<motion.div
+			{/* <motion.div
 				initial={{ opacity: 0, x: 40, filter: "blur(8px)" }}
 				animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
 				transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
@@ -145,7 +145,7 @@ const Navbar = () => {
 						</span>
 					</motion.div>
 				</Link>
-			</motion.div>
+			</motion.div> */}
 
 			{/* 2. Crown Ornament (Desktop) */}
 			<motion.div
@@ -299,7 +299,7 @@ const Navbar = () => {
 						</div>
 
 						{/* Text-Only Login at Bottom */}
-						<motion.div
+						{/* <motion.div
 							initial={{ opacity: 0 }}
 							animate={{ opacity: 1 }}
 							transition={{ delay: 0.4 }}
@@ -320,7 +320,7 @@ const Navbar = () => {
 									LOGIN
 								</span>
 							</Link>
-						</motion.div>
+						</motion.div> */}
 					</motion.div>
 				)}
 			</AnimatePresence>
