@@ -113,9 +113,9 @@ export default function HomePage() {
             alt="Background"
             fill
             preload = {true}
-            className="object-cover blur-[1px]"
+            className="object-cover blur-[2px]"
           />
-          <div className="absolute inset-0 bg-radial-vignette"></div>
+          {/* <div className="absolute inset-0 bg-radial-vignette"></div> */}
         </motion.div>
 
         {/* --- LAYER 1: ATMOSPHERIC DUST --- */}
@@ -198,7 +198,7 @@ export default function HomePage() {
             {/* --- OLD COUNTDOWN DISPLAY (COMMENTED OUT) --- */}
             <motion.div 
               variants={itemVariants}
-              className="flex items-center justify-center gap-4 md:gap-10 lg:py-4 px-8 bg-black/40 backdrop-blur-sm border-y border-yellow-900/30 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+              className="flex items-center justify-center gap-4 md:gap-12 lg:py-4 px-8 bg-black/40 backdrop-blur-sm border-y border-yellow-900/30 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
             >
               <CompactUnit value={timeLeft.days} label="Days" />
               <span className="text-2xl text-yellow-700/50">:</span>
