@@ -159,7 +159,7 @@ export default function HomePage() {
           {/* Central Hero Section */}
           <div className="flex-grow flex flex-col items-center justify-center space-y-6 md:space-y-8">
             
-            {/* Main Title */}
+            {/* Main Titl */}
             <motion.div 
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
