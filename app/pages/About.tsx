@@ -192,6 +192,7 @@ export default function AboutPage() {
       alt="JECLAT"
       width={800}
       height={200}
+      quality={100}
       className="w-full max-w-[280px] sm:max-w-[400px] md:max-w-[600px] lg:max-w-[800px] h-auto"
       priority
     />
