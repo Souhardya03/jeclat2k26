@@ -56,7 +56,8 @@ function CinematicLeaderCard({
 						src={member.image}
 						alt={member.name}
 						fill
-						loading="lazy"
+						priority
+						// loading="lazy"
 						className="object-cover transition-transform duration-1000 group-hover:scale-110"
 					/>
 					<div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-500"></div>

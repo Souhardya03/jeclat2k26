@@ -7,10 +7,10 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 // import MahabharataNavbar from "../../components/Navbar"; // Kept commented as per your original code
 import Link from "next/link";
 
-/* interface TimeLeft {
+ interface TimeLeft {
   days: number; hours: number; minutes: number; seconds: number;
 }
-*/
+
 
 // Particle Interface
 interface Particle {
@@ -35,11 +35,11 @@ const eagleLake = Eagle_Lake({
 });
 
 export default function HomePage() {
-  /* // --- COMMENTED OUT TIMER STATE ---
+  // --- COMMENTED OUT TIMER STATE ---
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0, hours: 0, minutes: 0, seconds: 0,
   });
-  */
+  
 
   // State for particles
   const [fireParticles, setFireParticles] = useState<Particle[]>([]);
@@ -56,8 +56,8 @@ export default function HomePage() {
     }));
     setFireParticles(particles);
 
-    /* // --- COMMENTED OUT COUNTDOWN LOGIC ---
-    const targetDate = new Date("2026-04-28T00:00:00");
+     // --- COMMENTED OUT COUNTDOWN LOGIC ---
+    const targetDate = new Date("2026-03-30T00:00:00");
     const interval = setInterval(() => {
       const now = new Date();
       const difference = targetDate.getTime() - now.getTime();
@@ -71,7 +71,7 @@ export default function HomePage() {
       }
     }, 1000);
     return () => clearInterval(interval);
-    */
+    
   }, []);
 
   // Animation Variants
@@ -112,7 +112,7 @@ export default function HomePage() {
             src="/assets/home-bg.png"
             alt="Background"
             fill
-            priority
+            preload
             className="object-cover blur-[1px]"
           />
           <div className="absolute inset-0 bg-radial-vignette"></div>
@@ -175,7 +175,7 @@ export default function HomePage() {
             </motion.div>
 
             {/* --- OLD DATE & SUBTITLE (COMMENTED OUT) --- */}
-            {/* <motion.div variants={itemVariants} className="flex flex-col -mt-4 items-center">
+            <motion.div variants={itemVariants} className="flex flex-col -mt-4 items-center">
               <div className="flex items-center gap-4 text-yellow-200/90 mb-1">
                 <motion.span 
                   initial={{ width: 0 }}
@@ -183,7 +183,7 @@ export default function HomePage() {
                   transition={{ delay: 1, duration: 1 }}
                   className="h-[1px] bg-gradient-to-r from-transparent to-yellow-600"
                 ></motion.span>
-                <span className={`${eagleLake.className} text-xl text-center md:text-3xl tracking-widest`}>28th April — 5th May</span>
+                <span className={`${eagleLake.className} text-xl text-center md:text-3xl tracking-widest`}>30th March — 5th April</span>
                 <motion.span 
                   initial={{ width: 0 }}
                   animate={{ width: 40 }}
@@ -192,10 +192,10 @@ export default function HomePage() {
                 ></motion.span>
               </div>
             </motion.div>
-            */}
+           
 
             {/* --- OLD COUNTDOWN DISPLAY (COMMENTED OUT) --- */}
-            {/* <motion.div 
+            <motion.div 
               variants={itemVariants}
               className="flex items-center justify-center gap-4 md:gap-10 py-4 px-8 bg-black/40 backdrop-blur-sm border-y border-yellow-900/30 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
             >
@@ -207,10 +207,10 @@ export default function HomePage() {
               <span className="text-2xl text-yellow-700/50">:</span>
               <CompactUnit value={timeLeft.seconds} label="Secs" />
             </motion.div>
-            */}
+           
 
             {/* --- NEW STAY TUNED SECTION --- */}
-            <motion.div 
+            {/* <motion.div 
               variants={itemVariants} 
               className="flex flex-col items-center justify-center space-y-3 py-6"
             >
@@ -235,7 +235,7 @@ export default function HomePage() {
               <p className={`${eagleLake.className} text-center text-yellow-500/80 text-sm md:text-xl tracking-wider animate-pulse`}>
                 Dates To Be Announced Soon
               </p>
-            </motion.div>
+            </motion.div> */}
 
             {/* --- UPDATED EPIC EXPLORE BUTTON --- */}
             <motion.button 
