@@ -42,7 +42,7 @@ const capsuleVariants: Variants = {
 		filter: "blur(10px)",
 	},
 	show: {
-		width: "100%",
+		width: "75%",
 		opacity: 1,
 		y: 0,
 		filter: "blur(0px)",
@@ -122,7 +122,7 @@ const Navbar = () => {
 				initial={{ opacity: 0, x: 40, filter: "blur(8px)" }}
 				animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
 				transition={{ delay: 1.2, duration: 1, ease: "easeOut" }}
-				className="absolute right-6 lg:right-24 top-0 lg:flex hidden items-center h-16 lg:h-20">
+				className="absolute right-0 lg:right-8 top-0 lg:flex hidden items-center h-16 lg:h-20">
 				<Link href="/login">
 					<motion.div
 						className="relative z-10 flex flex-col items-center gap-1 group"
@@ -183,7 +183,7 @@ const Navbar = () => {
 						? "bg-[#0a0502]/60 border-[#d5be89]/50"
 						: "bg-[#0a0502]/40 border-[#d5be89]/20"
 				}`}>
-				<div className="hidden lg:flex items-center gap-8 relative z-10 w-full justify-end">
+				<div className="hidden lg:flex items-center xl:gap-8 relative z-10 w-full justify-end">
 					{navItems.slice(0, 3).map((item) => (
 						<FastNavItem
 							key={item.name}
@@ -232,7 +232,7 @@ const Navbar = () => {
 					</motion.div>
 				</Link>
 
-				<div className="hidden lg:flex items-center gap-8 relative z-10 w-full justify-start">
+				<div className="hidden lg:flex items-center xl:gap-8 relative z-10 w-full justify-start">
 					{navItems.slice(3).map((item) => (
 						<FastNavItem
 							key={item.name}

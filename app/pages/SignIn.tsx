@@ -114,7 +114,7 @@ export default function MahabharatLogin() {
                             onClick={handleGoogleLogin}
                             className="w-full relative group overflow-hidden bg-[#1a0a05] border border-yellow-700/40 rounded-sm py-3.5 flex items-center justify-center gap-3 transition-all duration-300 hover:border-yellow-500 hover:bg-[#250f08]"
                         >
-                            <Image src="https://www.svgrepo.com/show/475656/google-color.svg" alt="G" width={18} height={18} />
+                            <Image src="/assets/google.png" alt="G" width={24} height={24} objectPosition="center" />
                             <span className={`${cinzel.className} font-bold text-sm text-yellow-100/80 group-hover:text-yellow-100 tracking-widest`}>
                                 Summon with Google
                             </span>

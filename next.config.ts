@@ -21,6 +21,12 @@ const nextConfig: NextConfig = {
         hostname:"i.pinimg.com",
         port:"",
         pathname:"/**"
+      },
+      {
+        protocol:"https",
+        hostname:"svgrepo.com",
+        port:"",
+        pathname:"/**"
       }
     ]
   }

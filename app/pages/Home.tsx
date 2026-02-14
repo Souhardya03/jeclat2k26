@@ -98,7 +98,7 @@ export default function HomePage() {
         initial="hidden"
         animate="visible"
         exit="exit"
-        className={`relative h-screen w-full overflow-hidden bg-black text-white ${cinzel.variable} ${eagleLake.variable} flex flex-col`}
+        className={`relative h-screen w-full no-scrollbar overflow-auto bg-black text-white ${cinzel.variable} ${eagleLake.variable} flex flex-col`}
       >
         
         {/* --- BACKGROUND --- */}
@@ -157,7 +157,7 @@ export default function HomePage() {
           </motion.header>
 
           {/* Central Hero Section */}
-          <div className="flex-grow flex flex-col items-center justify-center space-y-6 md:space-y-8">
+          <div className="flex-grow flex flex-col items-center justify-center space-y-6 md:space-y-4 lg:space-y-8">
             
             {/* Main Titl */}
             <motion.div 
@@ -184,7 +184,7 @@ export default function HomePage() {
                   transition={{ delay: 1, duration: 1 }}
                   className="h-[1px] bg-gradient-to-r from-transparent to-yellow-600"
                 ></motion.span>
-                <span className={`${eagleLake.className} text-sm text-center md:text-3xl tracking-widest`}>30th March — 5th April</span>
+                <span className={`${eagleLake.className} text-sm text-center md:text-lg lg:text-3xl tracking-widest`}>30th March — 5th April</span>
                 <motion.span 
                   initial={{ width: 0 }}
                   animate={{ width: 40 }}
@@ -198,7 +198,7 @@ export default function HomePage() {
             {/* --- OLD COUNTDOWN DISPLAY (COMMENTED OUT) --- */}
             <motion.div 
               variants={itemVariants}
-              className="flex items-center justify-center gap-4 md:gap-10 py-4 px-8 bg-black/40 backdrop-blur-sm border-y border-yellow-900/30 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+              className="flex items-center justify-center gap-4 md:gap-10 lg:py-4 px-8 bg-black/40 backdrop-blur-sm border-y border-yellow-900/30 shadow-[0_0_15px_rgba(0,0,0,0.5)]"
             >
               <CompactUnit value={timeLeft.days} label="Days" />
               <span className="text-2xl text-yellow-700/50">:</span>
@@ -339,7 +339,7 @@ export default function HomePage() {
 function CompactUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center min-w-[60px] md:min-w-[80px]">
-      <div className="relative h-[40px] md:h-[60px] overflow-hidden flex items-center justify-center">
+      <div className="relative h-[40px] md:h-[55px] lg:h-[60px] overflow-hidden flex items-center justify-center">
         <AnimatePresence mode="popLayout">
           <motion.span
             key={value}
@@ -347,13 +347,13 @@ function CompactUnit({ value, label }: { value: number; label: string }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-3xl md:text-5xl font-bold bg-gradient-to-b from-yellow-50 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm tabular-nums"
+            className="text-3xl lg:text-5xl font-bold bg-gradient-to-b from-yellow-50 to-yellow-500 bg-clip-text text-transparent drop-shadow-sm tabular-nums"
           >
             {value.toString().padStart(2, '0')}
           </motion.span>
         </AnimatePresence>
       </div>
-      <span className={`${cinzel.className} text-[9px] text-yellow-600 font-bold tracking-widest uppercase mt-1`}>
+      <span className={`${cinzel.className} text-[9px] lg:text-[12px] text-yellow-600 font-bold tracking-widest uppercase lg:mt-1 md:-mt-1 pb-2`}>
         {label}
       </span>
     </div>

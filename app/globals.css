@@ -164,3 +164,7 @@
     background: linear-gradient(135deg, rgba(213, 190, 137, 0.1) 0%, transparent 100%);
   }
 }
+
+body{
+  background: #000;
+}

@@ -187,10 +187,10 @@ export default function MahabharatSignup() {
 							onClick={handleGoogleLogin}
 							className="w-full relative group overflow-hidden bg-[#1a0a05] border border-yellow-700/40 rounded-sm py-3.5 flex items-center justify-center gap-3 transition-all duration-300 hover:border-yellow-500 hover:bg-[#250f08]">
 							<Image
-								src="https://www.svgrepo.com/show/475656/google-color.svg"
+								src="/assets/google.png"
 								alt="Google"
-								width={20}
-								height={20}
+								width={24}
+								height={24}
 								className="opacity-80 group-hover:opacity-100 transition-opacity"
 							/>
 							<span
@@ -335,7 +335,7 @@ export default function MahabharatSignup() {
 
 										{/* Subtext: Sanskrit for 'Entering the Battle' */}
 										<span
-											className={`${sanskrit.className} text-lg text-orange-200/80 tracking-widest group-hover:text-orange-400 transition-colors`}>
+											className={`${sanskrit.className} text-xs md:text-lg text-orange-200/80 tracking-widest group-hover:text-orange-400 transition-colors`}>
 											रणक्षेत्रे प्रवेशः (Entrance to the Battlefield)
 										</span>
 									</div>

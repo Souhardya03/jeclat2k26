@@ -187,7 +187,7 @@ export const teams = [
 			{
 				name: "Akash Saha",
 				dept: "IT",
-				image: "/assets/teams/AkashSaha.jpeg",
+				image: "/assets/teams/AkashSaha.jpg",
 				instagram: "https://www.instagram.com/akashsaha9153?igsh=bGRza2thZGluNTdq",
 				linkedin: "https://www.linkedin.com/in/akash-saha-270000351/",
 			},
