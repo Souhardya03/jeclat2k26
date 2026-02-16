@@ -342,6 +342,15 @@ export const teams = [
 				instagram: "https://www.instagram.com/sampurnos_photography/",
 				linkedin: "https://www.linkedin.com/in/sampurno-sarkar-376060219/",
 			},
+			{
+				name: "Anuvab Giri",
+				dept: "IT",
+				image: "/assets/teams/Anuvab.jpeg",
+				instagram:
+					"https://www.instagram.com/a6_editzz?igsh=MXRsc21scWw2dDUzMw%3D%3D&utm_source=qr",
+				linkedin:
+					"https://www.linkedin.com/in/anubhab-giri-309800257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+			},
 		],
 	},
 	{
