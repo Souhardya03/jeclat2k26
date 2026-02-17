@@ -46,8 +46,8 @@ const schedule = {
   day3: eventData.filter((e) => e.eventInfo.category === "Day 3"),
   day4: eventData.filter((e) => e.eventInfo.category === "Day 4"),
   day5: eventData.filter((e) => e.eventInfo.category === "Day 5"),
-  // Merging Day 6 and 7 into the "Antim" (Finale) tab
-  day6: eventData.filter((e) => e.eventInfo.category === "Day 6" || e.eventInfo.category === "Day 7"),
+  day6: eventData.filter((e) => e.eventInfo.category === "Day 6"),
+  day7: eventData.filter((e) => e.eventInfo.category === "Day 7"),
 };
 
 const parvas = [
@@ -101,6 +101,14 @@ const parvas = [
   },
   {
     id: "day6",
+    label: "SHASHTHA",
+    sanskrit: "अंतिम",
+    sub: "Day 06",
+    icon: Flame,
+    color: "#455A64",
+  },
+  {
+    id: "day7",
     label: "ANTIM",
     sanskrit: "अंतिम",
     sub: "The Finale",
