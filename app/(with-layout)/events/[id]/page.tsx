@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -12,8 +12,6 @@ import {
   Rozha_One,
 } from "next/font/google";
 import {
-  Plus,
-  Trash2,
   ArrowLeft,
   ChevronDown,
   Scroll,
@@ -22,11 +20,10 @@ import {
   Shield,
   MapPin,
   Calendar,
-  Users,
 } from "lucide-react";
 
-// Assuming eventData is correctly exported from this path
 import { eventData } from "@/data/eventData";
+import RegistrationForm from "@/components/RegistrationForm";
 
 // --- FONTS ---
 const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "700", "900"] });
@@ -35,25 +32,9 @@ const rozha = Rozha_One({ subsets: ["latin"], weight: ["400"] });
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
 // ==========================================
-// --- TYPES ---
-// ==========================================
-type TeamMember = {
-  name: string;
-  dept: string;
-  year: string;
-};
-
-// ==========================================
 // --- UI PRIMITIVES ---
+// (kept here as they may be used by other components in this file)
 // ==========================================
-
-const Divider = () => (
-  <div className="flex items-center justify-center gap-4 my-10 opacity-60">
-    <div className="h-[1px] w-24 bg-gradient-to-r from-transparent to-[#fbba06]"></div>
-    <div className="rotate-45 w-2 h-2 border border-[#fbba06] bg-[#4a0404]"></div>
-    <div className="h-[1px] w-24 bg-gradient-to-l from-transparent to-[#fbba06]"></div>
-  </div>
-);
 
 const EpicLabel = ({ children }: { children: React.ReactNode }) => (
   <label className={`text-[10px] uppercase tracking-[0.2em] text-[#fbba06]/70 font-bold mb-2 block ${cinzel.className}`}>
@@ -98,163 +79,6 @@ const EpicSelect = ({
     <ChevronDown className="absolute right-2 top-4 h-4 w-4 opacity-70 pointer-events-none text-[#fbba06]" />
   </div>
 );
-
-// ==========================================
-// --- SANKALP FORM COMPONENT ---
-// ==========================================
-function SankalpForm({ event }: { event: any }) {
-  const isSolo = event.maxMembers === 1;
-  const [teamName, setTeamName] = useState("");
-  const [captain, setCaptain] = useState({ name: "", email: "", dept: "", year: "", phone: "" });
-  const [members, setMembers] = useState<TeamMember[]>([]);
-
-  const addMember = () => {
-    if (members.length < event.maxMembers - 1) {
-      setMembers([...members, { name: "", dept: "", year: "" }]);
-    }
-  };
-
-  const removeMember = (index: number) => {
-    const newMembers = [...members];
-    newMembers.splice(index, 1);
-    setMembers(newMembers);
-  };
-
-  const updateMember = (index: number, field: keyof TeamMember, value: string) => {
-    const newMembers = [...members];
-    newMembers[index][field] = value;
-    setMembers(newMembers);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log({ teamName, captain, members, eventId: event.id });
-    alert("Pratigya Accepted. Prepare for Battle.");
-  };
-
-  return (
-    <form onSubmit={handleSubmit} className="w-full space-y-16 p-8 border-y-2 border-[#fbba06]/10 bg-[#000000]/60 backdrop-blur-md relative">
-      
-      {/* Decorative Corner Borders */}
-      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-[#fbba06]"></div>
-      <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-[#fbba06]"></div>
-      <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-[#fbba06]"></div>
-      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-[#fbba06]"></div>
-
-      {/* 1. IDENTITY SECTION */}
-      <div className="space-y-8">
-        <div className="text-center">
-           <h3 className={`${cinzel.className} text-2xl text-[#fbba06]`}>Pratham Adhyaya: Parichay</h3>
-           <p className={`${cormorant.className} text-[#fbba06]/60 italic`}>&quot;Identity of the Warrior&quot;</p>
-        </div>
-
-        <div className="grid gap-8">
-           {!isSolo && (
-             <div>
-               <EpicLabel>Sena Naam (Team Name)</EpicLabel>
-               <EpicInput 
-                 placeholder="Name your legion..." 
-                 value={teamName}
-                 onChange={(e) => setTeamName(e.target.value)}
-                 required
-               />
-             </div>
-           )}
-           <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <EpicLabel>{isSolo ? "Yoddha Name" : "Maharathi Name"}</EpicLabel>
-                <EpicInput placeholder="Full Name" value={captain.name} onChange={e => setCaptain({...captain, name: e.target.value})} required />
-              </div>
-              <div>
-                <EpicLabel>Sampark (Contact)</EpicLabel>
-                <EpicInput type="tel" placeholder="+91..." value={captain.phone} onChange={e => setCaptain({...captain, phone: e.target.value})} required />
-              </div>
-              <div className="md:col-span-2">
-                <EpicLabel>Patra (Email)</EpicLabel>
-                <EpicInput type="email" placeholder="warrior@college.edu" value={captain.email} onChange={e => setCaptain({...captain, email: e.target.value})} required />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                 <div>
-                   <EpicLabel>Vibhag (Dept)</EpicLabel>
-                   <EpicSelect options={["CSE", "IT", "ECE", "EE", "ME", "CE"]} value={captain.dept} onChange={e => setCaptain({...captain, dept: e.target.value})} />
-                 </div>
-                 <div>
-                   <EpicLabel>Varsh (Year)</EpicLabel>
-                   <EpicSelect options={["1st", "2nd", "3rd", "4th"]} value={captain.year} onChange={e => setCaptain({...captain, year: e.target.value})} />
-                 </div>
-              </div>
-           </div>
-        </div>
-      </div>
-
-      <Divider />
-
-      {/* 2. SQUADRON SECTION */}
-      {!isSolo && (
-        <div className="space-y-8">
-           <div className="flex items-center justify-between">
-              <div>
-                 <h3 className={`${cinzel.className} text-xl text-[#fbba06]`}>Dwitiya Adhyaya: Sena</h3>
-                 <p className={`${cormorant.className} text-[#fbba06]/60 italic`}>&quot;Assemble your Army&quot;</p>
-              </div>
-              {members.length < event.maxMembers - 1 && (
-                 <button type="button" onClick={addMember} className="flex items-center gap-2 px-4 py-2 border border-[#fbba06]/40 text-[#fbba06] text-xs uppercase tracking-widest hover:bg-[#fbba06] hover:text-[#1a0b0b] transition-all">
-                    <Plus size={14} /> Aahvan
-                 </button>
-              )}
-           </div>
-
-           <div className="space-y-6">
-              {members.map((member, idx) => (
-                 <div key={idx} className="relative p-6 border border-[#fbba06]/10 bg-[#fbba06]/5">
-                    <div className="absolute -left-1 top-1/2 -translate-y-1/2 h-8 w-1 bg-[#fbba06]"></div>
-                    <div className="flex justify-between items-center mb-4">
-                       <span className={`${cinzel.className} text-xs text-[#fbba06]/50`}>Sainik 0{idx + 1}</span>
-                       <button type="button" onClick={() => removeMember(idx)} className="text-[#fbba06]/30 hover:text-red-500 transition-colors">
-                          <Trash2 size={16} />
-                       </button>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-6">
-                       <div>
-                         <EpicInput placeholder="Name" value={member.name} onChange={(e) => updateMember(idx, 'name', e.target.value)} required />
-                       </div>
-                       <div className="grid grid-cols-2 gap-4">
-                          <EpicSelect placeholder="Dept" options={["CSE", "IT", "ECE", "EE", "ME", "CE"]} value={member.dept} onChange={(e) => updateMember(idx, 'dept', e.target.value)} />
-                          <EpicSelect placeholder="Year" options={["1st", "2nd", "3rd", "4th"]} value={member.year} onChange={(e) => updateMember(idx, 'year', e.target.value)} />
-                       </div>
-                    </div>
-                 </div>
-              ))}
-              {members.length === 0 && (
-                 <div className="text-center py-8 opacity-40">
-                    <Users className="mx-auto mb-2 text-[#fbba06]" />
-                    <p className={`${cormorant.className} text-[#fbba06]`}>The ranks are empty.</p>
-                 </div>
-              )}
-           </div>
-        </div>
-      )}
-
-      {/* 3. OATH & SUBMIT */}
-      <div className="pt-8 text-center space-y-6">
-         <p className={`${cormorant.className} text-lg text-[#f0e6d2]/80 italic max-w-lg mx-auto`}>
-            &quot;I hereby pledge my skill and honor to the arena. I accept the Dharma of the competition.&quot;
-         </p>
-         <button 
-            type="submit"
-            className="group relative inline-flex flex-col items-center justify-center"
-         >
-            <div className="w-20 h-20 rounded-full border-2 border-[#fbba06] flex items-center justify-center bg-[#1a0b0b] group-hover:bg-[#fbba06] transition-colors duration-500 shadow-[0_0_30px_rgba(255,215,0,0.3)]">
-               <Target size={32} className="text-[#fbba06] group-hover:text-[#1a0b0b] transition-colors duration-500" />
-            </div>
-            <span className={`${cinzel.className} text-[#fbba06] mt-4 text-sm tracking-[0.3em] font-bold`}>
-               PRATIGYA
-            </span>
-         </button>
-      </div>
-    </form>
-  );
-}
 
 // ==========================================
 // --- MAIN PAGE COMPONENT ---
@@ -404,7 +228,7 @@ export default function EventDetailsPage() {
                   ) : event.registrationOpen ? (
                      
                      /* 2. REGISTRATION OPEN STATE */
-                     <SankalpForm event={event} />
+                     <RegistrationForm event={event} />
 
                   ) : (
                      
