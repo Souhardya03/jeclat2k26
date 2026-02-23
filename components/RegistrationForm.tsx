@@ -233,9 +233,9 @@ function EmailOTPField({
               <button
                 type="button"
                 onClick={verifyOTP}
-                className={`${cinzel.className} text-[10px] tracking-widest uppercase px-4 py-3 border border-[#fbba06] text-[#fbba06] hover:bg-[#fbba06] hover:text-black transition-all duration-300 whitespace-nowrap shrink-0`}
+                className={`${cinzel.className} text-[10px] tracking-widest uppercase px-4 py-3 border border-[#fbba06] text-[#fbba06] hover:bg-[#fbba06] hover:text-black transition-all duration-300 whitespace-nowrap shrink-0 flex items-center justify-center min-w-[80px]`}
               >
-                {status === "verifying" ? <Loader2 size={14} className="animate-spin" /> : "Verify"}
+                {(status as string) === "verifying" ? <Loader2 size={14} className="animate-spin" /> : "Verify"}
               </button>
             </div>
           </motion.div>
