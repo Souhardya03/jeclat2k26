@@ -188,7 +188,7 @@ export const eventData = [
     type: "competitive-event",
     image: tshirt_painting,
     maxMembers: 2,
-    registrationOpen: false,
+    registrationOpen: true,
     eventInfo: {
       title: "T-Shirt Painting",
       description: "Creative t-shirt painting competition",
