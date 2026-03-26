@@ -181,7 +181,7 @@ function EmailOTPField({
       </div>
 
       <AnimatePresence>
-        {status === "sent" && (
+        {(status === "sent" || status === "verifying") && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
@@ -202,7 +202,12 @@ function EmailOTPField({
               <button
                 type="button"
                 onClick={verifyOTP}
-                className={`${cinzel.className} text-[10px] tracking-widest uppercase px-4 py-3 border border-[#fbba06] text-[#fbba06] hover:bg-[#fbba06] hover:text-black transition-all duration-300 whitespace-nowrap shrink-0 flex items-center justify-center min-w-[80px]`}
+                disabled={status === "verifying"}
+                className={`${cinzel.className} text-[10px] tracking-widest uppercase px-4 py-3 border transition-all duration-300 whitespace-nowrap shrink-0 flex items-center justify-center min-w-[80px] ${
+                  status === "verifying"
+                    ? "border-[#fbba06]/30 text-[#fbba06]/40 cursor-wait"
+                    : "border-[#fbba06] text-[#fbba06] hover:bg-[#fbba06] hover:text-black"
+                }`}
               >
                 {status === "verifying" ? <Loader2 size={14} className="animate-spin" /> : "Verify"}
               </button>
