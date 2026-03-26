@@ -39,7 +39,7 @@ export default function Page() {
 
       {/* PRELOADER: This renders the Next.js Image immediately.
           'priority' tells Next.js to preload it in the head.
-          'onLoad' triggers once the optimized image is ready.
+          'onLoad' triggers once the optimized image is ready
       */}
       {!showContent && (
         <div className="invisible absolute h-0 w-0 overflow-hidden">
