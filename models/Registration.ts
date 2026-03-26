@@ -18,6 +18,7 @@ export interface IRegistration extends Document {
   teamName?:    string;
   teamMembers?: {
     name:       string;
+    email:      string;   // ← NEW: each member's verified email
     year:       string;
     branch:     string;
     rollNumber: string;
@@ -29,6 +30,7 @@ export interface IRegistration extends Document {
 
 const TeamMemberSchema = new Schema({
   name:       { type: String, required: true },
+  email:      { type: String, required: true },   // ← NEW
   year:       { type: String, required: true },
   branch:     { type: String, required: true },
   rollNumber: { type: String, required: true },

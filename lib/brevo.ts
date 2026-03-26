@@ -137,6 +137,8 @@ export function confirmationEmailTemplate({
   eventCategory,
   ticketId,
   teamName,
+  role,
+  teamLeaderName,
 }: {
   name: string;
   eventTitle: string;
@@ -145,7 +147,30 @@ export function confirmationEmailTemplate({
   eventCategory: string;
   ticketId: string;
   teamName?: string;
+  /** "Team Leader" | "Team Member" | undefined (solo registrant) */
+  role?: string;
+  /** Populated only when role === "Team Member" */
+  teamLeaderName?: string;
 }): string {
+  // ── Role badge shown on the ticket ───────────────────────────────────────────
+  const roleBadge = role
+    ? `<div style="margin-top:8px;">
+         <span style="background:#fbba0620;border:1px solid #fbba0650;border-radius:4px;padding:3px 10px;color:#fbba06;font-size:11px;font-family:Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;">
+           ${role}
+         </span>
+       </div>`
+    : "";
+
+  // ── Extra note for team members (tells them who registered them) ──────────────
+  const teamMemberNote = role === "Team Member" && teamLeaderName
+    ? `<tr>
+         <td colspan="2" style="padding-bottom:16px;">
+           <div style="color:#fbba06;font-size:9px;letter-spacing:3px;font-family:Arial,sans-serif;text-transform:uppercase;margin-bottom:4px;">Registered by</div>
+           <div style="color:#f0e6d2;font-size:15px;">${teamLeaderName} (Team Leader)</div>
+         </td>
+       </tr>`
+    : "";
+
   return `
 <!DOCTYPE html>
 <html>
@@ -193,6 +218,7 @@ export function confirmationEmailTemplate({
                 <td style="width:50%;padding-bottom:16px;">
                   <div style="color:#fbba06;font-size:9px;letter-spacing:3px;font-family:Arial,sans-serif;text-transform:uppercase;margin-bottom:4px;">Warrior</div>
                   <div style="color:#f0e6d2;font-size:18px;">${name}</div>
+                  ${roleBadge}
                 </td>
                 <td style="width:50%;padding-bottom:16px;">
                   <div style="color:#fbba06;font-size:9px;letter-spacing:3px;font-family:Arial,sans-serif;text-transform:uppercase;margin-bottom:4px;">
@@ -203,6 +229,7 @@ export function confirmationEmailTemplate({
                   </div>
                 </td>
               </tr>
+              ${teamMemberNote}
               <tr>
                 <td style="padding-bottom:16px;">
                   <div style="color:#fbba06;font-size:9px;letter-spacing:3px;font-family:Arial,sans-serif;text-transform:uppercase;margin-bottom:4px;">Date</div>
